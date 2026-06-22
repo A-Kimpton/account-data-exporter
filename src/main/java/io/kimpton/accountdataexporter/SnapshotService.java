@@ -1,8 +1,10 @@
 // Copyright (c) 2026, Antony Kimpton. Licensed under the BSD 2-Clause License (see LICENSE).
 package io.kimpton.accountdataexporter;
 
+import io.kimpton.accountdataexporter.exporters.GrandExchangeBuilder;
 import io.kimpton.accountdataexporter.model.Animation;
 import io.kimpton.accountdataexporter.model.Container;
+import io.kimpton.accountdataexporter.model.GrandExchange;
 import io.kimpton.accountdataexporter.model.ItemStack;
 import io.kimpton.accountdataexporter.model.Location;
 import io.kimpton.accountdataexporter.model.SkillStat;
@@ -39,6 +41,9 @@ class SnapshotService
 
 	@Inject
 	private ItemManager itemManager;
+
+	@Inject
+	private GrandExchangeBuilder grandExchangeBuilder;
 
 	private final ContainerCache inventoryCache = new ContainerCache();
 	private final ContainerCache equipmentCache = new ContainerCache();
@@ -106,7 +111,18 @@ class SnapshotService
 		long equipmentValue = containerValue(equipment);
 		long bankValue = containerValue(bank);
 		long carriedValue = inventoryValue + equipmentValue;
-		b.carriedValue(carriedValue).knownAccountValue(bankValue + carriedValue);
+		long knownAccountValue = bankValue + carriedValue;
+		b.carriedValue(carriedValue).knownAccountValue(knownAccountValue);
+
+		long geEstimate = 0;
+		if (config.exportGrandExchange())
+		{
+			GrandExchange grandExchange = grandExchangeBuilder.build();
+			geEstimate = grandExchange.getAccountValueEstimate();
+			b.grandExchange(grandExchange);
+		}
+		b.grandExchangeAccountValueEstimate(geEstimate)
+			.knownAccountValueWithGeEstimate(knownAccountValue + geEstimate);
 
 		return b.build();
 	}
