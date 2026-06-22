@@ -1,7 +1,9 @@
 // Copyright (c) 2026, Antony Kimpton. Licensed under the BSD 2-Clause License (see LICENSE).
 package io.kimpton.accountdataexporter;
 
+import io.kimpton.accountdataexporter.exporters.AchievementDiaryBuilder;
 import io.kimpton.accountdataexporter.exporters.GrandExchangeBuilder;
+import io.kimpton.accountdataexporter.exporters.QuestsBuilder;
 import io.kimpton.accountdataexporter.model.Animation;
 import io.kimpton.accountdataexporter.model.Container;
 import io.kimpton.accountdataexporter.model.GrandExchange;
@@ -44,6 +46,12 @@ class SnapshotService
 
 	@Inject
 	private GrandExchangeBuilder grandExchangeBuilder;
+
+	@Inject
+	private QuestsBuilder questsBuilder;
+
+	@Inject
+	private AchievementDiaryBuilder achievementDiaryBuilder;
 
 	private final ContainerCache inventoryCache = new ContainerCache();
 	private final ContainerCache equipmentCache = new ContainerCache();
@@ -123,6 +131,15 @@ class SnapshotService
 		}
 		b.grandExchangeAccountValueEstimate(geEstimate)
 			.knownAccountValueWithGeEstimate(knownAccountValue + geEstimate);
+
+		if (config.exportQuests())
+		{
+			b.quests(questsBuilder.build());
+		}
+		if (config.exportAchievementDiaries())
+		{
+			b.achievementDiaries(achievementDiaryBuilder.build());
+		}
 
 		return b.build();
 	}
