@@ -5,6 +5,7 @@ import io.kimpton.accountdataexporter.exporters.AchievementDiaryBuilder;
 import io.kimpton.accountdataexporter.exporters.CombatAchievementBuilder;
 import io.kimpton.accountdataexporter.exporters.GrandExchangeBuilder;
 import io.kimpton.accountdataexporter.exporters.QuestsBuilder;
+import io.kimpton.accountdataexporter.exporters.SlayerBuilder;
 import io.kimpton.accountdataexporter.model.Animation;
 import io.kimpton.accountdataexporter.model.Container;
 import io.kimpton.accountdataexporter.model.GrandExchange;
@@ -56,6 +57,9 @@ class SnapshotService
 
 	@Inject
 	private CombatAchievementBuilder combatAchievementBuilder;
+
+	@Inject
+	private SlayerBuilder slayerBuilder;
 
 	private final ContainerCache inventoryCache = new ContainerCache();
 	private final ContainerCache equipmentCache = new ContainerCache();
@@ -147,6 +151,10 @@ class SnapshotService
 		if (config.exportCombatAchievements())
 		{
 			b.combatAchievements(combatAchievementBuilder.build());
+		}
+		if (config.exportSlayer())
+		{
+			b.slayer(slayerBuilder.build());
 		}
 
 		return b.build();
