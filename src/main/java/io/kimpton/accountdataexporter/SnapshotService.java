@@ -22,13 +22,13 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.runelite.api.Client;
-import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
-import net.runelite.api.VarPlayer;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.gameval.InventoryID;
+import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.client.game.ItemManager;
 
@@ -118,8 +118,8 @@ class SnapshotService
 			b.skills(buildSkills());
 		}
 
-		Container inventory = config.exportInventory() ? inventoryCache.choose(buildContainer(InventoryID.INVENTORY)) : null;
-		Container equipment = config.exportEquipment() ? equipmentCache.choose(buildContainer(InventoryID.EQUIPMENT)) : null;
+		Container inventory = config.exportInventory() ? inventoryCache.choose(buildContainer(InventoryID.INV)) : null;
+		Container equipment = config.exportEquipment() ? equipmentCache.choose(buildContainer(InventoryID.WORN)) : null;
 		Container bank = config.exportBank() ? bankCache.choose(buildContainer(InventoryID.BANK)) : null;
 		b.inventory(inventory).equipment(equipment).bank(bank);
 
@@ -181,15 +181,28 @@ class SnapshotService
 		}
 	}
 
+	// Every real skill, i.e. Skill.values() minus the aggregate OVERALL pseudo-skill.
+	@SuppressWarnings("deprecation")
+	private static List<Skill> realSkills()
+	{
+		List<Skill> skills = new ArrayList<>();
+		for (Skill skill : Skill.values())
+		{
+			if (skill != Skill.OVERALL)
+			{
+				skills.add(skill);
+			}
+		}
+		return skills;
+	}
+
+	private static final List<Skill> REAL_SKILLS = realSkills();
+
 	private Map<String, SkillStat> buildSkills()
 	{
 		Map<String, SkillStat> skills = new LinkedHashMap<>();
-		for (Skill skill : Skill.values())
+		for (Skill skill : REAL_SKILLS)
 		{
-			if (skill == Skill.OVERALL)
-			{
-				continue;
-			}
 			skills.put(skill.getName(), new SkillStat(
 				client.getRealSkillLevel(skill),
 				client.getBoostedSkillLevel(skill),
@@ -201,12 +214,9 @@ class SnapshotService
 	private int calculateTotalLevel()
 	{
 		int total = 0;
-		for (Skill skill : Skill.values())
+		for (Skill skill : REAL_SKILLS)
 		{
-			if (skill != Skill.OVERALL)
-			{
-				total += client.getRealSkillLevel(skill);
-			}
+			total += client.getRealSkillLevel(skill);
 		}
 		return total;
 	}
@@ -214,17 +224,14 @@ class SnapshotService
 	private long calculateTotalXp()
 	{
 		long total = 0;
-		for (Skill skill : Skill.values())
+		for (Skill skill : REAL_SKILLS)
 		{
-			if (skill != Skill.OVERALL)
-			{
-				total += client.getSkillExperience(skill);
-			}
+			total += client.getSkillExperience(skill);
 		}
 		return total;
 	}
 
-	private Container buildContainer(InventoryID inventoryId)
+	private Container buildContainer(int inventoryId)
 	{
 		ItemContainer container = client.getItemContainer(inventoryId);
 		if (container == null)
@@ -265,8 +272,8 @@ class SnapshotService
 			runEnergy,
 			runEnergy / 100.0,
 			client.getWeight(),
-			client.getVarpValue(VarPlayer.SPECIAL_ATTACK_PERCENT),
-			client.getVarpValue(VarPlayer.SPECIAL_ATTACK_ENABLED) == 1);
+			client.getVarpValue(VarPlayerID.SA_ENERGY),
+			client.getVarpValue(VarPlayerID.SA_ATTACK) == 1);
 	}
 
 	private Location buildLocation(Player localPlayer)
