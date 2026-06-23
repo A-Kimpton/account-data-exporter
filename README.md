@@ -5,7 +5,7 @@ and personal analytics. See the schema for the full data output and format.
 
 This plugin is largely designed for me for a personal project, but I can see this type of tool is likely useful to others as well. If you have any suggestions, please open an issue or PR.
 
-I initially tried to extend [local-data-exporter](https://github.com/GoblinTek/local-data-exporter/pull/1) by [GoblinTek](https://github.com/GoblinTek) but my PR has been open and inactive for 2 weeks now and I suspect his plugin was largly one-shot and vibe coded anyway due to its structure; so I decided to make my own plugin from the ground up with a more maintainable approach.
+> I initially tried to extend [local-data-exporter](https://github.com/GoblinTek/local-data-exporter/pull/1) by [GoblinTek](https://github.com/GoblinTek) but my PR has been open and inactive for 2 weeks now and I suspect his plugin was largly one-shot and vibe coded anyway due to its structure; so I decided to make my own plugin from the ground up with a more maintainable approach.
 
 ## Output
 
