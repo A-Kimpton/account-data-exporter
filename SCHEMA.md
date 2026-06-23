@@ -47,6 +47,7 @@ absent and null are equivalent: "no data".
 | `exportAchievementDiaries` | `achievementDiaries` |
 | `exportCombatAchievements` | `combatAchievements` |
 | `exportSlayer` | `slayer` |
+| `exportHunterRumours` | `hunterRumours` |
 | `exportCombat` | `combat` |
 
 The identity/meta header and value totals (below) are always present.
@@ -306,6 +307,59 @@ Masters: `turael`, `mazchna`, `vannaka`, `chaeldar`, `konar`, `nieve`, `duradel`
 |-------|------|-------|
 | `slots` | array | 6 block slots: `{ "slot": 1–6, "blocked": bool, "taskId": int, "name": string\|null }`. |
 | `diarySlot` | object | The diary-granted block slot (`slot: 0`), same shape. |
+
+## `hunterRumours` (object)
+
+Hunter Rumour state. **The game exposes no var for this**, so it is read from the Hunter Rumours
+plugin's saved config (`geel9/runelite-hunter-rumours`). If that plugin isn't installed or hasn't
+tracked anything for the account, `available` is `false` and the other fields are omitted.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `available` | boolean | False when no Hunter Rumours data exists for the account. |
+| `backToBack` | string | Back-to-back mode state (e.g. `DISABLED`). |
+| `activeHunter` | object | The currently-active master (below). |
+| `currentRumour` | object | The active master's assigned rumour (below). |
+| `caught` | int | Creatures caught toward the current rumour. |
+| `finished` | boolean | Whether the current rumour is complete and ready to hand in. |
+| `pity` | object | Pity progress for the current rumour (below). |
+| `assignments` | array | One entry per master (below). |
+
+### hunter ref (`activeHunter`, `assignments[].hunter`)
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `npcId` | int | Master NPC id (13121–13126). |
+| `name` | string | e.g. `Aco`. |
+| `tier` | string | `NOVICE` \| `ADEPT` \| `EXPERT` \| `MASTER`. |
+
+### rumour ref (`currentRumour`, `assignments[].rumour`)
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `key` | string | Stored enum key, e.g. `ORANGE_SALAMANDER`. |
+| `name` | string | Creature display name. |
+| `trap` | object | `{ "name": string, "pityThreshold": int, "pityThresholdWithOutfit": int }`. |
+
+### `hunterRumours.pity`
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `threshold` | int | Catches that guarantee completion (no outfit). |
+| `thresholdWithOutfit` | int | With the full hunter outfit equipped. |
+| `catchesUntilPity` | int | `max(0, threshold - caught)` — upper bound; the outfit lowers it. |
+
+> Pity is **not** an exact "catches remaining" — the real requirement is randomised per assignment.
+> `threshold`/`thresholdWithOutfit` are the guaranteed-by bounds; treat `catchesUntilPity` as a ceiling.
+
+### assignment (`assignments[]`)
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `hunter` | object | Hunter ref. |
+| `rumour` | object \| null | Rumour ref, or null if not yet discovered for this master. |
+| `known` | boolean | Whether this master's rumour has been discovered. |
+| `active` | boolean | Whether this is the currently-active master. |
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "exportVersion": "0.3.0",
+  "exportVersion": "0.4.0",
   "timestamp": 1782173612072,
   "timestampIso": "2026-06-23T00:13:32.072009500Z",
   "rsn": "ExampleAccount",
@@ -5417,5 +5417,132 @@
         }
       }
     }
+  },
+  "hunterRumours": {
+    "available": true,
+    "backToBack": "DISABLED",
+    "activeHunter": {
+      "npcId": 13124,
+      "name": "Aco",
+      "tier": "EXPERT"
+    },
+    "currentRumour": {
+      "key": "ORANGE_SALAMANDER",
+      "name": "Orange Salamander",
+      "trap": {
+        "name": "Net trap",
+        "pityThreshold": 50,
+        "pityThresholdWithOutfit": 46
+      }
+    },
+    "caught": 0,
+    "finished": false,
+    "pity": {
+      "threshold": 50,
+      "thresholdWithOutfit": 46,
+      "catchesUntilPity": 50
+    },
+    "assignments": [
+      {
+        "hunter": {
+          "npcId": 13121,
+          "name": "Gilman",
+          "tier": "NOVICE"
+        },
+        "rumour": {
+          "key": "SABRE_TOOTHED_KEBBIT",
+          "name": "Sabre-toothed Kebbit",
+          "trap": {
+            "name": "Deadfall",
+            "pityThreshold": 30,
+            "pityThresholdWithOutfit": 28
+          }
+        },
+        "known": true,
+        "active": false
+      },
+      {
+        "hunter": {
+          "npcId": 13122,
+          "name": "Ornus",
+          "tier": "ADEPT"
+        },
+        "rumour": {
+          "key": "RED_SALAMANDER",
+          "name": "Red Salamander",
+          "trap": {
+            "name": "Net trap",
+            "pityThreshold": 50,
+            "pityThresholdWithOutfit": 46
+          }
+        },
+        "known": true,
+        "active": false
+      },
+      {
+        "hunter": {
+          "npcId": 13123,
+          "name": "Cervus",
+          "tier": "ADEPT"
+        },
+        "rumour": {
+          "key": "GREY_CHINCHOMPA",
+          "name": "Grey Chinchompa",
+          "trap": {
+            "name": "Box Trap",
+            "pityThreshold": 100,
+            "pityThresholdWithOutfit": 94
+          }
+        },
+        "known": true,
+        "active": false
+      },
+      {
+        "hunter": {
+          "npcId": 13124,
+          "name": "Aco",
+          "tier": "EXPERT"
+        },
+        "rumour": {
+          "key": "ORANGE_SALAMANDER",
+          "name": "Orange Salamander",
+          "trap": {
+            "name": "Net trap",
+            "pityThreshold": 50,
+            "pityThresholdWithOutfit": 46
+          }
+        },
+        "known": true,
+        "active": true
+      },
+      {
+        "hunter": {
+          "npcId": 13125,
+          "name": "Teco",
+          "tier": "EXPERT"
+        },
+        "rumour": {
+          "key": "SABRE_TOOTHED_KYATT",
+          "name": "Sabre-toothed Kyatt",
+          "trap": {
+            "name": "Pit Trap",
+            "pityThreshold": 30,
+            "pityThresholdWithOutfit": 28
+          }
+        },
+        "known": true,
+        "active": false
+      },
+      {
+        "hunter": {
+          "npcId": 13126,
+          "name": "Wolf",
+          "tier": "MASTER"
+        },
+        "rumour": null,
+        "known": false,
+        "active": false
+      }
+    ]
   }
 }

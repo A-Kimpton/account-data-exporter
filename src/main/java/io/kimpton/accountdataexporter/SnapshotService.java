@@ -3,6 +3,7 @@ package io.kimpton.accountdataexporter;
 import io.kimpton.accountdataexporter.exporters.AchievementDiaryBuilder;
 import io.kimpton.accountdataexporter.exporters.CombatAchievementBuilder;
 import io.kimpton.accountdataexporter.exporters.GrandExchangeBuilder;
+import io.kimpton.accountdataexporter.exporters.HunterRumourBuilder;
 import io.kimpton.accountdataexporter.exporters.QuestsBuilder;
 import io.kimpton.accountdataexporter.exporters.SlayerBuilder;
 import io.kimpton.accountdataexporter.model.Animation;
@@ -37,7 +38,7 @@ import net.runelite.client.game.ItemManager;
 class SnapshotService
 {
 	static final int SCHEMA_VERSION = 1;
-	static final String EXPORT_VERSION = "0.3.1";
+	static final String EXPORT_VERSION = "0.4.0";
 
 	@Inject
 	private Client client;
@@ -59,6 +60,9 @@ class SnapshotService
 
 	@Inject
 	private SlayerBuilder slayerBuilder;
+
+	@Inject
+	private HunterRumourBuilder hunterRumourBuilder;
 
 	@Inject
 	private CombatTracker combatTracker;
@@ -161,6 +165,10 @@ class SnapshotService
 		if (config.exportSlayer())
 		{
 			b.slayer(slayerBuilder.build());
+		}
+		if (config.exportHunterRumours())
+		{
+			b.hunterRumours(hunterRumourBuilder.build());
 		}
 		if (config.exportCombat())
 		{

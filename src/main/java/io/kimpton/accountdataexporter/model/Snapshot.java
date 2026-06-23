@@ -47,4 +47,5 @@ public class Snapshot
 	AchievementDiaries achievementDiaries;
 	CombatAchievements combatAchievements;
 	SlayerState slayer;
+	HunterRumours hunterRumours;
 }

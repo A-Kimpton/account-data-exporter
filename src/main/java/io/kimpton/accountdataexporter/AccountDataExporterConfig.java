@@ -159,4 +159,16 @@ public interface AccountDataExporterConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+		keyName = "exportHunterRumours",
+		name = "Hunter rumours",
+		description = "Export Hunter Rumour assignments and progress. Requires the Hunter Rumours plugin, which this reads saved state from.",
+		section = sectionsSection,
+		position = 12
+	)
+	default boolean exportHunterRumours()
+	{
+		return true;
+	}
 }
