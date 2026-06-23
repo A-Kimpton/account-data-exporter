@@ -9,6 +9,7 @@ import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.Player;
 import net.runelite.api.events.GameTick;
+import net.runelite.api.events.HitsplatApplied;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -42,6 +43,9 @@ public class AccountDataExporterPlugin extends Plugin
 
 	@Inject
 	private SnapshotWriter snapshotWriter;
+
+	@Inject
+	private CombatTracker combatTracker;
 
 	private int ticksLoggedIn;
 	private int ticksSinceExport;
@@ -96,6 +100,12 @@ public class AccountDataExporterPlugin extends Plugin
 		exportSnapshot();
 	}
 
+	@Subscribe
+	public void onHitsplatApplied(HitsplatApplied event)
+	{
+		combatTracker.onHitsplat(event);
+	}
+
 	private void exportSnapshot()
 	{
 		String exportDir = snapshotWriter.getExportDirectory().getAbsolutePath();
@@ -114,6 +124,7 @@ public class AccountDataExporterPlugin extends Plugin
 	{
 		lastRsn = rsn;
 		snapshotService.resetCaches();
+		combatTracker.reset();
 
 		// Load the previous on-disk snapshot off-thread, then seed caches back on the client thread.
 		executor.execute(() ->
@@ -132,6 +143,7 @@ public class AccountDataExporterPlugin extends Plugin
 		ticksSinceExport = 0;
 		lastRsn = "";
 		snapshotService.resetCaches();
+		combatTracker.reset();
 	}
 
 	private int exportIntervalTicks()

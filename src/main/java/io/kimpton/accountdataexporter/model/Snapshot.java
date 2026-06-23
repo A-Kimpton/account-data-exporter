@@ -31,6 +31,7 @@ public class Snapshot
 	Status status;
 	Location location;
 	Animation animation;
+	CombatState combat;
 
 	long carriedValue;
 	long knownAccountValue;

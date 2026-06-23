@@ -147,4 +147,16 @@ public interface AccountDataExporterConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+		keyName = "exportCombat",
+		name = "Combat",
+		description = "Export current combat target, duration, and damage dealt/taken. Player targets are logged as a target only, with no other data.",
+		section = sectionsSection,
+		position = 11
+	)
+	default boolean exportCombat()
+	{
+		return true;
+	}
 }

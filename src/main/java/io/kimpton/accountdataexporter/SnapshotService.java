@@ -37,7 +37,7 @@ import net.runelite.client.game.ItemManager;
 class SnapshotService
 {
 	static final int SCHEMA_VERSION = 1;
-	static final String EXPORT_VERSION = "0.2.0";
+	static final String EXPORT_VERSION = "0.3.0";
 
 	@Inject
 	private Client client;
@@ -59,6 +59,9 @@ class SnapshotService
 
 	@Inject
 	private SlayerBuilder slayerBuilder;
+
+	@Inject
+	private CombatTracker combatTracker;
 
 	private final ContainerCache inventoryCache = new ContainerCache();
 	private final ContainerCache equipmentCache = new ContainerCache();
@@ -158,6 +161,10 @@ class SnapshotService
 		if (config.exportSlayer())
 		{
 			b.slayer(slayerBuilder.build());
+		}
+		if (config.exportCombat())
+		{
+			b.combat(combatTracker.snapshot());
 		}
 
 		return b.build();
