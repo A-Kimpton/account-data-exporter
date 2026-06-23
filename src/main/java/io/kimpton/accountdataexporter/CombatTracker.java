@@ -95,7 +95,7 @@ class CombatTracker
 			int ratio = npc.getHealthRatio();
 			int scale = npc.getHealthScale();
 			boolean healthPresent = ratio >= 0 && scale > 0;
-			Double healthPercent = healthPresent ? (ratio * 100.0) / scale : null;
+			Double healthPercent = healthPresent ? Math.round((ratio * 1000.0) / scale) / 10.0 : null;
 			return new CombatTarget("npc", npc.getId(), npc.getName(), npc.getCombatLevel(), healthPercent, healthPresent);
 		}
 

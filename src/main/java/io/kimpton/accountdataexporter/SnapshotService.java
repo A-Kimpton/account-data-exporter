@@ -37,7 +37,7 @@ import net.runelite.client.game.ItemManager;
 class SnapshotService
 {
 	static final int SCHEMA_VERSION = 1;
-	static final String EXPORT_VERSION = "0.3.0";
+	static final String EXPORT_VERSION = "0.3.1";
 
 	@Inject
 	private Client client;
