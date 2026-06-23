@@ -29,11 +29,23 @@ public interface AccountDataExporterConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "exportCharacterMeta",
+		name = "Character meta",
+		description = "Export character location, run energy, special attack, weight, and animation.",
+		section = sectionsSection,
+		position = 1
+	)
+	default boolean exportCharacterMeta()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "exportSkills",
 		name = "Skills",
 		description = "Export skill levels and XP.",
 		section = sectionsSection,
-		position = 1
+		position = 2
 	)
 	default boolean exportSkills()
 	{
@@ -45,7 +57,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Inventory",
 		description = "Export inventory contents.",
 		section = sectionsSection,
-		position = 2
+		position = 3
 	)
 	default boolean exportInventory()
 	{
@@ -57,7 +69,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Worn equipment",
 		description = "Export worn equipment.",
 		section = sectionsSection,
-		position = 3
+		position = 4
 	)
 	default boolean exportEquipment()
 	{
@@ -69,7 +81,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Bank",
 		description = "Export bank contents. The bank must be opened at least once per session to load.",
 		section = sectionsSection,
-		position = 4
+		position = 5
 	)
 	default boolean exportBank()
 	{
@@ -81,7 +93,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Grand Exchange",
 		description = "Export Grand Exchange offers.",
 		section = sectionsSection,
-		position = 5
+		position = 6
 	)
 	default boolean exportGrandExchange()
 	{
@@ -93,7 +105,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Quests",
 		description = "Export quest states.",
 		section = sectionsSection,
-		position = 6
+		position = 7
 	)
 	default boolean exportQuests()
 	{
@@ -105,7 +117,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Achievement diaries",
 		description = "Export achievement diary completion.",
 		section = sectionsSection,
-		position = 7
+		position = 8
 	)
 	default boolean exportAchievementDiaries()
 	{
@@ -117,7 +129,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Combat achievements",
 		description = "Export combat achievement task completion.",
 		section = sectionsSection,
-		position = 8
+		position = 9
 	)
 	default boolean exportCombatAchievements()
 	{
@@ -129,7 +141,7 @@ public interface AccountDataExporterConfig extends Config
 		name = "Slayer",
 		description = "Export slayer task, points, unlocks, and block lists.",
 		section = sectionsSection,
-		position = 9
+		position = 10
 	)
 	default boolean exportSlayer()
 	{
