@@ -12,7 +12,7 @@ public interface AccountDataExporterConfig extends Config
 
 	@ConfigSection(
 		name = "Sections",
-		description = "Choose which data sections are written to the export.",
+		description = "<p width='250'>Choose which data sections are written to the export.</p>",
 		position = 1
 	)
 	String sectionsSection = "sections";
@@ -20,7 +20,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportIntervalTicks",
 		name = "Export interval",
-		description = "Number of game ticks between snapshot exports. Lower values export more often.",
+		description = "<p width='250'>Number of game ticks between snapshot exports. Lower values export more often.</p>",
 		position = 0
 	)
 	default int exportIntervalTicks()
@@ -31,7 +31,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportCharacterMeta",
 		name = "Character meta",
-		description = "Export character location, run energy, special attack, weight, and animation.",
+		description = "<p width='250'>Export character location, run energy, special attack, weight, and animation.</p>",
 		section = sectionsSection,
 		position = 1
 	)
@@ -43,7 +43,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportSkills",
 		name = "Skills",
-		description = "Export skill levels and XP.",
+		description = "<p width='250'>Export skill levels and XP.</p>",
 		section = sectionsSection,
 		position = 2
 	)
@@ -55,7 +55,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportInventory",
 		name = "Inventory",
-		description = "Export inventory contents.",
+		description = "<p width='250'>Export inventory contents.</p>",
 		section = sectionsSection,
 		position = 3
 	)
@@ -67,7 +67,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportEquipment",
 		name = "Worn equipment",
-		description = "Export worn equipment.",
+		description = "<p width='250'>Export worn equipment.</p>",
 		section = sectionsSection,
 		position = 4
 	)
@@ -79,7 +79,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportBank",
 		name = "Bank",
-		description = "Export bank contents. The bank must be opened at least once per session to load.",
+		description = "<p width='250'>Export bank contents. The bank must be opened at least once per session to load.</p>",
 		section = sectionsSection,
 		position = 5
 	)
@@ -91,7 +91,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportGrandExchange",
 		name = "Grand Exchange",
-		description = "Export Grand Exchange offers.",
+		description = "<p width='250'>Export Grand Exchange offers.</p>",
 		section = sectionsSection,
 		position = 6
 	)
@@ -103,7 +103,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportQuests",
 		name = "Quests",
-		description = "Export quest states.",
+		description = "<p width='250'>Export quest states.</p>",
 		section = sectionsSection,
 		position = 7
 	)
@@ -115,7 +115,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportAchievementDiaries",
 		name = "Achievement diaries",
-		description = "Export achievement diary completion.",
+		description = "<p width='250'>Export achievement diary completion.</p>",
 		section = sectionsSection,
 		position = 8
 	)
@@ -127,7 +127,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportCombatAchievements",
 		name = "Combat achievements",
-		description = "Export combat achievement task completion.",
+		description = "<p width='250'>Export combat achievement task completion.</p>",
 		section = sectionsSection,
 		position = 9
 	)
@@ -139,7 +139,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportSlayer",
 		name = "Slayer",
-		description = "Export slayer task, points, unlocks, and block lists.",
+		description = "<p width='250'>Export slayer task, points, unlocks, and block lists.</p>",
 		section = sectionsSection,
 		position = 10
 	)
@@ -151,7 +151,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportCombat",
 		name = "Combat",
-		description = "Export current combat target, duration, and damage dealt/taken. Player targets are logged as a target only, with no other data.",
+		description = "<p width='250'>Export current combat target, duration, and damage dealt/taken. Player targets are logged as a target only, with no other data.</p>",
 		section = sectionsSection,
 		position = 11
 	)
@@ -163,7 +163,7 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportHunterRumours",
 		name = "Hunter rumours",
-		description = "Export Hunter Rumour assignments and progress. Requires the Hunter Rumours plugin, which this reads saved state from.",
+		description = "<p width='250'>Export Hunter Rumour assignments and progress. Requires the Hunter Rumours plugin, which this reads saved state from.</p>",
 		section = sectionsSection,
 		position = 12
 	)
