@@ -37,7 +37,7 @@ import net.runelite.client.game.ItemManager;
 class SnapshotService
 {
 	static final int SCHEMA_VERSION = 1;
-	static final String EXPORT_VERSION = "0.1.0";
+	static final String EXPORT_VERSION = "0.2.0";
 
 	@Inject
 	private Client client;
@@ -104,13 +104,17 @@ class SnapshotService
 			.totalXp(calculateTotalXp())
 			.fps(client.getFPS())
 			.exportIntervalTicks(config.exportIntervalTicks())
-			.exportDirectory(exportDirectory)
-			.status(buildStatus())
-			.location(buildLocation(localPlayer))
-			.animation(buildAnimation(localPlayer));
+			.exportDirectory(exportDirectory);
 
 		int accountType = client.getVarbitValue(VarbitID.IRONMAN);
 		b.accountType(accountType).accountTypeName(accountTypeName(accountType));
+
+		if (config.exportCharacterMeta())
+		{
+			b.status(buildStatus())
+				.location(buildLocation(localPlayer))
+				.animation(buildAnimation(localPlayer));
+		}
 
 		if (config.exportSkills())
 		{
@@ -266,12 +270,11 @@ class SnapshotService
 
 	private Status buildStatus()
 	{
-		int runEnergy = client.getEnergy();
+		// Run energy is stored 0..10000 and special attack 0..1000; normalise both to a 0..100 percent.
 		return new Status(
-			runEnergy,
-			runEnergy / 100.0,
+			client.getEnergy() / 100.0,
 			client.getWeight(),
-			client.getVarpValue(VarPlayerID.SA_ENERGY),
+			client.getVarpValue(VarPlayerID.SA_ENERGY) / 10.0,
 			client.getVarpValue(VarPlayerID.SA_ATTACK) == 1);
 	}
 
