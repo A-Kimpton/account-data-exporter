@@ -20,7 +20,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 @PluginDescriptor(
 	name = "Account Data Exporter",
 	description = "Exports local account snapshots to JSON for spreadsheets, account tracking, and personal analytics.",
-	tags = {"data", "export", "json", "account", "tracking"}
+	tags = {"data", "export", "json", "account", "tracking", "slayer", "combat", "hunter", "rumour", "analytics"}
 )
 public class AccountDataExporterPlugin extends Plugin
 {
