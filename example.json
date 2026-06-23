@@ -1,0 +1,5421 @@
+{
+  "schemaVersion": 1,
+  "exportVersion": "0.3.0",
+  "timestamp": 1782173612072,
+  "timestampIso": "2026-06-23T00:13:32.072009500Z",
+  "rsn": "ExampleAccount",
+  "world": 619,
+  "gameState": "LOGGED_IN",
+  "combatLevel": 108,
+  "totalLevel": 1827,
+  "totalXp": 43393354,
+  "accountType": 1,
+  "accountTypeName": "ironman",
+  "fps": 61,
+  "exportIntervalTicks": 5,
+  "exportDirectory": "C:\\Users\\player\\.runelite\\account-data-exporter",
+  "status": {
+    "runEnergyPercent": 100.0,
+    "weight": 30,
+    "specialAttackPercent": 100.0,
+    "specialAttackEnabled": false
+  },
+  "location": {
+    "loaded": true,
+    "worldX": 1242,
+    "worldY": 3040,
+    "plane": 0,
+    "regionId": 4911,
+    "regionX": 26,
+    "regionY": 32
+  },
+  "animation": {
+    "current": 390,
+    "pose": 808,
+    "idlePose": 808,
+    "orientation": 832,
+    "currentOrientation": 832
+  },
+  "combat": {
+    "inCombat": true,
+    "target": {
+      "type": "npc",
+      "id": 415,
+      "name": "Hellhound",
+      "combatLevel": 122,
+      "healthPercent": 58.6,
+      "healthPresent": true
+    },
+    "durationMs": 24800,
+    "damageDealt": 187,
+    "damageTaken": 42
+  },
+  "carriedValue": 1483478,
+  "knownAccountValue": 35217478,
+  "grandExchangeAccountValueEstimate": 0,
+  "knownAccountValueWithGeEstimate": 35217478,
+  "skills": {
+    "Attack": {
+      "level": 87,
+      "boostedLevel": 87,
+      "xp": 4364964
+    },
+    "Defence": {
+      "level": 80,
+      "boostedLevel": 80,
+      "xp": 2074564
+    },
+    "Strength": {
+      "level": 90,
+      "boostedLevel": 90,
+      "xp": 5659337
+    },
+    "Hitpoints": {
+      "level": 89,
+      "boostedLevel": 89,
+      "xp": 5031254
+    },
+    "Ranged": {
+      "level": 81,
+      "boostedLevel": 81,
+      "xp": 2365155
+    },
+    "Prayer": {
+      "level": 73,
+      "boostedLevel": 0,
+      "xp": 1024096
+    },
+    "Magic": {
+      "level": 82,
+      "boostedLevel": 82,
+      "xp": 2491339
+    },
+    "Cooking": {
+      "level": 73,
+      "boostedLevel": 73,
+      "xp": 1083079
+    },
+    "Woodcutting": {
+      "level": 77,
+      "boostedLevel": 77,
+      "xp": 1575804
+    },
+    "Fletching": {
+      "level": 74,
+      "boostedLevel": 74,
+      "xp": 1154127
+    },
+    "Fishing": {
+      "level": 72,
+      "boostedLevel": 72,
+      "xp": 936369
+    },
+    "Firemaking": {
+      "level": 75,
+      "boostedLevel": 75,
+      "xp": 1220902
+    },
+    "Crafting": {
+      "level": 70,
+      "boostedLevel": 70,
+      "xp": 764406
+    },
+    "Smithing": {
+      "level": 73,
+      "boostedLevel": 73,
+      "xp": 1033139
+    },
+    "Mining": {
+      "level": 84,
+      "boostedLevel": 84,
+      "xp": 2987046
+    },
+    "Herblore": {
+      "level": 74,
+      "boostedLevel": 74,
+      "xp": 1162823
+    },
+    "Agility": {
+      "level": 72,
+      "boostedLevel": 72,
+      "xp": 982592
+    },
+    "Thieving": {
+      "level": 77,
+      "boostedLevel": 77,
+      "xp": 1578654
+    },
+    "Slayer": {
+      "level": 71,
+      "boostedLevel": 71,
+      "xp": 851066
+    },
+    "Farming": {
+      "level": 74,
+      "boostedLevel": 74,
+      "xp": 1104914
+    },
+    "Runecraft": {
+      "level": 73,
+      "boostedLevel": 73,
+      "xp": 994267
+    },
+    "Hunter": {
+      "level": 77,
+      "boostedLevel": 77,
+      "xp": 1520989
+    },
+    "Construction": {
+      "level": 75,
+      "boostedLevel": 75,
+      "xp": 1270366
+    },
+    "Sailing": {
+      "level": 54,
+      "boostedLevel": 54,
+      "xp": 162102
+    }
+  },
+  "inventory": {
+    "loaded": true,
+    "fromCache": false,
+    "lastSeenTimestamp": 1782173612072,
+    "value": 121174,
+    "itemCount": 12,
+    "items": [
+      {
+        "slot": 0,
+        "id": 6714,
+        "name": "Holy wrench",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 1,
+        "id": 5287,
+        "name": "Pineapple seed",
+        "quantity": 1,
+        "price": 146,
+        "value": 146
+      },
+      {
+        "slot": 2,
+        "id": 379,
+        "name": "Lobster",
+        "quantity": 1,
+        "price": 131,
+        "value": 131
+      },
+      {
+        "slot": 3,
+        "id": 379,
+        "name": "Lobster",
+        "quantity": 1,
+        "price": 131,
+        "value": 131
+      },
+      {
+        "slot": 20,
+        "id": 24478,
+        "name": "Open herb sack",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 21,
+        "id": 772,
+        "name": "Dramen staff",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 22,
+        "id": 995,
+        "name": "Coins",
+        "quantity": 10502,
+        "price": 1,
+        "value": 10502
+      },
+      {
+        "slot": 23,
+        "id": 13116,
+        "name": "Bonecrusher",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 24,
+        "id": 3053,
+        "name": "Lava battlestaff",
+        "quantity": 1,
+        "price": 9889,
+        "value": 9889
+      },
+      {
+        "slot": 25,
+        "id": 561,
+        "name": "Nature rune",
+        "quantity": 803,
+        "price": 125,
+        "value": 100375
+      },
+      {
+        "slot": 26,
+        "id": 4155,
+        "name": "Enchanted gem",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 27,
+        "id": 12791,
+        "name": "Rune pouch",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      }
+    ]
+  },
+  "equipment": {
+    "loaded": true,
+    "fromCache": false,
+    "lastSeenTimestamp": 1782173612072,
+    "value": 1362304,
+    "itemCount": 11,
+    "items": [
+      {
+        "slot": 0,
+        "id": 26674,
+        "name": "Slayer helmet (i)",
+        "quantity": 1,
+        "price": 1345795,
+        "value": 1345795
+      },
+      {
+        "slot": 1,
+        "id": 22114,
+        "name": "Mythical cape",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 2,
+        "id": 1725,
+        "name": "Amulet of strength",
+        "quantity": 1,
+        "price": 1354,
+        "value": 1354
+      },
+      {
+        "slot": 3,
+        "id": 30955,
+        "name": "Arkan blade",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 4,
+        "id": 9674,
+        "name": "Proselyte hauberk",
+        "quantity": 1,
+        "price": 8985,
+        "value": 8985
+      },
+      {
+        "slot": 5,
+        "id": 12954,
+        "name": "Dragon defender",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 7,
+        "id": 9678,
+        "name": "Proselyte tasset",
+        "quantity": 1,
+        "price": 5529,
+        "value": 5529
+      },
+      {
+        "slot": 9,
+        "id": 7462,
+        "name": "Barrows gloves",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 10,
+        "id": 3105,
+        "name": "Climbing boots",
+        "quantity": 1,
+        "price": 641,
+        "value": 641
+      },
+      {
+        "slot": 12,
+        "id": 13126,
+        "name": "Explorer's ring 2",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      },
+      {
+        "slot": 13,
+        "id": 22943,
+        "name": "Rada's blessing 2",
+        "quantity": 1,
+        "price": 0,
+        "value": 0
+      }
+    ]
+  },
+  "bank": {
+    "loaded": true,
+    "fromCache": false,
+    "lastSeenTimestamp": 1782173570072,
+    "value": 33734000,
+    "itemCount": 5,
+    "items": [
+      {
+        "slot": 0,
+        "id": 995,
+        "name": "Coins",
+        "quantity": 8500000,
+        "price": 1,
+        "value": 8500000
+      },
+      {
+        "slot": 1,
+        "id": 11832,
+        "name": "Bandos chestplate",
+        "quantity": 1,
+        "price": 18500000,
+        "value": 18500000
+      },
+      {
+        "slot": 2,
+        "id": 4587,
+        "name": "Dragon scimitar",
+        "quantity": 1,
+        "price": 58000,
+        "value": 58000
+      },
+      {
+        "slot": 3,
+        "id": 1513,
+        "name": "Magic logs",
+        "quantity": 5000,
+        "price": 1100,
+        "value": 5500000
+      },
+      {
+        "slot": 4,
+        "id": 2434,
+        "name": "Prayer potion(4)",
+        "quantity": 120,
+        "price": 9800,
+        "value": 1176000
+      }
+    ]
+  },
+  "grandExchange": {
+    "loaded": true,
+    "activeCount": 0,
+    "listedValueEstimate": 0,
+    "accountValueEstimate": 0,
+    "offers": []
+  },
+  "quests": {
+    "notStarted": 4,
+    "inProgress": 4,
+    "finished": 201,
+    "unknown": 0,
+    "total": 209,
+    "entries": [
+      {
+        "id": "ANIMAL_MAGNETISM",
+        "name": "Animal Magnetism",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ANOTHER_SLICE_OF_HAM",
+        "name": "Another Slice of H.A.M.",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_ASCENT_OF_ARCEUUS",
+        "name": "The Ascent of Arceuus",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ALFRED_GRIMHANDS_BARCRAWL",
+        "name": "Alfred Grimhand's Barcrawl",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BEAR_YOUR_SOUL",
+        "name": "Bear Your Soul",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BELOW_ICE_MOUNTAIN",
+        "name": "Below Ice Mountain",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BETWEEN_A_ROCK",
+        "name": "Between a Rock...",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BIG_CHOMPY_BIRD_HUNTING",
+        "name": "Big Chompy Bird Hunting",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BIOHAZARD",
+        "name": "Biohazard",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BLACK_KNIGHTS_FORTRESS",
+        "name": "Black Knights' Fortress",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BONE_VOYAGE",
+        "name": "Bone Voyage",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CABIN_FEVER",
+        "name": "Cabin Fever",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CLIENT_OF_KOUREND",
+        "name": "Client of Kourend",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CLOCK_TOWER",
+        "name": "Clock Tower",
+        "state": "FINISHED"
+      },
+      {
+        "id": "COLD_WAR",
+        "name": "Cold War",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CONTACT",
+        "name": "Contact!",
+        "state": "FINISHED"
+      },
+      {
+        "id": "COOKS_ASSISTANT",
+        "name": "Cook's Assistant",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_CORSAIR_CURSE",
+        "name": "The Corsair Curse",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CREATURE_OF_FENKENSTRAIN",
+        "name": "Creature of Fenkenstrain",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CURSE_OF_THE_EMPTY_LORD",
+        "name": "Curse of the Empty Lord",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DADDYS_HOME",
+        "name": "Daddy's Home",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DARKNESS_OF_HALLOWVALE",
+        "name": "Darkness of Hallowvale",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DEATH_PLATEAU",
+        "name": "Death Plateau",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DEATH_TO_THE_DORGESHUUN",
+        "name": "Death to the Dorgeshuun",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DEMON_SLAYER",
+        "name": "Demon Slayer",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_DEPTHS_OF_DESPAIR",
+        "name": "The Depths of Despair",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DESERT_TREASURE_I",
+        "name": "Desert Treasure I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DEVIOUS_MINDS",
+        "name": "Devious Minds",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_DIG_SITE",
+        "name": "The Dig Site",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DORICS_QUEST",
+        "name": "Doric's Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DRAGON_SLAYER_I",
+        "name": "Dragon Slayer I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DRAGON_SLAYER_II",
+        "name": "Dragon Slayer II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DREAM_MENTOR",
+        "name": "Dream Mentor",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DRUIDIC_RITUAL",
+        "name": "Druidic Ritual",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DWARF_CANNON",
+        "name": "Dwarf Cannon",
+        "state": "FINISHED"
+      },
+      {
+        "id": "EADGARS_RUSE",
+        "name": "Eadgar's Ruse",
+        "state": "FINISHED"
+      },
+      {
+        "id": "EAGLES_PEAK",
+        "name": "Eagles' Peak",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ELEMENTAL_WORKSHOP_I",
+        "name": "Elemental Workshop I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ELEMENTAL_WORKSHOP_II",
+        "name": "Elemental Workshop II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ENAKHRAS_LAMENT",
+        "name": "Enakhra's Lament",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_ENCHANTED_KEY",
+        "name": "The Enchanted Key",
+        "state": "IN_PROGRESS"
+      },
+      {
+        "id": "ENLIGHTENED_JOURNEY",
+        "name": "Enlightened Journey",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ENTER_THE_ABYSS",
+        "name": "Enter the Abyss",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ERNEST_THE_CHICKEN",
+        "name": "Ernest the Chicken",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_EYES_OF_GLOUPHRIE",
+        "name": "The Eyes of Glouphrie",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FAIRYTALE_I__GROWING_PAINS",
+        "name": "Fairytale I - Growing Pains",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FAIRYTALE_II__CURE_A_QUEEN",
+        "name": "Fairytale II - Cure a Queen",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FAMILY_CREST",
+        "name": "Family Crest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FAMILY_PEST",
+        "name": "Family Pest",
+        "state": "NOT_STARTED"
+      },
+      {
+        "id": "THE_FEUD",
+        "name": "The Feud",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FIGHT_ARENA",
+        "name": "Fight Arena",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FISHING_CONTEST",
+        "name": "Fishing Contest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "FORGETTABLE_TALE",
+        "name": "Forgettable Tale...",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FORSAKEN_TOWER",
+        "name": "The Forsaken Tower",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FREMENNIK_EXILES",
+        "name": "The Fremennik Exiles",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FREMENNIK_ISLES",
+        "name": "The Fremennik Isles",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FREMENNIK_TRIALS",
+        "name": "The Fremennik Trials",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GARDEN_OF_TRANQUILLITY",
+        "name": "Garden of Tranquillity",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GENERALS_SHADOW",
+        "name": "The General's Shadow",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GERTRUDES_CAT",
+        "name": "Gertrude's Cat",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GETTING_AHEAD",
+        "name": "Getting Ahead",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GHOSTS_AHOY",
+        "name": "Ghosts Ahoy",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GIANT_DWARF",
+        "name": "The Giant Dwarf",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GOBLIN_DIPLOMACY",
+        "name": "Goblin Diplomacy",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GOLEM",
+        "name": "The Golem",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GRAND_TREE",
+        "name": "The Grand Tree",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GREAT_BRAIN_ROBBERY",
+        "name": "The Great Brain Robbery",
+        "state": "FINISHED"
+      },
+      {
+        "id": "GRIM_TALES",
+        "name": "Grim Tales",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_HAND_IN_THE_SAND",
+        "name": "The Hand in the Sand",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HAUNTED_MINE",
+        "name": "Haunted Mine",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HAZEEL_CULT",
+        "name": "Hazeel Cult",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HEROES_QUEST",
+        "name": "Heroes' Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HOLY_GRAIL",
+        "name": "Holy Grail",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HORROR_FROM_THE_DEEP",
+        "name": "Horror from the Deep",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ICTHLARINS_LITTLE_HELPER",
+        "name": "Icthlarin's Little Helper",
+        "state": "FINISHED"
+      },
+      {
+        "id": "IMP_CATCHER",
+        "name": "Imp Catcher",
+        "state": "FINISHED"
+      },
+      {
+        "id": "IN_AID_OF_THE_MYREQUE",
+        "name": "In Aid of the Myreque",
+        "state": "FINISHED"
+      },
+      {
+        "id": "IN_SEARCH_OF_KNOWLEDGE",
+        "name": "In Search of Knowledge",
+        "state": "FINISHED"
+      },
+      {
+        "id": "IN_SEARCH_OF_THE_MYREQUE",
+        "name": "In Search of the Myreque",
+        "state": "FINISHED"
+      },
+      {
+        "id": "JUNGLE_POTION",
+        "name": "Jungle Potion",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_KINGDOM_DIVIDED",
+        "name": "A Kingdom Divided",
+        "state": "FINISHED"
+      },
+      {
+        "id": "KINGS_RANSOM",
+        "name": "King's Ransom",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_KNIGHTS_SWORD",
+        "name": "The Knight's Sword",
+        "state": "FINISHED"
+      },
+      {
+        "id": "LAIR_OF_TARN_RAZORLOR",
+        "name": "Lair of Tarn Razorlor",
+        "state": "FINISHED"
+      },
+      {
+        "id": "LEGENDS_QUEST",
+        "name": "Legends' Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "LOST_CITY",
+        "name": "Lost City",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_LOST_TRIBE",
+        "name": "The Lost Tribe",
+        "state": "FINISHED"
+      },
+      {
+        "id": "LUNAR_DIPLOMACY",
+        "name": "Lunar Diplomacy",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MAGE_ARENA_I",
+        "name": "Mage Arena I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MAGE_ARENA_II",
+        "name": "Mage Arena II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MAKING_FRIENDS_WITH_MY_ARM",
+        "name": "Making Friends with My Arm",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MAKING_HISTORY",
+        "name": "Making History",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MERLINS_CRYSTAL",
+        "name": "Merlin's Crystal",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MISTHALIN_MYSTERY",
+        "name": "Misthalin Mystery",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MONKEY_MADNESS_I",
+        "name": "Monkey Madness I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MONKEY_MADNESS_II",
+        "name": "Monkey Madness II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MONKS_FRIEND",
+        "name": "Monk's Friend",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MOUNTAIN_DAUGHTER",
+        "name": "Mountain Daughter",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MOURNINGS_END_PART_I",
+        "name": "Mourning's End Part I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MOURNINGS_END_PART_II",
+        "name": "Mourning's End Part II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MURDER_MYSTERY",
+        "name": "Murder Mystery",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MY_ARMS_BIG_ADVENTURE",
+        "name": "My Arm's Big Adventure",
+        "state": "FINISHED"
+      },
+      {
+        "id": "NATURE_SPIRIT",
+        "name": "Nature Spirit",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_NIGHT_AT_THE_THEATRE",
+        "name": "A Night at the Theatre",
+        "state": "FINISHED"
+      },
+      {
+        "id": "OBSERVATORY_QUEST",
+        "name": "Observatory Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "OLAFS_QUEST",
+        "name": "Olaf's Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ONE_SMALL_FAVOUR",
+        "name": "One Small Favour",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PIRATES_TREASURE",
+        "name": "Pirate's Treasure",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PLAGUE_CITY",
+        "name": "Plague City",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_PORCINE_OF_INTEREST",
+        "name": "A Porcine of Interest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PRIEST_IN_PERIL",
+        "name": "Priest in Peril",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PRINCE_ALI_RESCUE",
+        "name": "Prince Ali Rescue",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_QUEEN_OF_THIEVES",
+        "name": "The Queen of Thieves",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RAG_AND_BONE_MAN_I",
+        "name": "Rag and Bone Man I",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RAG_AND_BONE_MAN_II",
+        "name": "Rag and Bone Man II",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RATCATCHERS",
+        "name": "Ratcatchers",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER",
+        "name": "Recipe for Disaster",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECRUITMENT_DRIVE",
+        "name": "Recruitment Drive",
+        "state": "FINISHED"
+      },
+      {
+        "id": "REGICIDE",
+        "name": "Regicide",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_RESTLESS_GHOST",
+        "name": "The Restless Ghost",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ROMEO__JULIET",
+        "name": "Romeo & Juliet",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ROVING_ELVES",
+        "name": "Roving Elves",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ROYAL_TROUBLE",
+        "name": "Royal Trouble",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RUM_DEAL",
+        "name": "Rum Deal",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RUNE_MYSTERIES",
+        "name": "Rune Mysteries",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SCORPION_CATCHER",
+        "name": "Scorpion Catcher",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SEA_SLUG",
+        "name": "Sea Slug",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHADES_OF_MORTTON",
+        "name": "Shades of Mort'ton",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHADOW_OF_THE_STORM",
+        "name": "Shadow of the Storm",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHEEP_HERDER",
+        "name": "Sheep Herder",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHEEP_SHEARER",
+        "name": "Sheep Shearer",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHIELD_OF_ARRAV",
+        "name": "Shield of Arrav",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHILO_VILLAGE",
+        "name": "Shilo Village",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SINS_OF_THE_FATHER",
+        "name": "Sins of the Father",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SKIPPY_AND_THE_MOGRES",
+        "name": "Skippy and the Mogres",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_SLUG_MENACE",
+        "name": "The Slug Menace",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SONG_OF_THE_ELVES",
+        "name": "Song of the Elves",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_SOULS_BANE",
+        "name": "A Soul's Bane",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SPIRITS_OF_THE_ELID",
+        "name": "Spirits of the Elid",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SWAN_SONG",
+        "name": "Swan Song",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TAI_BWO_WANNAI_TRIO",
+        "name": "Tai Bwo Wannai Trio",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_TAIL_OF_TWO_CATS",
+        "name": "A Tail of Two Cats",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TALE_OF_THE_RIGHTEOUS",
+        "name": "Tale of the Righteous",
+        "state": "FINISHED"
+      },
+      {
+        "id": "A_TASTE_OF_HOPE",
+        "name": "A Taste of Hope",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TEARS_OF_GUTHIX",
+        "name": "Tears of Guthix",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TEMPLE_OF_IKOV",
+        "name": "Temple of Ikov",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THRONE_OF_MISCELLANIA",
+        "name": "Throne of Miscellania",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_TOURIST_TRAP",
+        "name": "The Tourist Trap",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TOWER_OF_LIFE",
+        "name": "Tower of Life",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TREE_GNOME_VILLAGE",
+        "name": "Tree Gnome Village",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TRIBAL_TOTEM",
+        "name": "Tribal Totem",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TROLL_ROMANCE",
+        "name": "Troll Romance",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TROLL_STRONGHOLD",
+        "name": "Troll Stronghold",
+        "state": "FINISHED"
+      },
+      {
+        "id": "UNDERGROUND_PASS",
+        "name": "Underground Pass",
+        "state": "FINISHED"
+      },
+      {
+        "id": "VAMPYRE_SLAYER",
+        "name": "Vampyre Slayer",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WANTED",
+        "name": "Wanted!",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WATCHTOWER",
+        "name": "Watchtower",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WATERFALL_QUEST",
+        "name": "Waterfall Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WHAT_LIES_BELOW",
+        "name": "What Lies Below",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WITCHS_HOUSE",
+        "name": "Witch's House",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WITCHS_POTION",
+        "name": "Witch's Potion",
+        "state": "FINISHED"
+      },
+      {
+        "id": "X_MARKS_THE_SPOT",
+        "name": "X Marks the Spot",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ZOGRE_FLESH_EATERS",
+        "name": "Zogre Flesh Eaters",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FROZEN_DOOR",
+        "name": "The Frozen Door",
+        "state": "IN_PROGRESS"
+      },
+      {
+        "id": "LAND_OF_THE_GOBLINS",
+        "name": "Land of the Goblins",
+        "state": "FINISHED"
+      },
+      {
+        "id": "HOPESPEARS_WILL",
+        "name": "Hopespear's Will",
+        "state": "NOT_STARTED"
+      },
+      {
+        "id": "TEMPLE_OF_THE_EYE",
+        "name": "Temple of the Eye",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BENEATH_CURSED_SANDS",
+        "name": "Beneath Cursed Sands",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SLEEPING_GIANTS",
+        "name": "Sleeping Giants",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_GARDEN_OF_DEATH",
+        "name": "The Garden of Death",
+        "state": "FINISHED"
+      },
+      {
+        "id": "INTO_THE_TOMBS",
+        "name": "Into the Tombs",
+        "state": "IN_PROGRESS"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__ANOTHER_COOKS_QUEST",
+        "name": "Recipe for Disaster - Another Cook's Quest",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__MOUNTAIN_DWARF",
+        "name": "Recipe for Disaster - Mountain Dwarf",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__WARTFACE__BENTNOZE",
+        "name": "Recipe for Disaster - Wartface & Bentnoze",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__PIRATE_PETE",
+        "name": "Recipe for Disaster - Pirate Pete",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__LUMBRIDGE_GUIDE",
+        "name": "Recipe for Disaster - Lumbridge Guide",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__EVIL_DAVE",
+        "name": "Recipe for Disaster - Evil Dave",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__SKRACH_UGLOGWEE",
+        "name": "Recipe for Disaster - Skrach Uglogwee",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__SIR_AMIK_VARZE",
+        "name": "Recipe for Disaster - Sir Amik Varze",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__KING_AWOWOGEI",
+        "name": "Recipe for Disaster - King Awowogei",
+        "state": "FINISHED"
+      },
+      {
+        "id": "RECIPE_FOR_DISASTER__CULINAROMANCER",
+        "name": "Recipe for Disaster - Culinaromancer",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SECRETS_OF_THE_NORTH",
+        "name": "Secrets of the North",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DESERT_TREASURE_II__THE_FALLEN_EMPIRE",
+        "name": "Desert Treasure II - The Fallen Empire",
+        "state": "NOT_STARTED"
+      },
+      {
+        "id": "HIS_FAITHFUL_SERVANTS",
+        "name": "His Faithful Servants",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_PATH_OF_GLOUPHRIE",
+        "name": "The Path of Glouphrie",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CHILDREN_OF_THE_SUN",
+        "name": "Children of the Sun",
+        "state": "FINISHED"
+      },
+      {
+        "id": "BARBARIAN_TRAINING",
+        "name": "Barbarian Training",
+        "state": "IN_PROGRESS"
+      },
+      {
+        "id": "DEFENDER_OF_VARROCK",
+        "name": "Defender of Varrock",
+        "state": "FINISHED"
+      },
+      {
+        "id": "WHILE_GUTHIX_SLEEPS",
+        "name": "While Guthix Sleeps",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TWILIGHTS_PROMISE",
+        "name": "Twilight's Promise",
+        "state": "FINISHED"
+      },
+      {
+        "id": "AT_FIRST_LIGHT",
+        "name": "At First Light",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PERILOUS_MOONS",
+        "name": "Perilous Moons",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_RIBBITING_TALE_OF_A_LILY_PAD_LABOUR_DISPUTE",
+        "name": "The Ribbiting Tale of a Lily Pad Labour Dispute",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_HEART_OF_DARKNESS",
+        "name": "The Heart of Darkness",
+        "state": "FINISHED"
+      },
+      {
+        "id": "DEATH_ON_THE_ISLE",
+        "name": "Death on the Isle",
+        "state": "FINISHED"
+      },
+      {
+        "id": "MEAT_AND_GREET",
+        "name": "Meat and Greet",
+        "state": "FINISHED"
+      },
+      {
+        "id": "ETHICALLY_ACQUIRED_ANTIQUITIES",
+        "name": "Ethically Acquired Antiquities",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_CURSE_OF_ARRAV",
+        "name": "The Curse of Arrav",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_FINAL_DAWN",
+        "name": "The Final Dawn",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SHADOWS_OF_CUSTODIA",
+        "name": "Shadows of Custodia",
+        "state": "FINISHED"
+      },
+      {
+        "id": "SCRAMBLED",
+        "name": "Scrambled!",
+        "state": "FINISHED"
+      },
+      {
+        "id": "VALE_TOTEMS",
+        "name": "Vale Totems",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PANDEMONIUM",
+        "name": "Pandemonium",
+        "state": "FINISHED"
+      },
+      {
+        "id": "PRYING_TIMES",
+        "name": "Prying Times",
+        "state": "FINISHED"
+      },
+      {
+        "id": "CURRENT_AFFAIRS",
+        "name": "Current Affairs",
+        "state": "FINISHED"
+      },
+      {
+        "id": "TROUBLED_TORTUGANS",
+        "name": "Troubled Tortugans",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_RED_REEF",
+        "name": "The Red Reef",
+        "state": "NOT_STARTED"
+      },
+      {
+        "id": "LEARNING_THE_ROPES",
+        "name": "Learning the Ropes",
+        "state": "FINISHED"
+      },
+      {
+        "id": "THE_IDES_OF_MILK",
+        "name": "The Ides of Milk",
+        "state": "FINISHED"
+      }
+    ]
+  },
+  "achievementDiaries": {
+    "completedTierCount": 24,
+    "totalTierCount": 48,
+    "completionPercent": 50.0,
+    "regions": [
+      {
+        "key": "ardougne",
+        "name": "Ardougne",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "desert",
+        "name": "Desert",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": false,
+          "value": 0
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 1,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "falador",
+        "name": "Falador",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "fremennik",
+        "name": "Fremennik",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "kandarin",
+        "name": "Kandarin",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "karamja",
+        "name": "Karamja",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "kourend_kebos",
+        "name": "Kourend & Kebos",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "lumbridge_draynor",
+        "name": "Lumbridge & Draynor",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "morytania",
+        "name": "Morytania",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": true,
+          "value": 1
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 3,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "varrock",
+        "name": "Varrock",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": true,
+          "value": 1
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 3,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "western_provinces",
+        "name": "Western Provinces",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": false,
+          "value": 0
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 1,
+        "totalTierCount": 4,
+        "allComplete": false
+      },
+      {
+        "key": "wilderness",
+        "name": "Wilderness",
+        "easy": {
+          "complete": true,
+          "value": 1
+        },
+        "medium": {
+          "complete": true,
+          "value": 1
+        },
+        "hard": {
+          "complete": false,
+          "value": 0
+        },
+        "elite": {
+          "complete": false,
+          "value": 0
+        },
+        "completedTierCount": 2,
+        "totalTierCount": 4,
+        "allComplete": false
+      }
+    ]
+  },
+  "combatAchievements": {
+    "completed": 55,
+    "total": 637,
+    "tiers": [
+      {
+        "name": "Easy",
+        "completed": 19,
+        "total": 41,
+        "tasks": [
+          {
+            "id": 0,
+            "name": "Noxious Foe",
+            "completed": true
+          },
+          {
+            "id": 24,
+            "name": "Barrows Novice",
+            "completed": false
+          },
+          {
+            "id": 28,
+            "name": "Defence? What Defence?",
+            "completed": true
+          },
+          {
+            "id": 32,
+            "name": "Big, Black and Fiery",
+            "completed": true
+          },
+          {
+            "id": 33,
+            "name": "The Demonic Punching Bag",
+            "completed": true
+          },
+          {
+            "id": 35,
+            "name": "Bryophyta Novice",
+            "completed": false
+          },
+          {
+            "id": 37,
+            "name": "Protection from Moss",
+            "completed": false
+          },
+          {
+            "id": 39,
+            "name": "Preparation Is Key",
+            "completed": false
+          },
+          {
+            "id": 40,
+            "name": "A Slow Death",
+            "completed": false
+          },
+          {
+            "id": 41,
+            "name": "Fighting as Intended II",
+            "completed": false
+          },
+          {
+            "id": 76,
+            "name": "Deranged Archaeologist Novice",
+            "completed": true
+          },
+          {
+            "id": 80,
+            "name": "The Walking Volcano",
+            "completed": true
+          },
+          {
+            "id": 398,
+            "name": "Into the Den of Giants",
+            "completed": false
+          },
+          {
+            "id": 120,
+            "name": "A Greater Foe",
+            "completed": true
+          },
+          {
+            "id": 121,
+            "name": "Not So Great After All",
+            "completed": false
+          },
+          {
+            "id": 122,
+            "name": "A Demon's Best Friend",
+            "completed": true
+          },
+          {
+            "id": 129,
+            "name": "Obor Novice",
+            "completed": true
+          },
+          {
+            "id": 131,
+            "name": "Sleeping Giant",
+            "completed": false
+          },
+          {
+            "id": 134,
+            "name": "Fighting as Intended",
+            "completed": false
+          },
+          {
+            "id": 162,
+            "name": "King Black Dragon Novice",
+            "completed": false
+          },
+          {
+            "id": 174,
+            "name": "A Scaley Encounter",
+            "completed": false
+          },
+          {
+            "id": 175,
+            "name": "Shayzien Protector",
+            "completed": false
+          },
+          {
+            "id": 177,
+            "name": "Giant Mole Novice",
+            "completed": true
+          },
+          {
+            "id": 206,
+            "name": "Sarachnis Novice",
+            "completed": false
+          },
+          {
+            "id": 279,
+            "name": "Wintertodt Novice",
+            "completed": true
+          },
+          {
+            "id": 281,
+            "name": "Mummy!",
+            "completed": true
+          },
+          {
+            "id": 282,
+            "name": "Handyman",
+            "completed": true
+          },
+          {
+            "id": 285,
+            "name": "Cosy",
+            "completed": true
+          },
+          {
+            "id": 287,
+            "name": "A Slithery Encounter",
+            "completed": false
+          },
+          {
+            "id": 353,
+            "name": "Tempoross Novice",
+            "completed": true
+          },
+          {
+            "id": 356,
+            "name": "Master of Buckets",
+            "completed": true
+          },
+          {
+            "id": 357,
+            "name": "Calm Before the Storm",
+            "completed": true
+          },
+          {
+            "id": 360,
+            "name": "Fire in the Hole!",
+            "completed": true
+          },
+          {
+            "id": 521,
+            "name": "Scurrius Novice",
+            "completed": false
+          },
+          {
+            "id": 523,
+            "name": "Sit Rat",
+            "completed": false
+          },
+          {
+            "id": 591,
+            "name": "One by one",
+            "completed": false
+          },
+          {
+            "id": 594,
+            "name": "Elemental Company",
+            "completed": false
+          },
+          {
+            "id": 597,
+            "name": "Let them fight",
+            "completed": false
+          },
+          {
+            "id": 625,
+            "name": "Shellbane Adept",
+            "completed": false
+          },
+          {
+            "id": 630,
+            "name": "Dry Cleaning",
+            "completed": false
+          },
+          {
+            "id": 632,
+            "name": "Brutus Novice",
+            "completed": true
+          }
+        ]
+      },
+      {
+        "name": "Medium",
+        "completed": 18,
+        "total": 60,
+        "tasks": [
+          {
+            "id": 399,
+            "name": "Sit Back and Relax",
+            "completed": false
+          },
+          {
+            "id": 25,
+            "name": "Barrows Champion",
+            "completed": false
+          },
+          {
+            "id": 26,
+            "name": "Can't Touch Me",
+            "completed": false
+          },
+          {
+            "id": 27,
+            "name": "Pray for Success",
+            "completed": false
+          },
+          {
+            "id": 34,
+            "name": "Brutal, Big, Black and Firey",
+            "completed": false
+          },
+          {
+            "id": 36,
+            "name": "Bryophyta Champion",
+            "completed": false
+          },
+          {
+            "id": 38,
+            "name": "Quick Cutter",
+            "completed": false
+          },
+          {
+            "id": 46,
+            "name": "Demonic Weakening",
+            "completed": false
+          },
+          {
+            "id": 48,
+            "name": "Demonbane Weaponry",
+            "completed": false
+          },
+          {
+            "id": 61,
+            "name": "Chaos Fanatic Champion",
+            "completed": false
+          },
+          {
+            "id": 63,
+            "name": "Sorry, What Was That?",
+            "completed": false
+          },
+          {
+            "id": 70,
+            "name": "Crazy Archaeologist Champion",
+            "completed": false
+          },
+          {
+            "id": 72,
+            "name": "Mage of the Ruins",
+            "completed": false
+          },
+          {
+            "id": 73,
+            "name": "I'd Rather Not Learn",
+            "completed": false
+          },
+          {
+            "id": 77,
+            "name": "Deranged Archaeologist Champion",
+            "completed": true
+          },
+          {
+            "id": 78,
+            "name": "Mage of the Swamp",
+            "completed": true
+          },
+          {
+            "id": 79,
+            "name": "I'd Rather Be Illiterate",
+            "completed": true
+          },
+          {
+            "id": 97,
+            "name": "A Smashing Time",
+            "completed": false
+          },
+          {
+            "id": 130,
+            "name": "Obor Champion",
+            "completed": false
+          },
+          {
+            "id": 132,
+            "name": "Back to the Wall",
+            "completed": true
+          },
+          {
+            "id": 133,
+            "name": "Squashing the Giant",
+            "completed": false
+          },
+          {
+            "id": 163,
+            "name": "King Black Dragon Champion",
+            "completed": false
+          },
+          {
+            "id": 164,
+            "name": "Claw Clipper",
+            "completed": false
+          },
+          {
+            "id": 165,
+            "name": "Hide Penetration",
+            "completed": false
+          },
+          {
+            "id": 166,
+            "name": "Antifire Protection",
+            "completed": false
+          },
+          {
+            "id": 173,
+            "name": "Master of Broad Weaponry",
+            "completed": false
+          },
+          {
+            "id": 178,
+            "name": "Giant Mole Champion",
+            "completed": true
+          },
+          {
+            "id": 182,
+            "name": "Avoiding Those Little Arms",
+            "completed": true
+          },
+          {
+            "id": 197,
+            "name": "Dagannoth Prime Champion",
+            "completed": false
+          },
+          {
+            "id": 201,
+            "name": "Dagannoth Rex Champion",
+            "completed": true
+          },
+          {
+            "id": 204,
+            "name": "A Frozen King",
+            "completed": false
+          },
+          {
+            "id": 207,
+            "name": "Sarachnis Champion",
+            "completed": false
+          },
+          {
+            "id": 210,
+            "name": "Newspaper Enthusiast",
+            "completed": false
+          },
+          {
+            "id": 223,
+            "name": "A Frozen Foe from the Past",
+            "completed": false
+          },
+          {
+            "id": 233,
+            "name": "Dagannoth Supreme Champion",
+            "completed": false
+          },
+          {
+            "id": 280,
+            "name": "Wintertodt Champion",
+            "completed": true
+          },
+          {
+            "id": 283,
+            "name": "Can We Fix It?",
+            "completed": true
+          },
+          {
+            "id": 284,
+            "name": "Leaving No One Behind",
+            "completed": true
+          },
+          {
+            "id": 44,
+            "name": "Skotizo Champion",
+            "completed": false
+          },
+          {
+            "id": 354,
+            "name": "Tempoross Champion",
+            "completed": true
+          },
+          {
+            "id": 359,
+            "name": "The Lone Angler",
+            "completed": true
+          },
+          {
+            "id": 522,
+            "name": "Scurrius Champion",
+            "completed": false
+          },
+          {
+            "id": 524,
+            "name": "Perfect Scurrius",
+            "completed": false
+          },
+          {
+            "id": 525,
+            "name": "Efficient Pest Control",
+            "completed": false
+          },
+          {
+            "id": 528,
+            "name": "Lunar Triplet",
+            "completed": true
+          },
+          {
+            "id": 529,
+            "name": "Perilous Novice",
+            "completed": true
+          },
+          {
+            "id": 534,
+            "name": "Back to Our Roots",
+            "completed": true
+          },
+          {
+            "id": 535,
+            "name": "Moons of Peril Speed-Trialist",
+            "completed": true
+          },
+          {
+            "id": 568,
+            "name": "Hueycoatl Champion",
+            "completed": false
+          },
+          {
+            "id": 574,
+            "name": "You're a wizard",
+            "completed": false
+          },
+          {
+            "id": 579,
+            "name": "Amoxliatl Champion",
+            "completed": false
+          },
+          {
+            "id": 584,
+            "name": "Temotli Triumph",
+            "completed": false
+          },
+          {
+            "id": 589,
+            "name": "Royal Titan Champion",
+            "completed": false
+          },
+          {
+            "id": 590,
+            "name": "Royal Titan Adept",
+            "completed": false
+          },
+          {
+            "id": 598,
+            "name": "It takes too long",
+            "completed": false
+          },
+          {
+            "id": 626,
+            "name": "Shellbane Veteran",
+            "completed": false
+          },
+          {
+            "id": 627,
+            "name": "Perfect Shellbane",
+            "completed": false
+          },
+          {
+            "id": 628,
+            "name": "Shellbane Speedrunner",
+            "completed": false
+          },
+          {
+            "id": 633,
+            "name": "Brutus Champion",
+            "completed": true
+          },
+          {
+            "id": 635,
+            "name": "Beef vs Beef",
+            "completed": true
+          }
+        ]
+      },
+      {
+        "name": "Hard",
+        "completed": 11,
+        "total": 85,
+        "tasks": [
+          {
+            "id": 1,
+            "name": "Abyssal Adept",
+            "completed": false
+          },
+          {
+            "id": 3,
+            "name": "They Grow Up Too Fast",
+            "completed": false
+          },
+          {
+            "id": 5,
+            "name": "Don't Whip Me",
+            "completed": false
+          },
+          {
+            "id": 7,
+            "name": "Don't Stop Moving",
+            "completed": false
+          },
+          {
+            "id": 9,
+            "name": "Kree'arra Adept",
+            "completed": false
+          },
+          {
+            "id": 12,
+            "name": "Airborne Showdown",
+            "completed": false
+          },
+          {
+            "id": 16,
+            "name": "General Graardor Adept",
+            "completed": false
+          },
+          {
+            "id": 18,
+            "name": "Ourg Freezer",
+            "completed": false
+          },
+          {
+            "id": 20,
+            "name": "General Showdown",
+            "completed": false
+          },
+          {
+            "id": 29,
+            "name": "Just Like That",
+            "completed": false
+          },
+          {
+            "id": 30,
+            "name": "Faithless Crypt Run",
+            "completed": false
+          },
+          {
+            "id": 42,
+            "name": "Callisto Adept",
+            "completed": false
+          },
+          {
+            "id": 45,
+            "name": "Skotizo Adept",
+            "completed": false
+          },
+          {
+            "id": 57,
+            "name": "Chaos Elemental Adept",
+            "completed": false
+          },
+          {
+            "id": 59,
+            "name": "Hoarder",
+            "completed": false
+          },
+          {
+            "id": 60,
+            "name": "The Flincher",
+            "completed": false
+          },
+          {
+            "id": 62,
+            "name": "Chaos Fanatic Adept",
+            "completed": false
+          },
+          {
+            "id": 64,
+            "name": "Praying to the Gods",
+            "completed": false
+          },
+          {
+            "id": 71,
+            "name": "Crazy Archaeologist Adept",
+            "completed": false
+          },
+          {
+            "id": 82,
+            "name": "Grotesque Guardians Adept",
+            "completed": false
+          },
+          {
+            "id": 84,
+            "name": "Don't Look at the Eclipse",
+            "completed": false
+          },
+          {
+            "id": 85,
+            "name": "Prison Break",
+            "completed": false
+          },
+          {
+            "id": 86,
+            "name": "Granite Footwork",
+            "completed": false
+          },
+          {
+            "id": 87,
+            "name": "Heal No More",
+            "completed": false
+          },
+          {
+            "id": 88,
+            "name": "Static Awareness",
+            "completed": false
+          },
+          {
+            "id": 123,
+            "name": "Hespori Adept",
+            "completed": false
+          },
+          {
+            "id": 124,
+            "name": "Hesporisn't",
+            "completed": false
+          },
+          {
+            "id": 125,
+            "name": "Weed Whacker",
+            "completed": false
+          },
+          {
+            "id": 157,
+            "name": "Kalphite Queen Adept",
+            "completed": false
+          },
+          {
+            "id": 159,
+            "name": "Chitin Penetrator",
+            "completed": false
+          },
+          {
+            "id": 167,
+            "name": "Who Is the King Now?",
+            "completed": false
+          },
+          {
+            "id": 168,
+            "name": "Kraken Adept",
+            "completed": false
+          },
+          {
+            "id": 169,
+            "name": "Unnecessary Optimisation",
+            "completed": false
+          },
+          {
+            "id": 170,
+            "name": "Krakan't Hurt Me",
+            "completed": false
+          },
+          {
+            "id": 179,
+            "name": "Why Are You Running?",
+            "completed": true
+          },
+          {
+            "id": 181,
+            "name": "Whack-a-Mole",
+            "completed": false
+          },
+          {
+            "id": 183,
+            "name": "Nightmare Adept",
+            "completed": false
+          },
+          {
+            "id": 198,
+            "name": "Dagannoth Prime Adept",
+            "completed": false
+          },
+          {
+            "id": 202,
+            "name": "Dagannoth Rex Adept",
+            "completed": true
+          },
+          {
+            "id": 208,
+            "name": "Ready to Pounce",
+            "completed": false
+          },
+          {
+            "id": 209,
+            "name": "Inspect Repellent",
+            "completed": false
+          },
+          {
+            "id": 211,
+            "name": "Commander Zilyana Adept",
+            "completed": false
+          },
+          {
+            "id": 213,
+            "name": "Commander Showdown",
+            "completed": false
+          },
+          {
+            "id": 218,
+            "name": "Scorpia Adept",
+            "completed": false
+          },
+          {
+            "id": 220,
+            "name": "I Can't Reach That",
+            "completed": false
+          },
+          {
+            "id": 221,
+            "name": "Guardians No More",
+            "completed": false
+          },
+          {
+            "id": 224,
+            "name": "Zulrah Adept",
+            "completed": false
+          },
+          {
+            "id": 234,
+            "name": "Dagannoth Supreme Adept",
+            "completed": false
+          },
+          {
+            "id": 397,
+            "name": "Theatre of Blood: SM Adept",
+            "completed": true
+          },
+          {
+            "id": 264,
+            "name": "Venenatis Adept",
+            "completed": false
+          },
+          {
+            "id": 266,
+            "name": "Vet'ion Adept",
+            "completed": false
+          },
+          {
+            "id": 286,
+            "name": "Why Fletch?",
+            "completed": false
+          },
+          {
+            "id": 332,
+            "name": "K'ril Tsutsaroth Adept",
+            "completed": false
+          },
+          {
+            "id": 334,
+            "name": "Yarr No More",
+            "completed": false
+          },
+          {
+            "id": 335,
+            "name": "Demonic Showdown",
+            "completed": false
+          },
+          {
+            "id": 339,
+            "name": "Demonbane Weaponry II",
+            "completed": false
+          },
+          {
+            "id": 355,
+            "name": "Dress Like You Mean It",
+            "completed": false
+          },
+          {
+            "id": 358,
+            "name": "Why Cook?",
+            "completed": false
+          },
+          {
+            "id": 461,
+            "name": "Novice Tomb Explorer",
+            "completed": false
+          },
+          {
+            "id": 462,
+            "name": "Novice Tomb Looter",
+            "completed": false
+          },
+          {
+            "id": 464,
+            "name": "Movin' on up",
+            "completed": false
+          },
+          {
+            "id": 465,
+            "name": "Confident Raider",
+            "completed": false
+          },
+          {
+            "id": 478,
+            "name": "Phantom Muspah Adept",
+            "completed": false
+          },
+          {
+            "id": 531,
+            "name": "Perilous Dancer",
+            "completed": true
+          },
+          {
+            "id": 532,
+            "name": "Fortified",
+            "completed": true
+          },
+          {
+            "id": 533,
+            "name": "Betrayal",
+            "completed": true
+          },
+          {
+            "id": 536,
+            "name": "Moons of Peril Speed-Chaser",
+            "completed": true
+          },
+          {
+            "id": 537,
+            "name": "Fat of the Land",
+            "completed": true
+          },
+          {
+            "id": 526,
+            "name": "The Clone Zone",
+            "completed": true
+          },
+          {
+            "id": 530,
+            "name": "Perilous Champion",
+            "completed": true
+          },
+          {
+            "id": 569,
+            "name": "Hueycoatl Adept",
+            "completed": false
+          },
+          {
+            "id": 572,
+            "name": "Pillar Lover",
+            "completed": false
+          },
+          {
+            "id": 575,
+            "name": "I'm your son",
+            "completed": false
+          },
+          {
+            "id": 580,
+            "name": "Amoxliatl Adept",
+            "completed": false
+          },
+          {
+            "id": 581,
+            "name": "Amoxliatl Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 583,
+            "name": "Nagua Negation",
+            "completed": false
+          },
+          {
+            "id": 586,
+            "name": "Kemo Makti",
+            "completed": false
+          },
+          {
+            "id": 587,
+            "name": "Totally Shattered",
+            "completed": false
+          },
+          {
+            "id": 588,
+            "name": "Perfect Royal Titans",
+            "completed": false
+          },
+          {
+            "id": 592,
+            "name": "Royal Titan Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 593,
+            "name": "Titan Killer",
+            "completed": false
+          },
+          {
+            "id": 595,
+            "name": "I need room",
+            "completed": false
+          },
+          {
+            "id": 629,
+            "name": "Shellbane Survivor",
+            "completed": false
+          },
+          {
+            "id": 631,
+            "name": "Featherweight Fighter",
+            "completed": false
+          },
+          {
+            "id": 636,
+            "name": "Smarter than a Cow",
+            "completed": true
+          }
+        ]
+      },
+      {
+        "name": "Elite",
+        "completed": 7,
+        "total": 162,
+        "tasks": [
+          {
+            "id": 2,
+            "name": "Abyssal Veteran",
+            "completed": false
+          },
+          {
+            "id": 4,
+            "name": "Respiratory Runner",
+            "completed": false
+          },
+          {
+            "id": 6,
+            "name": "Demonic Rebound",
+            "completed": false
+          },
+          {
+            "id": 8,
+            "name": "Perfect Sire",
+            "completed": false
+          },
+          {
+            "id": 10,
+            "name": "Kree'arra Veteran",
+            "completed": false
+          },
+          {
+            "id": 17,
+            "name": "General Graardor Veteran",
+            "completed": false
+          },
+          {
+            "id": 19,
+            "name": "Ourg Freezer II",
+            "completed": false
+          },
+          {
+            "id": 31,
+            "name": "Reflecting on This Encounter",
+            "completed": false
+          },
+          {
+            "id": 43,
+            "name": "Callisto Veteran",
+            "completed": false
+          },
+          {
+            "id": 47,
+            "name": "Demon Evasion",
+            "completed": false
+          },
+          {
+            "id": 49,
+            "name": "Up for the Challenge",
+            "completed": false
+          },
+          {
+            "id": 51,
+            "name": "Cerberus Veteran",
+            "completed": false
+          },
+          {
+            "id": 54,
+            "name": "Ghost Buster",
+            "completed": false
+          },
+          {
+            "id": 55,
+            "name": "Unrequired Antifire",
+            "completed": false
+          },
+          {
+            "id": 56,
+            "name": "Anti-Bite Mechanics",
+            "completed": false
+          },
+          {
+            "id": 58,
+            "name": "Chaos Elemental Veteran",
+            "completed": false
+          },
+          {
+            "id": 65,
+            "name": "Corporeal Beast Veteran",
+            "completed": false
+          },
+          {
+            "id": 67,
+            "name": "Hot on Your Feet",
+            "completed": false
+          },
+          {
+            "id": 68,
+            "name": "Finding the Weak Spot",
+            "completed": false
+          },
+          {
+            "id": 69,
+            "name": "Chicken Killer",
+            "completed": false
+          },
+          {
+            "id": 74,
+            "name": "If Gorillas Could Fly",
+            "completed": true
+          },
+          {
+            "id": 75,
+            "name": "Hitting Them Where It Hurts",
+            "completed": false
+          },
+          {
+            "id": 81,
+            "name": "Galvek Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 83,
+            "name": "Grotesque Guardians Veteran",
+            "completed": false
+          },
+          {
+            "id": 89,
+            "name": "Done before Dusk",
+            "completed": false
+          },
+          {
+            "id": 90,
+            "name": "Perfect Grotesque Guardians",
+            "completed": false
+          },
+          {
+            "id": 92,
+            "name": "Grotesque Guardians Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 95,
+            "name": "From Dusk...",
+            "completed": false
+          },
+          {
+            "id": 98,
+            "name": "Corrupted Gauntlet Veteran",
+            "completed": false
+          },
+          {
+            "id": 101,
+            "name": "3, 2, 1 - Mage",
+            "completed": false
+          },
+          {
+            "id": 109,
+            "name": "Gauntlet Veteran",
+            "completed": true
+          },
+          {
+            "id": 111,
+            "name": "3, 2, 1 - Range",
+            "completed": true
+          },
+          {
+            "id": 114,
+            "name": "Egniol Diet",
+            "completed": false
+          },
+          {
+            "id": 115,
+            "name": "Crystalline Warrior",
+            "completed": false
+          },
+          {
+            "id": 116,
+            "name": "Wolf Puncher",
+            "completed": false
+          },
+          {
+            "id": 119,
+            "name": "Glough Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 126,
+            "name": "Plant-Based Diet",
+            "completed": false
+          },
+          {
+            "id": 127,
+            "name": "Hespori Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 135,
+            "name": "Alchemical Veteran",
+            "completed": false
+          },
+          {
+            "id": 147,
+            "name": "Fight Caves Veteran",
+            "completed": false
+          },
+          {
+            "id": 153,
+            "name": "Facing Jad Head-on",
+            "completed": false
+          },
+          {
+            "id": 158,
+            "name": "Kalphite Queen Veteran",
+            "completed": false
+          },
+          {
+            "id": 160,
+            "name": "Insect Deflection",
+            "completed": false
+          },
+          {
+            "id": 161,
+            "name": "Prayer Smasher",
+            "completed": false
+          },
+          {
+            "id": 171,
+            "name": "Ten-tacles",
+            "completed": false
+          },
+          {
+            "id": 176,
+            "name": "Mimic Veteran",
+            "completed": false
+          },
+          {
+            "id": 180,
+            "name": "Hard Hitter",
+            "completed": false
+          },
+          {
+            "id": 184,
+            "name": "Nightmare Veteran",
+            "completed": false
+          },
+          {
+            "id": 187,
+            "name": "Explosion!",
+            "completed": false
+          },
+          {
+            "id": 189,
+            "name": "Sleep Tight",
+            "completed": false
+          },
+          {
+            "id": 191,
+            "name": "Nightmare (Solo) Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 194,
+            "name": "Nightmare (5-Scale) Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 199,
+            "name": "Death to the Seer King",
+            "completed": false
+          },
+          {
+            "id": 200,
+            "name": "From One King to Another",
+            "completed": false
+          },
+          {
+            "id": 203,
+            "name": "Death to the Warrior King",
+            "completed": false
+          },
+          {
+            "id": 205,
+            "name": "Toppling the Diarchy",
+            "completed": false
+          },
+          {
+            "id": 212,
+            "name": "Commander Zilyana Veteran",
+            "completed": false
+          },
+          {
+            "id": 216,
+            "name": "Reminisce",
+            "completed": false
+          },
+          {
+            "id": 219,
+            "name": "Scorpia Veteran",
+            "completed": false
+          },
+          {
+            "id": 222,
+            "name": "Fragment of Seren Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 225,
+            "name": "Zulrah Veteran",
+            "completed": false
+          },
+          {
+            "id": 227,
+            "name": "Snake Rebound",
+            "completed": false
+          },
+          {
+            "id": 228,
+            "name": "Snake. Snake!? Snaaaaaake!",
+            "completed": false
+          },
+          {
+            "id": 230,
+            "name": "Zulrah Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 235,
+            "name": "Death to the Archer King",
+            "completed": false
+          },
+          {
+            "id": 236,
+            "name": "Rapid Succession",
+            "completed": false
+          },
+          {
+            "id": 386,
+            "name": "Anticoagulants",
+            "completed": false
+          },
+          {
+            "id": 387,
+            "name": "Appropriate Tools",
+            "completed": false
+          },
+          {
+            "id": 388,
+            "name": "They Won't Expect This",
+            "completed": false
+          },
+          {
+            "id": 389,
+            "name": "Chally Time",
+            "completed": false
+          },
+          {
+            "id": 390,
+            "name": "Nylocas, On the Rocks",
+            "completed": false
+          },
+          {
+            "id": 391,
+            "name": "Just To Be Safe",
+            "completed": true
+          },
+          {
+            "id": 392,
+            "name": "Don't Look at Me!",
+            "completed": false
+          },
+          {
+            "id": 393,
+            "name": "No-Pillar",
+            "completed": true
+          },
+          {
+            "id": 394,
+            "name": "Attack, Step, Wait",
+            "completed": false
+          },
+          {
+            "id": 395,
+            "name": "Pass It On",
+            "completed": true
+          },
+          {
+            "id": 237,
+            "name": "Theatre of Blood Veteran",
+            "completed": false
+          },
+          {
+            "id": 261,
+            "name": "Thermonuclear Veteran",
+            "completed": false
+          },
+          {
+            "id": 262,
+            "name": "Hazard Prevention",
+            "completed": false
+          },
+          {
+            "id": 263,
+            "name": "Spec'd Out",
+            "completed": false
+          },
+          {
+            "id": 265,
+            "name": "Venenatis Veteran",
+            "completed": false
+          },
+          {
+            "id": 267,
+            "name": "Vet'eran",
+            "completed": false
+          },
+          {
+            "id": 268,
+            "name": "Vorkath Veteran",
+            "completed": false
+          },
+          {
+            "id": 273,
+            "name": "Stick 'em With the Pointy End",
+            "completed": false
+          },
+          {
+            "id": 271,
+            "name": "Zombie Destroyer",
+            "completed": false
+          },
+          {
+            "id": 292,
+            "name": "Dust Seeker",
+            "completed": false
+          },
+          {
+            "id": 299,
+            "name": "Chambers of Xeric Veteran",
+            "completed": false
+          },
+          {
+            "id": 302,
+            "name": "Perfectly Balanced",
+            "completed": false
+          },
+          {
+            "id": 303,
+            "name": "Together We'll Fall",
+            "completed": false
+          },
+          {
+            "id": 308,
+            "name": "Redemption Enthusiast",
+            "completed": false
+          },
+          {
+            "id": 307,
+            "name": "Mutta-diet",
+            "completed": false
+          },
+          {
+            "id": 311,
+            "name": "Dancing with Statues",
+            "completed": false
+          },
+          {
+            "id": 312,
+            "name": "Undying Raid Team",
+            "completed": false
+          },
+          {
+            "id": 314,
+            "name": "Shayzien Specialist",
+            "completed": false
+          },
+          {
+            "id": 316,
+            "name": "Cryo No More",
+            "completed": false
+          },
+          {
+            "id": 320,
+            "name": "Blizzard Dodger",
+            "completed": false
+          },
+          {
+            "id": 321,
+            "name": "Kill It with Fire",
+            "completed": false
+          },
+          {
+            "id": 328,
+            "name": "Zalcano Veteran",
+            "completed": false
+          },
+          {
+            "id": 329,
+            "name": "Perfect Zalcano",
+            "completed": false
+          },
+          {
+            "id": 330,
+            "name": "Team Player",
+            "completed": false
+          },
+          {
+            "id": 331,
+            "name": "The Spurned Hero",
+            "completed": false
+          },
+          {
+            "id": 333,
+            "name": "K'ril Tsutsaroth Veteran",
+            "completed": false
+          },
+          {
+            "id": 337,
+            "name": "Demonic Defence",
+            "completed": false
+          },
+          {
+            "id": 336,
+            "name": "The Bane of Demons",
+            "completed": false
+          },
+          {
+            "id": 341,
+            "name": "Half-Way There",
+            "completed": false
+          },
+          {
+            "id": 149,
+            "name": "A Near Miss!",
+            "completed": false
+          },
+          {
+            "id": 361,
+            "name": "The II Jad Challenge",
+            "completed": false
+          },
+          {
+            "id": 364,
+            "name": "TzHaar-Ket-Rak's Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 367,
+            "name": "Facing Jad Head-on III",
+            "completed": false
+          },
+          {
+            "id": 400,
+            "name": "Phosani's Veteran",
+            "completed": false
+          },
+          {
+            "id": 410,
+            "name": "Nex Veteran",
+            "completed": false
+          },
+          {
+            "id": 412,
+            "name": "Nex Survivors",
+            "completed": false
+          },
+          {
+            "id": 463,
+            "name": "Novice Tomb Raider",
+            "completed": false
+          },
+          {
+            "id": 468,
+            "name": "Tomb Explorer",
+            "completed": false
+          },
+          {
+            "id": 469,
+            "name": "Expert Tomb Explorer",
+            "completed": false
+          },
+          {
+            "id": 430,
+            "name": "Hardcore Raiders",
+            "completed": false
+          },
+          {
+            "id": 431,
+            "name": "Hardcore Tombs",
+            "completed": false
+          },
+          {
+            "id": 425,
+            "name": "Helpful spirit who?",
+            "completed": false
+          },
+          {
+            "id": 449,
+            "name": "Dropped the ball",
+            "completed": false
+          },
+          {
+            "id": 451,
+            "name": "No skipping allowed",
+            "completed": false
+          },
+          {
+            "id": 458,
+            "name": "Down Do Specs",
+            "completed": false
+          },
+          {
+            "id": 432,
+            "name": "Perfect Het",
+            "completed": false
+          },
+          {
+            "id": 435,
+            "name": "Perfect Apmeken",
+            "completed": false
+          },
+          {
+            "id": 438,
+            "name": "Perfect Crondis",
+            "completed": false
+          },
+          {
+            "id": 452,
+            "name": "I'm in a rush",
+            "completed": false
+          },
+          {
+            "id": 475,
+            "name": "Phantom Muspah Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 479,
+            "name": "Phantom Muspah Veteran",
+            "completed": false
+          },
+          {
+            "id": 473,
+            "name": "Can't Escape",
+            "completed": false
+          },
+          {
+            "id": 482,
+            "name": "Versatile Drainer",
+            "completed": false
+          },
+          {
+            "id": 515,
+            "name": "Duke Sucellus Adept",
+            "completed": false
+          },
+          {
+            "id": 488,
+            "name": "Vardorvis Adept",
+            "completed": false
+          },
+          {
+            "id": 497,
+            "name": "Whisperer Adept",
+            "completed": false
+          },
+          {
+            "id": 506,
+            "name": "Leviathan Adept",
+            "completed": false
+          },
+          {
+            "id": 512,
+            "name": "Duke Sucellus Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 485,
+            "name": "Vardorvis Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 494,
+            "name": "Whisperer Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 503,
+            "name": "Leviathan Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 501,
+            "name": "Tentacular",
+            "completed": false
+          },
+          {
+            "id": 527,
+            "name": "High Hitter",
+            "completed": true
+          },
+          {
+            "id": 542,
+            "name": "Furball",
+            "completed": false
+          },
+          {
+            "id": 545,
+            "name": "Denied",
+            "completed": false
+          },
+          {
+            "id": 548,
+            "name": "I was here first!",
+            "completed": false
+          },
+          {
+            "id": 551,
+            "name": "Unending Torment",
+            "completed": false
+          },
+          {
+            "id": 552,
+            "name": "Through Fire and Flames",
+            "completed": false
+          },
+          {
+            "id": 553,
+            "name": "Two Times the Torment",
+            "completed": false
+          },
+          {
+            "id": 555,
+            "name": "Rapid Reload",
+            "completed": false
+          },
+          {
+            "id": 556,
+            "name": "Araxxor Veteran",
+            "completed": false
+          },
+          {
+            "id": 564,
+            "name": "Relaxxor",
+            "completed": false
+          },
+          {
+            "id": 558,
+            "name": "Araxxor Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 576,
+            "name": "Hueycoatl Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 570,
+            "name": "Hueycoatl Veteran",
+            "completed": false
+          },
+          {
+            "id": 571,
+            "name": "Perfect Hueycoatl",
+            "completed": false
+          },
+          {
+            "id": 582,
+            "name": "Amoxliatl Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 585,
+            "name": "Without Ralos' Light",
+            "completed": false
+          },
+          {
+            "id": 596,
+            "name": "No time to pray",
+            "completed": false
+          },
+          {
+            "id": 599,
+            "name": "Yama Adept",
+            "completed": false
+          },
+          {
+            "id": 601,
+            "name": "Yama Speed-Trialist",
+            "completed": false
+          },
+          {
+            "id": 607,
+            "name": "Back so soon?",
+            "completed": false
+          },
+          {
+            "id": 610,
+            "name": "Doom Adept",
+            "completed": false
+          },
+          {
+            "id": 613,
+            "name": "Exposed Doom",
+            "completed": false
+          },
+          {
+            "id": 621,
+            "name": "Doom Crawler",
+            "completed": false
+          },
+          {
+            "id": 634,
+            "name": "Brutus Speed-Trialist",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "name": "Master",
+        "completed": 0,
+        "total": 168,
+        "tasks": [
+          {
+            "id": 11,
+            "name": "Collateral Damage",
+            "completed": false
+          },
+          {
+            "id": 13,
+            "name": "Swoop No More",
+            "completed": false
+          },
+          {
+            "id": 50,
+            "name": "Precise Positioning",
+            "completed": false
+          },
+          {
+            "id": 52,
+            "name": "Cerberus Master",
+            "completed": false
+          },
+          {
+            "id": 53,
+            "name": "Arooo No More",
+            "completed": false
+          },
+          {
+            "id": 66,
+            "name": "Corporeal Beast Master",
+            "completed": false
+          },
+          {
+            "id": 91,
+            "name": "Perfect Grotesque Guardians II",
+            "completed": false
+          },
+          {
+            "id": 93,
+            "name": "Grotesque Guardians Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 96,
+            "name": "... 'til Dawn",
+            "completed": false
+          },
+          {
+            "id": 99,
+            "name": "Corrupted Gauntlet Master",
+            "completed": false
+          },
+          {
+            "id": 102,
+            "name": "Perfect Corrupted Hunllef",
+            "completed": false
+          },
+          {
+            "id": 103,
+            "name": "Defence Doesn't Matter II",
+            "completed": false
+          },
+          {
+            "id": 105,
+            "name": "Corrupted Warrior",
+            "completed": false
+          },
+          {
+            "id": 107,
+            "name": "Corrupted Gauntlet Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 110,
+            "name": "Gauntlet Master",
+            "completed": false
+          },
+          {
+            "id": 112,
+            "name": "Perfect Crystalline Hunllef",
+            "completed": false
+          },
+          {
+            "id": 113,
+            "name": "Defence Doesn't Matter",
+            "completed": false
+          },
+          {
+            "id": 117,
+            "name": "Gauntlet Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 128,
+            "name": "Hespori Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 136,
+            "name": "Alchemical Master",
+            "completed": false
+          },
+          {
+            "id": 137,
+            "name": "Unrequired Antipoisons",
+            "completed": false
+          },
+          {
+            "id": 138,
+            "name": "Lightning Lure",
+            "completed": false
+          },
+          {
+            "id": 139,
+            "name": "Don't Flame Me",
+            "completed": false
+          },
+          {
+            "id": 140,
+            "name": "Mixing Correctly",
+            "completed": false
+          },
+          {
+            "id": 141,
+            "name": "The Flame Skipper",
+            "completed": false
+          },
+          {
+            "id": 142,
+            "name": "Alcleanical Hydra",
+            "completed": false
+          },
+          {
+            "id": 144,
+            "name": "Alchemical Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 146,
+            "name": "Working Overtime",
+            "completed": false
+          },
+          {
+            "id": 148,
+            "name": "Fight Caves Master",
+            "completed": false
+          },
+          {
+            "id": 150,
+            "name": "Denying the Healers",
+            "completed": false
+          },
+          {
+            "id": 152,
+            "name": "You Didn't Say Anything About a Bat",
+            "completed": false
+          },
+          {
+            "id": 155,
+            "name": "Fight Caves Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 172,
+            "name": "One Hundred Tentacles",
+            "completed": false
+          },
+          {
+            "id": 185,
+            "name": "Nightmare Master",
+            "completed": false
+          },
+          {
+            "id": 188,
+            "name": "Perfect Nightmare",
+            "completed": false
+          },
+          {
+            "id": 192,
+            "name": "Nightmare (Solo) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 195,
+            "name": "Nightmare (5-Scale) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 215,
+            "name": "Moving Collateral",
+            "completed": false
+          },
+          {
+            "id": 226,
+            "name": "Zulrah Master",
+            "completed": false
+          },
+          {
+            "id": 229,
+            "name": "Perfect Zulrah",
+            "completed": false
+          },
+          {
+            "id": 231,
+            "name": "Zulrah Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 250,
+            "name": "Can't Drain This",
+            "completed": false
+          },
+          {
+            "id": 244,
+            "name": "Perfect Maiden",
+            "completed": false
+          },
+          {
+            "id": 240,
+            "name": "Two-Down",
+            "completed": false
+          },
+          {
+            "id": 245,
+            "name": "Perfect Bloat",
+            "completed": false
+          },
+          {
+            "id": 246,
+            "name": "Perfect Nylocas",
+            "completed": false
+          },
+          {
+            "id": 242,
+            "name": "A Timely Snack",
+            "completed": false
+          },
+          {
+            "id": 247,
+            "name": "Perfect Sotetseg",
+            "completed": false
+          },
+          {
+            "id": 251,
+            "name": "Can You Dance?",
+            "completed": false
+          },
+          {
+            "id": 248,
+            "name": "Perfect Xarpus",
+            "completed": false
+          },
+          {
+            "id": 241,
+            "name": "Pop It",
+            "completed": false
+          },
+          {
+            "id": 249,
+            "name": "Perfect Verzik",
+            "completed": false
+          },
+          {
+            "id": 253,
+            "name": "Back in My Day...",
+            "completed": false
+          },
+          {
+            "id": 255,
+            "name": "Theatre (Trio) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 257,
+            "name": "Theatre (4-Scale) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 259,
+            "name": "Theatre (5-Scale) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 238,
+            "name": "Theatre of Blood Master",
+            "completed": false
+          },
+          {
+            "id": 269,
+            "name": "Vorkath Master",
+            "completed": false
+          },
+          {
+            "id": 270,
+            "name": "The Walk",
+            "completed": false
+          },
+          {
+            "id": 272,
+            "name": "Dodging the Dragon",
+            "completed": false
+          },
+          {
+            "id": 276,
+            "name": "Vorkath Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 278,
+            "name": "Extended Encounter",
+            "completed": false
+          },
+          {
+            "id": 288,
+            "name": "Chambers of Xeric: CM Master",
+            "completed": false
+          },
+          {
+            "id": 290,
+            "name": "Immortal Raid Team",
+            "completed": false
+          },
+          {
+            "id": 291,
+            "name": "Immortal Raider",
+            "completed": false
+          },
+          {
+            "id": 293,
+            "name": "Chambers of Xeric: CM (Solo) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 295,
+            "name": "Chambers of Xeric: CM (5-Scale) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 297,
+            "name": "Chambers of Xeric: CM (Trio) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 300,
+            "name": "Chambers of Xeric Master",
+            "completed": false
+          },
+          {
+            "id": 304,
+            "name": "No Time for Death",
+            "completed": false
+          },
+          {
+            "id": 305,
+            "name": "Putting It Olm on the Line",
+            "completed": false
+          },
+          {
+            "id": 306,
+            "name": "A Not So Special Lizard",
+            "completed": false
+          },
+          {
+            "id": 309,
+            "name": "Stop Drop and Roll",
+            "completed": false
+          },
+          {
+            "id": 310,
+            "name": "Anvil No More",
+            "completed": false
+          },
+          {
+            "id": 313,
+            "name": "Undying Raider",
+            "completed": false
+          },
+          {
+            "id": 315,
+            "name": "Playing with Lasers",
+            "completed": false
+          },
+          {
+            "id": 317,
+            "name": "Perfect Olm (Solo)",
+            "completed": false
+          },
+          {
+            "id": 318,
+            "name": "Perfect Olm (Trio)",
+            "completed": false
+          },
+          {
+            "id": 319,
+            "name": "Blind Spot",
+            "completed": false
+          },
+          {
+            "id": 322,
+            "name": "Chambers of Xeric (Solo) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 326,
+            "name": "Chambers of Xeric (Trio) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 324,
+            "name": "Chambers of Xeric (5-Scale) Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 346,
+            "name": "Nibblers, Begone!",
+            "completed": false
+          },
+          {
+            "id": 362,
+            "name": "The IV Jad Challenge",
+            "completed": false
+          },
+          {
+            "id": 365,
+            "name": "TzHaar-Ket-Rak's Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 368,
+            "name": "Facing Jad Head-on IV",
+            "completed": false
+          },
+          {
+            "id": 369,
+            "name": "Supplies? Who Needs 'em?",
+            "completed": false
+          },
+          {
+            "id": 371,
+            "name": "Multi-Style Specialist",
+            "completed": false
+          },
+          {
+            "id": 381,
+            "name": "Hard Mode? Completed It",
+            "completed": false
+          },
+          {
+            "id": 396,
+            "name": "Theatre of Blood: SM Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 401,
+            "name": "Phosani's Master",
+            "completed": false
+          },
+          {
+            "id": 404,
+            "name": "Phosani's Speedchaser",
+            "completed": false
+          },
+          {
+            "id": 406,
+            "name": "Crush Hour",
+            "completed": false
+          },
+          {
+            "id": 407,
+            "name": "I Would Simply React",
+            "completed": false
+          },
+          {
+            "id": 408,
+            "name": "Dreamland Express",
+            "completed": false
+          },
+          {
+            "id": 411,
+            "name": "Nex Master",
+            "completed": false
+          },
+          {
+            "id": 413,
+            "name": "A siphon will solve this",
+            "completed": false
+          },
+          {
+            "id": 414,
+            "name": "Contain this!",
+            "completed": false
+          },
+          {
+            "id": 415,
+            "name": "There is no escape!",
+            "completed": false
+          },
+          {
+            "id": 416,
+            "name": "Nex Trio",
+            "completed": false
+          },
+          {
+            "id": 420,
+            "name": "Shadows Move...",
+            "completed": false
+          },
+          {
+            "id": 424,
+            "name": "You are not prepared",
+            "completed": false
+          },
+          {
+            "id": 466,
+            "name": "Tomb Looter",
+            "completed": false
+          },
+          {
+            "id": 467,
+            "name": "Tomb Raider",
+            "completed": false
+          },
+          {
+            "id": 421,
+            "name": "Tombs Speed Runner",
+            "completed": false
+          },
+          {
+            "id": 447,
+            "name": "Something of an expert myself",
+            "completed": false
+          },
+          {
+            "id": 470,
+            "name": "Expert Tomb Looter",
+            "completed": false
+          },
+          {
+            "id": 453,
+            "name": "Ba-Bananza",
+            "completed": false
+          },
+          {
+            "id": 455,
+            "name": "Rockin' around the croc",
+            "completed": false
+          },
+          {
+            "id": 456,
+            "name": "Doesn't bug me",
+            "completed": false
+          },
+          {
+            "id": 457,
+            "name": "All out of medics",
+            "completed": false
+          },
+          {
+            "id": 459,
+            "name": "Better get movin'",
+            "completed": false
+          },
+          {
+            "id": 460,
+            "name": "Warden't you believe it",
+            "completed": false
+          },
+          {
+            "id": 426,
+            "name": "Resourceful Raider",
+            "completed": false
+          },
+          {
+            "id": 427,
+            "name": "But... Damage",
+            "completed": false
+          },
+          {
+            "id": 428,
+            "name": "Chompington",
+            "completed": false
+          },
+          {
+            "id": 429,
+            "name": "Fancy feet",
+            "completed": false
+          },
+          {
+            "id": 433,
+            "name": "Perfect Akkha",
+            "completed": false
+          },
+          {
+            "id": 436,
+            "name": "Perfect Ba-Ba",
+            "completed": false
+          },
+          {
+            "id": 439,
+            "name": "Perfect Zebak",
+            "completed": false
+          },
+          {
+            "id": 441,
+            "name": "Perfect Scabaras",
+            "completed": false
+          },
+          {
+            "id": 442,
+            "name": "Perfect Kephri",
+            "completed": false
+          },
+          {
+            "id": 444,
+            "name": "Perfect Wardens",
+            "completed": false
+          },
+          {
+            "id": 472,
+            "name": "More than just a ranged weapon",
+            "completed": false
+          },
+          {
+            "id": 474,
+            "name": "Essence Farmer",
+            "completed": false
+          },
+          {
+            "id": 476,
+            "name": "Phantom Muspah Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 480,
+            "name": "Phantom Muspah Master",
+            "completed": false
+          },
+          {
+            "id": 483,
+            "name": "Walk Straight Pray True",
+            "completed": false
+          },
+          {
+            "id": 481,
+            "name": "Space is Tight",
+            "completed": false
+          },
+          {
+            "id": 500,
+            "name": "Perfect Whisperer",
+            "completed": false
+          },
+          {
+            "id": 516,
+            "name": "Duke Sucellus Master",
+            "completed": false
+          },
+          {
+            "id": 489,
+            "name": "Vardorvis Master",
+            "completed": false
+          },
+          {
+            "id": 498,
+            "name": "Whisperer Master",
+            "completed": false
+          },
+          {
+            "id": 507,
+            "name": "Leviathan Master",
+            "completed": false
+          },
+          {
+            "id": 513,
+            "name": "Duke Sucellus Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 486,
+            "name": "Vardorvis Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 495,
+            "name": "Whisperer Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 504,
+            "name": "Leviathan Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 519,
+            "name": "Cold Feet",
+            "completed": false
+          },
+          {
+            "id": 518,
+            "name": "Perfect Duke Sucellus",
+            "completed": false
+          },
+          {
+            "id": 510,
+            "name": "Serpentine Solo",
+            "completed": false
+          },
+          {
+            "id": 509,
+            "name": "Perfect Leviathan",
+            "completed": false
+          },
+          {
+            "id": 493,
+            "name": "Budget Cutter",
+            "completed": false
+          },
+          {
+            "id": 491,
+            "name": "Perfect Vardorvis",
+            "completed": false
+          },
+          {
+            "id": 538,
+            "name": "Sportsmanship",
+            "completed": false
+          },
+          {
+            "id": 540,
+            "name": "I Brought Mine Too",
+            "completed": false
+          },
+          {
+            "id": 544,
+            "name": "Showboating",
+            "completed": false
+          },
+          {
+            "id": 546,
+            "name": "One-off",
+            "completed": false
+          },
+          {
+            "id": 549,
+            "name": "Colosseum Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 554,
+            "name": "Three Times the Thrashing",
+            "completed": false
+          },
+          {
+            "id": 557,
+            "name": "Araxxor Master",
+            "completed": false
+          },
+          {
+            "id": 559,
+            "name": "Araxxor Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 561,
+            "name": "Perfect Araxxor",
+            "completed": false
+          },
+          {
+            "id": 563,
+            "name": "Let it seep in",
+            "completed": false
+          },
+          {
+            "id": 566,
+            "name": "Araxyte Betrayal",
+            "completed": false
+          },
+          {
+            "id": 567,
+            "name": "Arachnid Lover",
+            "completed": false
+          },
+          {
+            "id": 573,
+            "name": "Is it a bird?",
+            "completed": false
+          },
+          {
+            "id": 577,
+            "name": "Hueycoatl Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 600,
+            "name": "Yama Veteran",
+            "completed": false
+          },
+          {
+            "id": 602,
+            "name": "Yama Speed-Chaser",
+            "completed": false
+          },
+          {
+            "id": 604,
+            "name": "No toppings, no drinks, thanks",
+            "completed": false
+          },
+          {
+            "id": 605,
+            "name": "Shadow dancer",
+            "completed": false
+          },
+          {
+            "id": 606,
+            "name": "Fire fighter",
+            "completed": false
+          },
+          {
+            "id": 611,
+            "name": "Doom Veteran",
+            "completed": false
+          },
+          {
+            "id": 614,
+            "name": "Mokhaiotl Drift",
+            "completed": false
+          },
+          {
+            "id": 615,
+            "name": "Grub Patrol",
+            "completed": false
+          },
+          {
+            "id": 620,
+            "name": "Mine's Better",
+            "completed": false
+          },
+          {
+            "id": 622,
+            "name": "Doom Chaser",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "name": "Grandmaster",
+        "completed": 0,
+        "total": 121,
+        "tasks": [
+          {
+            "id": 14,
+            "name": "The Worst Ranged Weapon",
+            "completed": false
+          },
+          {
+            "id": 15,
+            "name": "Feather Hunter",
+            "completed": false
+          },
+          {
+            "id": 21,
+            "name": "Defence Matters",
+            "completed": false
+          },
+          {
+            "id": 22,
+            "name": "Keep Away",
+            "completed": false
+          },
+          {
+            "id": 23,
+            "name": "Ourg Killer",
+            "completed": false
+          },
+          {
+            "id": 94,
+            "name": "Grotesque Guardians Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 100,
+            "name": "Corrupted Gauntlet Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 104,
+            "name": "Egniol Diet II",
+            "completed": false
+          },
+          {
+            "id": 106,
+            "name": "Wolf Puncher II",
+            "completed": false
+          },
+          {
+            "id": 108,
+            "name": "Corrupted Gauntlet Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 118,
+            "name": "Gauntlet Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 143,
+            "name": "No Pressure",
+            "completed": false
+          },
+          {
+            "id": 145,
+            "name": "Alchemical Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 151,
+            "name": "Denying the Healers II",
+            "completed": false
+          },
+          {
+            "id": 154,
+            "name": "No Time for a Drink",
+            "completed": false
+          },
+          {
+            "id": 156,
+            "name": "Fight Caves Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 186,
+            "name": "Terrible Parent",
+            "completed": false
+          },
+          {
+            "id": 190,
+            "name": "A Long Trip",
+            "completed": false
+          },
+          {
+            "id": 193,
+            "name": "Nightmare (Solo) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 196,
+            "name": "Nightmare (5-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 214,
+            "name": "Animal Whisperer",
+            "completed": false
+          },
+          {
+            "id": 217,
+            "name": "Peach Conjurer",
+            "completed": false
+          },
+          {
+            "id": 232,
+            "name": "Zulrah Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 239,
+            "name": "Theatre of Blood Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 243,
+            "name": "Perfect Theatre",
+            "completed": false
+          },
+          {
+            "id": 252,
+            "name": "Morytania Only",
+            "completed": false
+          },
+          {
+            "id": 254,
+            "name": "Theatre (Duo) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 256,
+            "name": "Theatre (Trio) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 258,
+            "name": "Theatre (4-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 260,
+            "name": "Theatre (5-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 274,
+            "name": "Faithless Encounter",
+            "completed": false
+          },
+          {
+            "id": 275,
+            "name": "The Fremennik Way",
+            "completed": false
+          },
+          {
+            "id": 277,
+            "name": "Vorkath Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 289,
+            "name": "Chambers of Xeric: CM Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 294,
+            "name": "Chambers of Xeric: CM (Solo) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 296,
+            "name": "Chambers of Xeric: CM (5-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 298,
+            "name": "Chambers of Xeric: CM (Trio) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 301,
+            "name": "Chambers of Xeric Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 323,
+            "name": "Chambers of Xeric (Solo) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 327,
+            "name": "Chambers of Xeric (Trio) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 325,
+            "name": "Chambers of Xeric (5-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 338,
+            "name": "Demon Whisperer",
+            "completed": false
+          },
+          {
+            "id": 340,
+            "name": "Ash Collector",
+            "completed": false
+          },
+          {
+            "id": 342,
+            "name": "Inferno Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 343,
+            "name": "The Floor Is Lava",
+            "completed": false
+          },
+          {
+            "id": 344,
+            "name": "Playing with Jads",
+            "completed": false
+          },
+          {
+            "id": 345,
+            "name": "No Luck Required",
+            "completed": false
+          },
+          {
+            "id": 347,
+            "name": "Wasn't Even Close",
+            "completed": false
+          },
+          {
+            "id": 348,
+            "name": "Budget Setup",
+            "completed": false
+          },
+          {
+            "id": 349,
+            "name": "Nibbler Chaser",
+            "completed": false
+          },
+          {
+            "id": 350,
+            "name": "Facing Jad Head-on II",
+            "completed": false
+          },
+          {
+            "id": 351,
+            "name": "Jad? What Are You Doing Here?",
+            "completed": false
+          },
+          {
+            "id": 352,
+            "name": "Inferno Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 363,
+            "name": "The VI Jad Challenge",
+            "completed": false
+          },
+          {
+            "id": 366,
+            "name": "TzHaar-Ket-Rak's Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 370,
+            "name": "It Wasn't a Fluke",
+            "completed": false
+          },
+          {
+            "id": 372,
+            "name": "Stop Right There!",
+            "completed": false
+          },
+          {
+            "id": 373,
+            "name": "Personal Space",
+            "completed": false
+          },
+          {
+            "id": 374,
+            "name": "Royal Affairs",
+            "completed": false
+          },
+          {
+            "id": 375,
+            "name": "Harder Mode I",
+            "completed": false
+          },
+          {
+            "id": 376,
+            "name": "Harder Mode II",
+            "completed": false
+          },
+          {
+            "id": 377,
+            "name": "Nylo Sniper",
+            "completed": false
+          },
+          {
+            "id": 378,
+            "name": "Team Work Makes the Dream Work",
+            "completed": false
+          },
+          {
+            "id": 379,
+            "name": "Harder Mode III",
+            "completed": false
+          },
+          {
+            "id": 380,
+            "name": "Pack Like a Yak",
+            "completed": false
+          },
+          {
+            "id": 382,
+            "name": "Theatre: HM (Trio) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 383,
+            "name": "Theatre: HM (4-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 384,
+            "name": "Theatre: HM (5-Scale) Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 385,
+            "name": "Theatre of Blood: HM Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 402,
+            "name": "Phosani's Grandmaster",
+            "completed": false
+          },
+          {
+            "id": 403,
+            "name": "Perfect Phosani's Nightmare",
+            "completed": false
+          },
+          {
+            "id": 405,
+            "name": "Phosani's Speedrunner",
+            "completed": false
+          },
+          {
+            "id": 409,
+            "name": "Can't Wake Up",
+            "completed": false
+          },
+          {
+            "id": 417,
+            "name": "Nex Duo",
+            "completed": false
+          },
+          {
+            "id": 418,
+            "name": "I should see a doctor",
+            "completed": false
+          },
+          {
+            "id": 419,
+            "name": "Perfect Nex",
+            "completed": false
+          },
+          {
+            "id": 422,
+            "name": "Tombs Speed Runner II",
+            "completed": false
+          },
+          {
+            "id": 423,
+            "name": "Tombs Speed Runner III",
+            "completed": false
+          },
+          {
+            "id": 446,
+            "name": "Amascut's Remnant",
+            "completed": false
+          },
+          {
+            "id": 448,
+            "name": "Maybe I'm the boss.",
+            "completed": false
+          },
+          {
+            "id": 471,
+            "name": "Expert Tomb Raider",
+            "completed": false
+          },
+          {
+            "id": 450,
+            "name": "Akkhan't Do it",
+            "completed": false
+          },
+          {
+            "id": 454,
+            "name": "All Praise Zebak",
+            "completed": false
+          },
+          {
+            "id": 434,
+            "name": "Perfection of Het",
+            "completed": false
+          },
+          {
+            "id": 437,
+            "name": "Perfection of Apmeken",
+            "completed": false
+          },
+          {
+            "id": 440,
+            "name": "Perfection of Crondis",
+            "completed": false
+          },
+          {
+            "id": 443,
+            "name": "Perfection of Scabaras",
+            "completed": false
+          },
+          {
+            "id": 445,
+            "name": "Insanity",
+            "completed": false
+          },
+          {
+            "id": 484,
+            "name": "Phantom Muspah Manipulator",
+            "completed": false
+          },
+          {
+            "id": 477,
+            "name": "Phantom Muspah Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 517,
+            "name": "Duke Sucellus Sleeper",
+            "completed": false
+          },
+          {
+            "id": 490,
+            "name": "Vardorvis Sleeper",
+            "completed": false
+          },
+          {
+            "id": 499,
+            "name": "Whispered",
+            "completed": false
+          },
+          {
+            "id": 508,
+            "name": "Leviathan Sleeper",
+            "completed": false
+          },
+          {
+            "id": 514,
+            "name": "Duke Sucellus Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 487,
+            "name": "Vardorvis Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 496,
+            "name": "Whisperer Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 505,
+            "name": "Leviathan Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 492,
+            "name": "Axe Enthusiast",
+            "completed": false
+          },
+          {
+            "id": 511,
+            "name": "Unconventional",
+            "completed": false
+          },
+          {
+            "id": 502,
+            "name": "Dark Memories",
+            "completed": false
+          },
+          {
+            "id": 520,
+            "name": "Mirror Image",
+            "completed": false
+          },
+          {
+            "id": 539,
+            "name": "Colosseum Grand Champion",
+            "completed": false
+          },
+          {
+            "id": 541,
+            "name": "Slow Dancing in the Sand",
+            "completed": false
+          },
+          {
+            "id": 543,
+            "name": "Perfect Footwork",
+            "completed": false
+          },
+          {
+            "id": 547,
+            "name": "Reinforcements",
+            "completed": false
+          },
+          {
+            "id": 550,
+            "name": "Colosseum Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 560,
+            "name": "Araxxor Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 562,
+            "name": "Perfect Araxxor 2",
+            "completed": false
+          },
+          {
+            "id": 565,
+            "name": "Swimming in Venom",
+            "completed": false
+          },
+          {
+            "id": 578,
+            "name": "Hueycoatl Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 609,
+            "name": "Contractually Unbound",
+            "completed": false
+          },
+          {
+            "id": 603,
+            "name": "Yama Speed-Runner",
+            "completed": false
+          },
+          {
+            "id": 608,
+            "name": "Contract Choreographer",
+            "completed": false
+          },
+          {
+            "id": 612,
+            "name": "It's Dark Down Here",
+            "completed": false
+          },
+          {
+            "id": 616,
+            "name": "Perfect Doom",
+            "completed": false
+          },
+          {
+            "id": 617,
+            "name": "The Praying Mantis",
+            "completed": false
+          },
+          {
+            "id": 618,
+            "name": "Duel of Mokhaiotl",
+            "completed": false
+          },
+          {
+            "id": 619,
+            "name": "Darkness Is Your Ally?",
+            "completed": false
+          },
+          {
+            "id": 623,
+            "name": "Doom Racer",
+            "completed": false
+          },
+          {
+            "id": 624,
+            "name": "Mopping up",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  },
+  "slayer": {
+    "points": 221,
+    "tasksCompletedStreak": 154,
+    "wildernessTasksCompleted": 0,
+    "currentTask": {
+      "hasTask": false,
+      "taskId": 18,
+      "name": "Trolls",
+      "amountRemaining": 0,
+      "initialAmount": 180,
+      "areaId": 0,
+      "assignedMasterId": 5,
+      "assignedMasterName": "Nieve",
+      "bossId": 0
+    },
+    "unlocks": {
+      "redDragons": 0,
+      "mithrilDragons": 0,
+      "aviansies": 0,
+      "tzhaar": 0,
+      "lizardmen": 0,
+      "basilisks": 0,
+      "vampyres": 0,
+      "warpedCreatures": 0,
+      "aquanites": 0,
+      "gryphons": 0,
+      "bosses": 0,
+      "superiorMonsters": 1,
+      "grotesqueGuardiansKills": 0,
+      "notedMithrilBars": 0,
+      "fossilIslandWyvernBlock": 0,
+      "wildernessExtraTasks": 1,
+      "slayerHelmet": 0,
+      "taskStorage": 0,
+      "slayerHelmetBlack": 0,
+      "slayerHelmetGreen": 0,
+      "slayerHelmetRed": 0,
+      "slayerHelmetPurple": 0,
+      "slayerHelmetTurquoise": 0,
+      "slayerHelmetHydra": 0,
+      "slayerHelmetTwisted": 0,
+      "slayerHelmetAraxyte": 0
+    },
+    "taskExtensions": {
+      "aberrantSpectres": 0,
+      "abyssalDemons": 0,
+      "adamantDragons": 0,
+      "ankou": 0,
+      "aquanites": 0,
+      "araxytes": 0,
+      "aviansies": 0,
+      "basilisks": 0,
+      "blackDemons": 0,
+      "blackDragons": 0,
+      "bloodveld": 0,
+      "caveHorrors": 0,
+      "caveKraken": 0,
+      "custodians": 0,
+      "darkBeasts": 0,
+      "dustDevils": 1,
+      "fossilIslandWyverns": 0,
+      "gargoyles": 0,
+      "greaterDemons": 0,
+      "metalDragons": 0,
+      "mithrilDragons": 0,
+      "nechryael": 0,
+      "revenants": 0,
+      "runeDragons": 0,
+      "scabarites": 0,
+      "skeletalWyverns": 0,
+      "spiritualCreatures": 0,
+      "suqahs": 0,
+      "vampyres": 0,
+      "wyrms": 0
+    },
+    "autoKill": {
+      "desertLizards": 0,
+      "gargoyles": 0,
+      "rockslugs": 1,
+      "zygomites": 0
+    },
+    "blockLists": {
+      "turael": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 2,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 3,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 4,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 5,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "mazchna": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": true,
+            "taskId": 73,
+            "name": "Killerwatts"
+          },
+          {
+            "slot": 2,
+            "blocked": true,
+            "taskId": 64,
+            "name": "Shades"
+          },
+          {
+            "slot": 3,
+            "blocked": true,
+            "taskId": 67,
+            "name": "Mogres"
+          },
+          {
+            "slot": 4,
+            "blocked": true,
+            "taskId": 19,
+            "name": "Ice Warriors"
+          },
+          {
+            "slot": 5,
+            "blocked": true,
+            "taskId": 44,
+            "name": "Cockatrice"
+          },
+          {
+            "slot": 6,
+            "blocked": true,
+            "taskId": 61,
+            "name": "Wall Beasts"
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "vannaka": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 2,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 3,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 4,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 5,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "chaeldar": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 2,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 3,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 4,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 5,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "konar": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": true,
+            "taskId": 127,
+            "name": "Metal Dragons"
+          },
+          {
+            "slot": 2,
+            "blocked": true,
+            "taskId": 111,
+            "name": "Wyrms"
+          },
+          {
+            "slot": 3,
+            "blocked": true,
+            "taskId": 30,
+            "name": "Black Demons"
+          },
+          {
+            "slot": 4,
+            "blocked": true,
+            "taskId": 31,
+            "name": "Hellhounds"
+          },
+          {
+            "slot": 5,
+            "blocked": true,
+            "taskId": 35,
+            "name": "Dagannoth"
+          },
+          {
+            "slot": 6,
+            "blocked": true,
+            "taskId": 16,
+            "name": "Fire Giants"
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "nieve": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": true,
+            "taskId": 30,
+            "name": "Black Demons"
+          },
+          {
+            "slot": 2,
+            "blocked": true,
+            "taskId": 83,
+            "name": "Suqahs"
+          },
+          {
+            "slot": 3,
+            "blocked": true,
+            "taskId": 89,
+            "name": "Spiritual Creatures"
+          },
+          {
+            "slot": 4,
+            "blocked": true,
+            "taskId": 127,
+            "name": "Metal Dragons"
+          },
+          {
+            "slot": 5,
+            "blocked": true,
+            "taskId": 41,
+            "name": "Aberrant Spectres"
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "duradel": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": true,
+            "taskId": 29,
+            "name": "Greater Demons"
+          },
+          {
+            "slot": 2,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 3,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 4,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 5,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      },
+      "krystilia": {
+        "slots": [
+          {
+            "slot": 1,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 2,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 3,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 4,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 5,
+            "blocked": false,
+            "taskId": 0
+          },
+          {
+            "slot": 6,
+            "blocked": false,
+            "taskId": 0
+          }
+        ],
+        "diarySlot": {
+          "slot": 0,
+          "blocked": false,
+          "taskId": 0
+        }
+      }
+    }
+  }
+}
