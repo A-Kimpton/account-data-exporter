@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "exportVersion": "0.4.0",
+  "exportVersion": "0.5.0",
   "timestamp": 1782173612072,
   "timestampIso": "2026-06-23T00:13:32.072009500Z",
   "rsn": "ExampleAccount",
@@ -5015,9 +5015,11 @@
       "amountRemaining": 0,
       "initialAmount": 180,
       "areaId": 0,
+      "areaName": null,
       "assignedMasterId": 5,
       "assignedMasterName": "Nieve",
-      "bossId": 0
+      "bossId": 0,
+      "bossName": null
     },
     "unlocks": {
       "redDragons": 0,
