@@ -24,10 +24,12 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `schemaVersion` | int | Structure version. Bumped only on a breaking shape change. Currently `1`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.3.0"`). Informational. |
+| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.0.1"`). Currently `1.0.1`. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.5.0"`). Informational. |
 
-Consumers should branch on `schemaVersion`.
+`schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional).
+
+> Note: versions `1` (integer) predate this scheme and are equivalent to `1.0.0`. Consumers should accept either an integer or a semver string for `schemaVersion`.
 
 ## Section toggles & omission contract
 
@@ -67,7 +69,7 @@ The identity/meta header and value totals (below) are always present.
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `schemaVersion` | int | See Versioning. |
+| `schemaVersion` | string | Semver; see Versioning. |
 | `exportVersion` | string | See Versioning. |
 | `timestamp` | long | Epoch ms when the snapshot was built. |
 | `timestampIso` | string | ISO-8601 UTC equivalent. |

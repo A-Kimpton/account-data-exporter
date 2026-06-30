@@ -32,7 +32,7 @@ public class ModelSerializationTest
 	public void disabledSectionsAreOmitted()
 	{
 		Snapshot snapshot = Snapshot.builder()
-			.schemaVersion(1)
+			.schemaVersion("1.0.1")
 			.rsn("Zezima")
 			.build();
 

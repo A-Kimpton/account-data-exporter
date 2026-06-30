@@ -37,7 +37,9 @@ import net.runelite.client.game.ItemManager;
 @Singleton
 class SnapshotService
 {
-	static final int SCHEMA_VERSION = 1;
+	// Semantic schema version: major = breaking shape change, minor = new top-level
+	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
+	static final String SCHEMA_VERSION = "1.0.1";
 	static final String EXPORT_VERSION = "0.5.0";
 
 	@Inject

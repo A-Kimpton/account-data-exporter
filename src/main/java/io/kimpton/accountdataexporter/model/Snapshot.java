@@ -10,7 +10,7 @@ import lombok.Value;
 @Builder
 public class Snapshot
 {
-	int schemaVersion;
+	String schemaVersion; // semver: major=breaking, minor=new content block, patch=added fields
 	String exportVersion;
 	long timestamp;
 	String timestampIso;
