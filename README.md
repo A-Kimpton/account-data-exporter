@@ -41,3 +41,4 @@ This tool was absolutely built with AI (claude) however I am also a software eng
 - But please write your own PR or issue descriptions, and do not use AI to write it for you. I want to know your thoughts and reasoning, not an AI's; its too easy to throw up a bunch of waffle with AI.
 - Any breaking changes to the schema will be considered a major version bump, and I will not accept PRs that break the schema without a good reason. If you want to add new fields, please do so in a backwards compatible way.
 - Always update the [`example.json`](example.json) file with any new fields you add, and update the [`SCHEMA.md`](SCHEMA.md) file with any changes to the schema.
+- For any schema shape change, bump `schemaVersion` per semver (major = breaking, minor = new content block, patch = added fields) and add a matching [`SCHEMA_CHANGELOG.md`](SCHEMA_CHANGELOG.md) entry with an example block.
