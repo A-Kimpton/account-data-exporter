@@ -294,7 +294,8 @@ last-known-good copy is retained and served when the live container is unavailab
 | `name` | string \| null | Resolved from the SlayerTask DB table; null if unknown. |
 | `amountRemaining` | int | |
 | `initialAmount` | int | Originally assigned amount. |
-| `areaId` | int | |
+| `areaId` | int | Konar slayer-area varp (0 = no area). |
+| `areaName` | string \| null | Konar's required location, decoded from the SlayerArea DB table (the in-game slayer-helper name, e.g. `Taverley Dungeon`); null when `areaId` is 0 or unknown. |
 | `assignedMasterId` | int | |
 | `assignedMasterName` | string \| null | e.g. `Nieve`. |
 | `bossId` | int | Boss-task id (0 if none). |

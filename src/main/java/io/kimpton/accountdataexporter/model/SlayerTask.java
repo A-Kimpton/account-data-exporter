@@ -11,6 +11,7 @@ public class SlayerTask
 	int amountRemaining;
 	int initialAmount;
 	int areaId;
+	String areaName;
 	int assignedMasterId;
 	String assignedMasterName;
 	int bossId;

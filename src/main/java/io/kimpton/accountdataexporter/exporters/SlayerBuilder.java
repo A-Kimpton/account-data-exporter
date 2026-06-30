@@ -57,9 +57,43 @@ public class SlayerBuilder
 			amountRemaining,
 			initialAmount,
 			areaId,
+			lookupAreaName(areaId),
 			masterId,
 			masterName(masterId),
 			bossId);
+	}
+
+	// Decode the Konar slayer-area varp into its human-readable location (the name
+	// shown in the in-game slayer helper), via the SlayerArea DB table — the same
+	// lookup RuneLite's Slayer plugin uses. 0/none -> null.
+	private String lookupAreaName(int areaId)
+	{
+		if (areaId <= 0)
+		{
+			return null;
+		}
+
+		try
+		{
+			List<Integer> rows = client.getDBRowsByValue(DBTableID.SlayerArea.ID, DBTableID.SlayerArea.COL_AREA_ID, 0, areaId);
+			if (rows == null || rows.isEmpty())
+			{
+				return null;
+			}
+
+			Object[] nameField = client.getDBTableField(rows.get(0), DBTableID.SlayerArea.COL_AREA_NAME_IN_HELPER, 0);
+			if (nameField == null || nameField.length == 0 || nameField[0] == null)
+			{
+				return null;
+			}
+
+			return String.valueOf(nameField[0]);
+		}
+		catch (Exception e)
+		{
+			log.debug("Could not resolve slayer area name for id {}", areaId, e);
+			return null;
+		}
 	}
 
 	private String masterName(int masterId)
