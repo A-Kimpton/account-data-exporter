@@ -27,7 +27,7 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 | `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.0.1"`). Currently `1.0.1`. |
 | `exportVersion` | string | Plugin/export build version (e.g. `"0.5.0"`). Informational. |
 
-`schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional).
+`schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
 > Note: versions `1` (integer) predate this scheme and are equivalent to `1.0.0`. Consumers should accept either an integer or a semver string for `schemaVersion`.
 
