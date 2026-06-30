@@ -15,4 +15,5 @@ public class SlayerTask
 	int assignedMasterId;
 	String assignedMasterName;
 	int bossId;
+	String bossName;
 }

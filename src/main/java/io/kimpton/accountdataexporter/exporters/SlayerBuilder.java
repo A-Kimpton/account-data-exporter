@@ -60,7 +60,48 @@ public class SlayerBuilder
 			lookupAreaName(areaId),
 			masterId,
 			masterName(masterId),
-			bossId);
+			bossId,
+			lookupBossName(bossId));
+	}
+
+	// Decode a boss-slayer-task id (SLAYER_TARGET_BOSSID) into the boss's name,
+	// via the SlayerTaskSublist table (boss id -> task row) then the SlayerTask
+	// table's name column — the same path RuneLite's Slayer plugin uses. 0 -> null.
+	private String lookupBossName(int bossId)
+	{
+		if (bossId <= 0)
+		{
+			return null;
+		}
+
+		try
+		{
+			List<Integer> bossRows = client.getDBRowsByValue(DBTableID.SlayerTaskSublist.ID, DBTableID.SlayerTaskSublist.COL_TASK_SUBTABLE_ID, 0, bossId);
+			if (bossRows == null || bossRows.isEmpty())
+			{
+				return null;
+			}
+
+			Object[] taskField = client.getDBTableField(bossRows.get(0), DBTableID.SlayerTaskSublist.COL_TASK, 0);
+			if (taskField == null || taskField.length == 0 || taskField[0] == null)
+			{
+				return null;
+			}
+
+			int taskRow = ((Number) taskField[0]).intValue();
+			Object[] nameField = client.getDBTableField(taskRow, DBTableID.SlayerTask.COL_NAME_UPPERCASE, 0);
+			if (nameField == null || nameField.length == 0 || nameField[0] == null)
+			{
+				return null;
+			}
+
+			return String.valueOf(nameField[0]);
+		}
+		catch (Exception e)
+		{
+			log.debug("Could not resolve slayer boss name for id {}", bossId, e);
+			return null;
+		}
 	}
 
 	// Decode the Konar slayer-area varp into its human-readable location (the name
