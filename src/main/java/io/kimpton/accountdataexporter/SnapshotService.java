@@ -16,6 +16,7 @@ import io.kimpton.accountdataexporter.model.Snapshot;
 import io.kimpton.accountdataexporter.model.Status;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,8 +40,8 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.0.1";
-	static final String EXPORT_VERSION = "0.5.0";
+	static final String SCHEMA_VERSION = "1.0.2";
+	static final String EXPORT_VERSION = "0.6.0";
 
 	@Inject
 	private Client client;
@@ -73,6 +74,10 @@ class SnapshotService
 	private final ContainerCache equipmentCache = new ContainerCache();
 	private final ContainerCache bankCache = new ContainerCache();
 
+	// Item names never change within a session; caching avoids a composition
+	// lookup per bank stack per export on the client thread.
+	private final Map<Integer, String> itemNameCache = new HashMap<>();
+
 	void resetCaches()
 	{
 		inventoryCache.reset();
@@ -80,7 +85,8 @@ class SnapshotService
 		bankCache.reset();
 	}
 
-	/** Seeds the container caches from a previously persisted snapshot (call off the client thread). */
+	/** Seeds the container caches from a previously persisted snapshot. Invoked on the client
+	 *  thread (via {@code ClientThread.invokeLater}) — the caches are client-thread-confined. */
 	void seedFromPrevious(Snapshot previous)
 	{
 		if (previous == null)
@@ -162,7 +168,7 @@ class SnapshotService
 		}
 		if (config.exportCombatAchievements())
 		{
-			b.combatAchievements(combatAchievementBuilder.build());
+			b.combatAchievements(combatAchievementBuilder.build(config.exportCombatAchievementTasks()));
 		}
 		if (config.exportSlayer())
 		{
@@ -183,6 +189,11 @@ class SnapshotService
 	private static long containerValue(Container container)
 	{
 		return container != null && container.isLoaded() ? container.getValue() : 0;
+	}
+
+	private String itemName(int id)
+	{
+		return itemNameCache.computeIfAbsent(id, i -> itemManager.getItemComposition(i).getName());
 	}
 
 	// accountTypeName maps the IRONMAN account-type varbit to a stable slug.
@@ -279,7 +290,7 @@ class SnapshotService
 
 			totalValue += value;
 			itemCount++;
-			items.add(new ItemStack(slot, id, itemManager.getItemComposition(id).getName(), quantity, price, value));
+			items.add(new ItemStack(slot, id, itemName(id), quantity, price, value));
 		}
 
 		return new Container(true, false, System.currentTimeMillis(), totalValue, itemCount, items);

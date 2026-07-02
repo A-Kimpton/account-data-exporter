@@ -13,6 +13,27 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.0.2 — combat achievement task list is now optional
+
+**Patch** · an existing field may now be absent · backward-compatible for consumers
+that already treat missing fields as "not exported" (as SCHEMA.md instructs).
+
+The plugin gained a **"Combat achievement task list"** config toggle (default on).
+When off, `combatAchievements.tiers[].tasks` is omitted and only the per-tier
+`completed`/`total` counts are exported — the task list dominates snapshot size
+(~550 entries). No new fields.
+
+| Field | Change |
+|-------|--------|
+| `combatAchievements.tiers[].tasks` | May be absent (config toggle off). Counts remain. |
+
+Plugin builds `0.6.0+` also skip writing snapshots whose content hasn't changed
+(a heartbeat write still lands at least every 2 minutes while logged in). This is
+a behaviour change, not a shape change — noted here because consumers polling
+file mtimes will see far fewer updates while the player idles.
+
+---
+
 ## 1.0.1 — decoded slayer area + boss names
 
 **Patch** · additive fields on the existing `slayer.currentTask` block · backward-compatible.

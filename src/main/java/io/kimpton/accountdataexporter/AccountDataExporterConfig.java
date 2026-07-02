@@ -171,4 +171,16 @@ public interface AccountDataExporterConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+		keyName = "exportCombatAchievementTasks",
+		name = "Combat achievement task list",
+		description = "<p width='250'>Include the full per-task list in the combat achievements section. Off exports tier totals only, which keeps the snapshot much smaller.</p>",
+		section = sectionsSection,
+		position = 13
+	)
+	default boolean exportCombatAchievementTasks()
+	{
+		return true;
+	}
 }

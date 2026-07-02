@@ -4,6 +4,7 @@ import io.kimpton.accountdataexporter.model.CaTask;
 import io.kimpton.accountdataexporter.model.CaTier;
 import io.kimpton.accountdataexporter.model.CombatAchievements;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,27 @@ public class CombatAchievementBuilder
 	@Inject
 	private Client client;
 
-	public CombatAchievements build()
+	// Task definitions (id + name) are static game data — read the enum/struct
+	// tables once per tier and only re-check the completion varps per export,
+	// instead of walking ~550 struct compositions on the client thread each time.
+	private final Map<Integer, List<TaskDef>> tierDefCache = new HashMap<>();
+	private boolean warnedEmpty;
+
+	private static final class TaskDef
+	{
+		final int id;
+		final String name;
+
+		TaskDef(int id, String name)
+		{
+			this.id = id;
+			this.name = name;
+		}
+	}
+
+	/** Builds the CA section. When {@code includeTasks} is false only tier totals are exported
+	 *  (the per-task list dominates snapshot size). */
+	public CombatAchievements build(boolean includeTasks)
 	{
 		List<CaTier> tiers = new ArrayList<>();
 		int totalCompleted = 0;
@@ -58,37 +79,67 @@ public class CombatAchievementBuilder
 
 		for (Map.Entry<Integer, String> tier : TIER_ENUMS.entrySet())
 		{
-			List<CaTask> tasks = new ArrayList<>();
+			List<TaskDef> defs = tierDefs(tier.getKey(), tier.getValue());
+			List<CaTask> tasks = includeTasks ? new ArrayList<>(defs.size()) : null;
 			int tierCompleted = 0;
 
-			try
+			for (TaskDef def : defs)
 			{
-				EnumComposition tierEnum = client.getEnum(tier.getKey());
-				for (int structId : tierEnum.getIntVals())
+				boolean completed = isCompleted(def.id);
+				if (completed)
 				{
-					StructComposition struct = client.getStructComposition(structId);
-					String name = struct.getStringValue(PARAM_TASK_NAME);
-					int id = struct.getIntValue(PARAM_TASK_ID);
-					boolean completed = isCompleted(id);
-
-					if (completed)
-					{
-						tierCompleted++;
-					}
-					tasks.add(new CaTask(id, name, completed));
+					tierCompleted++;
 				}
-			}
-			catch (RuntimeException e)
-			{
-				log.debug("Could not read combat achievement tier {}", tier.getValue(), e);
+				if (tasks != null)
+				{
+					tasks.add(new CaTask(def.id, def.name, completed));
+				}
 			}
 
 			totalCompleted += tierCompleted;
-			totalTasks += tasks.size();
-			tiers.add(new CaTier(tier.getValue(), tierCompleted, tasks.size(), tasks));
+			totalTasks += defs.size();
+			tiers.add(new CaTier(tier.getValue(), tierCompleted, defs.size(), tasks));
+		}
+
+		if (totalTasks == 0 && !warnedEmpty)
+		{
+			warnedEmpty = true;
+			log.warn("Combat achievements resolved 0 tasks — the tier enum/param ids may have shifted in a game update.");
 		}
 
 		return new CombatAchievements(totalCompleted, totalTasks, tiers);
+	}
+
+	/** Returns the (cached) task definitions for a tier. A failed/empty read is not cached, so a
+	 *  tier that wasn't loaded yet is retried on the next export. */
+	private List<TaskDef> tierDefs(int enumId, String tierName)
+	{
+		List<TaskDef> cached = tierDefCache.get(enumId);
+		if (cached != null)
+		{
+			return cached;
+		}
+
+		List<TaskDef> defs = new ArrayList<>();
+		try
+		{
+			EnumComposition tierEnum = client.getEnum(enumId);
+			for (int structId : tierEnum.getIntVals())
+			{
+				StructComposition struct = client.getStructComposition(structId);
+				defs.add(new TaskDef(struct.getIntValue(PARAM_TASK_ID), struct.getStringValue(PARAM_TASK_NAME)));
+			}
+		}
+		catch (RuntimeException e)
+		{
+			log.debug("Could not read combat achievement tier {}", tierName, e);
+			return defs;
+		}
+		if (!defs.isEmpty())
+		{
+			tierDefCache.put(enumId, defs);
+		}
+		return defs;
 	}
 
 	private boolean isCompleted(int taskId)

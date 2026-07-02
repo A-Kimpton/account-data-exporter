@@ -5,6 +5,7 @@ import io.kimpton.accountdataexporter.model.SlayerMasterBlocks;
 import io.kimpton.accountdataexporter.model.SlayerState;
 import io.kimpton.accountdataexporter.model.SlayerTask;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,12 @@ public class SlayerBuilder
 
 	@Inject
 	private Client client;
+
+	// DB-table name lookups are stable per game session — cache them so each
+	// export doesn't repeat cache-table scans for every block-list slot.
+	private final Map<Integer, String> taskNameCache = new HashMap<>();
+	private final Map<Integer, String> areaNameCache = new HashMap<>();
+	private final Map<Integer, String> bossNameCache = new HashMap<>();
 
 	public SlayerState build()
 	{
@@ -53,15 +60,36 @@ public class SlayerBuilder
 		return new SlayerTask(
 			taskId > 0 && amountRemaining > 0,
 			taskId,
-			lookupTaskName(taskId),
+			cachedName(taskNameCache, taskId, this::lookupTaskName),
 			amountRemaining,
 			initialAmount,
 			areaId,
-			lookupAreaName(areaId),
+			cachedName(areaNameCache, areaId, this::lookupAreaName),
 			masterId,
 			masterName(masterId),
 			bossId,
-			lookupBossName(bossId));
+			cachedName(bossNameCache, bossId, this::lookupBossName));
+	}
+
+	/** Cached id→name resolution. Failed lookups (null) are not cached, so names resolve on a
+	 *  later export once the game cache tables are available. */
+	private String cachedName(Map<Integer, String> cache, int id, java.util.function.IntFunction<String> lookup)
+	{
+		if (id <= 0)
+		{
+			return null;
+		}
+		String name = cache.get(id);
+		if (name != null)
+		{
+			return name;
+		}
+		name = lookup.apply(id);
+		if (name != null)
+		{
+			cache.put(id, name);
+		}
+		return name;
 	}
 
 	// Decode a boss-slayer-task id (SLAYER_TARGET_BOSSID) into the boss's name,
@@ -281,7 +309,7 @@ public class SlayerBuilder
 	private SlayerBlockSlot blockSlot(int slot, int varbitId)
 	{
 		int taskId = client.getVarbitValue(varbitId);
-		return new SlayerBlockSlot(slot, taskId > 0, taskId, taskId > 0 ? lookupTaskName(taskId) : null);
+		return new SlayerBlockSlot(slot, taskId > 0, taskId, cachedName(taskNameCache, taskId, this::lookupTaskName));
 	}
 
 	// Resolves the task/creature name for a SlayerTask id via RuneLite's DB-table API; null if unknown.
