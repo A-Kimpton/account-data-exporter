@@ -40,8 +40,8 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.0.2";
-	static final String EXPORT_VERSION = "0.6.0";
+	static final String SCHEMA_VERSION = "1.0.3";
+	static final String EXPORT_VERSION = "0.6.1";
 
 	@Inject
 	private Client client;

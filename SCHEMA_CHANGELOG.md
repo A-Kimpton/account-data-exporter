@@ -13,6 +13,16 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.0.3 — quest points
+
+**Patch** · one additive field · backward-compatible.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `quests.questPoints` | int | The player's quest points (QP varp). Consumers use it e.g. to know which slayer block slots are unlocked (one per 50 QP). |
+
+---
+
 ## 1.0.2 — combat achievement task list is now optional
 
 **Patch** · an existing field may now be absent · backward-compatible for consumers

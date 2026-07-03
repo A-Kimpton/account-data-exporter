@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.2",
-  "exportVersion": "0.6.0",
+  "schemaVersion": "1.0.3",
+  "exportVersion": "0.6.1",
   "timestamp": 1782173612072,
   "timestampIso": "2026-06-23T00:13:32.072009500Z",
   "rsn": "ExampleAccount",
@@ -437,6 +437,7 @@
   "quests": {
     "notStarted": 4,
     "inProgress": 4,
+    "questPoints": 44,
     "finished": 201,
     "unknown": 0,
     "total": 209,

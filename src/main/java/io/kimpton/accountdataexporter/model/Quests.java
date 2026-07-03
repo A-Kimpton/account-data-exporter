@@ -11,5 +11,6 @@ public class Quests
 	int finished;
 	int unknown;
 	int total;
+	int questPoints;
 	List<QuestEntry> entries;
 }

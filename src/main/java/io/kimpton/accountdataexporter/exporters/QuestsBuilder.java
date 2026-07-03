@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Quest;
 import net.runelite.api.QuestState;
+import net.runelite.api.gameval.VarPlayerID;
 
 public class QuestsBuilder
 {
@@ -55,6 +56,7 @@ public class QuestsBuilder
 		}
 
 		return new Quests(notStarted, inProgress, finished, unknown,
-			notStarted + inProgress + finished + unknown, entries);
+			notStarted + inProgress + finished + unknown,
+			client.getVarpValue(VarPlayerID.QP), entries);
 	}
 }
