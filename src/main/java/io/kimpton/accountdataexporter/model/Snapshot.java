@@ -45,6 +45,10 @@ public class Snapshot
 	Container bank;
 	Container seedVault;
 	Container lootingBag;
+	Container seedBox;
+	Container tackleBox;
+	Container forestryKit;
+	Container huntsmansKit;
 	List<Integer> bankTabSizes;
 	GrandExchange grandExchange;
 	Quests quests;

@@ -228,6 +228,18 @@ public interface AccountDataExporterConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "exportExtraContainers",
+		name = "Storage containers",
+		description = "<p width='250'>Export the seed box, tackle box, forestry kit and huntsman's kit (each loads when opened/checked).</p>",
+		section = sectionsSection,
+		position = 16
+	)
+	default boolean exportExtraContainers()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "exportCombatAchievementTasks",
 		name = "Combat achievement task list",
 		description = "<p width='250'>Include the full per-task list in the combat achievements section. Off exports tier totals only, which keeps the snapshot much smaller.</p>",

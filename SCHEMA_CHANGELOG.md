@@ -13,6 +13,16 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.3.0 — storage kit containers
+
+**Minor** · four new top-level content blocks · backward-compatible.
+
+`seedBox`, `tackleBox`, `forestryKit`, `huntsmansKit`: same container shape and
+last-known-good semantics as the bank. One "Storage containers" toggle covers
+all four (default on).
+
+---
+
 ## 1.2.0 — seed vault + looting bag containers
 
 **Minor** · two new top-level content blocks · backward-compatible.
