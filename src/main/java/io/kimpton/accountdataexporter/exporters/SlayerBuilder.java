@@ -200,7 +200,11 @@ public class SlayerBuilder
 		u.put("notedMithrilBars", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_NOTEDMITHRILBARS));
 		u.put("fossilIslandWyvernBlock", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_FOSSILWYVERNBLOCK));
 		u.put("wildernessExtraTasks", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_WILDY_EXTRATASKS));
-		u.put("slayerHelmet", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_HELM_HOODED));
+		// Malevolent Masquerade (craft slayer helmets). Gameval has no
+		// SLAYER_UNLOCK_* constant for it — SLAYER_HELM_UNLOCKED (3202) is the
+		// one; HELM_HOODED is the hooded cosmetic variant, exported separately.
+		u.put("slayerHelmet", client.getVarbitValue(VarbitID.SLAYER_HELM_UNLOCKED));
+		u.put("slayerHelmetHooded", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_HELM_HOODED));
 		u.put("taskStorage", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_STORAGE));
 		u.put("slayerHelmetBlack", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_HELM_BLACK));
 		u.put("slayerHelmetGreen", client.getVarbitValue(VarbitID.SLAYER_UNLOCK_HELM_GREEN));
