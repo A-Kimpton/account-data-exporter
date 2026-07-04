@@ -56,6 +56,12 @@ class AccountDataExporterPanel extends PluginPanel
 	private final JLabel lastExportLabel = smallLabel("No export yet this session.", ColorScheme.MEDIUM_GRAY_COLOR);
 	private final JPanel slayerSection = column();
 	private final JPanel rumourSection = column();
+	private JScrollPane scroll;
+
+	// Section content fingerprints: rebuilding tears the sections down (which
+	// blinks and resets the scrollbar), so only rebuild when the data changed.
+	private String slayerKey = "";
+	private String rumourKey = "";
 
 	AccountDataExporterPanel(File exportDirectory)
 	{
@@ -90,7 +96,7 @@ class AccountDataExporterPanel extends PluginPanel
 		content.add(Box.createVerticalStrut(4));
 		JButton open = new JButton("Open export folder");
 		open.setFocusPainted(false);
-		open.setFont(FontManager.getRunescapeSmallFont());
+		open.setFont(FontManager.getRunescapeFont());
 		open.setAlignmentX(Component.LEFT_ALIGNMENT);
 		open.addActionListener(e -> openFolder(exportDirectory));
 		content.add(open);
@@ -111,22 +117,46 @@ class AccountDataExporterPanel extends PluginPanel
 		// text wraps instead of pushing content (and the coffee button) off-screen.
 		ScrollableColumn north = new ScrollableColumn();
 		north.add(content, BorderLayout.NORTH);
-		JScrollPane scroll = new JScrollPane(north,
+		scroll = new JScrollPane(north,
 			JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setBorder(null);
 		scroll.getVerticalScrollBar().setUnitIncrement(16);
 		add(scroll, BorderLayout.CENTER);
 	}
 
-	/** Called on the EDT after each snapshot write. */
+	/** Called on the EDT after each snapshot write. Sections are only rebuilt
+	 *  when their data actually changed, and the scroll position is preserved —
+	 *  so routine exports don't blink or jump the panel. */
 	void update(Snapshot snapshot)
 	{
 		accountLabel.setText("Account: " + snapshot.getRsn());
 		lastExportLabel.setText("Last export: " + LocalTime.now().withNano(0));
-		rebuildSlayer(snapshot);
-		rebuildRumours(snapshot.getHunterRumours());
-		revalidate();
-		repaint();
+
+		// Lombok @Value toString covers every field, making a cheap change key.
+		String sk = String.valueOf(snapshot.getSlayer())
+			+ (snapshot.getQuests() != null ? snapshot.getQuests().getQuestPoints() : -1)
+			+ lumbridgeEliteDone(snapshot.getAchievementDiaries());
+		String rk = String.valueOf(snapshot.getHunterRumours());
+		boolean changed = false;
+		if (!sk.equals(slayerKey))
+		{
+			slayerKey = sk;
+			rebuildSlayer(snapshot);
+			changed = true;
+		}
+		if (!rk.equals(rumourKey))
+		{
+			rumourKey = rk;
+			rebuildRumours(snapshot.getHunterRumours());
+			changed = true;
+		}
+		if (changed)
+		{
+			final int pos = scroll.getVerticalScrollBar().getValue();
+			revalidate();
+			repaint();
+			javax.swing.SwingUtilities.invokeLater(() -> scroll.getVerticalScrollBar().setValue(pos));
+		}
 	}
 
 	private void rebuildSlayer(Snapshot snapshot)
@@ -298,7 +328,7 @@ class AccountDataExporterPanel extends PluginPanel
 	private JButton linkButton(String text, String url)
 	{
 		JButton b = new JButton(text);
-		b.setFont(FontManager.getRunescapeSmallFont());
+		b.setFont(FontManager.getRunescapeFont());
 		b.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
 		b.setToolTipText("Open on the OSRS Wiki");
 		b.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -348,7 +378,7 @@ class AccountDataExporterPanel extends PluginPanel
 	private static JLabel smallLabel(String text, java.awt.Color color)
 	{
 		JLabel l = new JLabel(text);
-		l.setFont(FontManager.getRunescapeSmallFont());
+		l.setFont(FontManager.getRunescapeFont());
 		l.setForeground(color);
 		l.setAlignmentX(Component.LEFT_ALIGNMENT);
 		return l;
@@ -358,7 +388,7 @@ class AccountDataExporterPanel extends PluginPanel
 	private static JLabel wrapLabel(String text, java.awt.Color color)
 	{
 		JLabel l = new JLabel("<html>" + text + "</html>");
-		l.setFont(FontManager.getRunescapeSmallFont());
+		l.setFont(FontManager.getRunescapeFont());
 		l.setForeground(color);
 		l.setAlignmentX(Component.LEFT_ALIGNMENT);
 		return l;
@@ -367,7 +397,7 @@ class AccountDataExporterPanel extends PluginPanel
 	private static JLabel sectionTitle(String text)
 	{
 		JLabel l = new JLabel(text.toUpperCase());
-		l.setFont(FontManager.getRunescapeSmallFont());
+		l.setFont(FontManager.getRunescapeFont());
 		l.setForeground(ColorScheme.BRAND_ORANGE);
 		l.setBorder(BorderFactory.createEmptyBorder(0, 0, 3, 0));
 		l.setAlignmentX(Component.LEFT_ALIGNMENT);
