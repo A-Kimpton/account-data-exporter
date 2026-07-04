@@ -28,7 +28,7 @@ public interface AccountDataExporterConfig extends Config
 		keyName = "exportIntervalTicks",
 		name = "Export interval",
 		description = "<p width='250'>Number of game ticks between snapshot exports. Lower values export more often.</p>",
-		position = 0
+		position = 1
 	)
 	default int exportIntervalTicks()
 	{
@@ -39,7 +39,7 @@ public interface AccountDataExporterConfig extends Config
 		keyName = "showSidePanel",
 		name = "Side panel",
 		description = "<p width='250'>Show the side panel with export status, slayer block lists, and hunter rumours.</p>",
-		position = 1
+		position = 0
 	)
 	default boolean showSidePanel()
 	{
