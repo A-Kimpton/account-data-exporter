@@ -1,5 +1,6 @@
 package io.kimpton.accountdataexporter.model;
 
+import java.util.List;
 import java.util.Map;
 import lombok.Builder;
 import lombok.Value;
@@ -42,6 +43,7 @@ public class Snapshot
 	Container inventory;
 	Container equipment;
 	Container bank;
+	List<Integer> bankTabSizes;
 	GrandExchange grandExchange;
 	Quests quests;
 	AchievementDiaries achievementDiaries;

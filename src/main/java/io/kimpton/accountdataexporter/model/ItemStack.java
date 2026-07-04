@@ -11,4 +11,6 @@ public class ItemStack
 	int quantity;
 	int price;
 	long value;
+	int haPrice;
+	long haValue;
 }

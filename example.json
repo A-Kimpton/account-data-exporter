@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.3",
-  "exportVersion": "0.6.1",
+  "schemaVersion": "1.0.4",
+  "exportVersion": "0.6.2",
   "timestamp": 1782173612072,
   "timestampIso": "2026-06-23T00:13:32.072009500Z",
   "rsn": "ExampleAccount",
@@ -378,6 +378,7 @@
       }
     ]
   },
+  "bankTabSizes": [12, 0, 34, 0, 0, 0, 0, 0, 0],
   "bank": {
     "loaded": true,
     "fromCache": false,

@@ -13,6 +13,18 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.0.4 — high-alch prices + bank tabs
+
+**Patch** · additive fields · backward-compatible.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `inventory/equipment/bank.items[].haPrice` | int | High-alchemy value per item. |
+| `inventory/equipment/bank.items[].haValue` | long | `haPrice * quantity`. |
+| `bankTabSizes` | int[9] | Sizes of bank tabs 1–9 (varbits `bank_tab_1..9`). Container order is tab 1..9 first, then the main tab — item→tab derives from cumulative sizes. |
+
+---
+
 ## 1.0.3 — quest points
 
 **Patch** · one additive field · backward-compatible.

@@ -18,7 +18,7 @@ public class ModelSerializationTest
 	public void containerRoundTrips()
 	{
 		Container original = new Container(true, false, 123L, 4567L, 1,
-			Collections.singletonList(new ItemStack(0, 995, "Coins", 4567, 1, 4567L)));
+			Collections.singletonList(new ItemStack(0, 995, "Coins", 4567, 1, 4567L, 1, 4567L)));
 
 		Container restored = gson.fromJson(gson.toJson(original), Container.class);
 

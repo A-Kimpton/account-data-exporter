@@ -24,8 +24,8 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.0.3"`). Currently `1.0.3`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.6.1"`). Informational. |
+| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.0.4"`). Currently `1.0.4`. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.6.2"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
@@ -193,6 +193,8 @@ last-known-good copy is retained and served when the live container is unavailab
 | `quantity` | int | |
 | `price` | int | Per-item GE price. |
 | `value` | long | `price * quantity`. |
+| `haPrice` | int | High-alchemy value per item (from the item definition). Added in 1.0.4. |
+| `haValue` | long | `haPrice * quantity`. Added in 1.0.4. |
 
 ## `grandExchange` (object)
 

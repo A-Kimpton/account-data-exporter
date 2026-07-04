@@ -40,8 +40,8 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.0.3";
-	static final String EXPORT_VERSION = "0.6.1";
+	static final String SCHEMA_VERSION = "1.0.4";
+	static final String EXPORT_VERSION = "0.6.2";
 
 	@Inject
 	private Client client;
@@ -74,9 +74,22 @@ class SnapshotService
 	private final ContainerCache equipmentCache = new ContainerCache();
 	private final ContainerCache bankCache = new ContainerCache();
 
-	// Item names never change within a session; caching avoids a composition
-	// lookup per bank stack per export on the client thread.
-	private final Map<Integer, String> itemNameCache = new HashMap<>();
+	// Item metadata (name, high-alch price) never changes within a session;
+	// caching avoids a composition lookup per bank stack per export on the
+	// client thread.
+	private final Map<Integer, ItemMeta> itemMetaCache = new HashMap<>();
+
+	private static final class ItemMeta
+	{
+		final String name;
+		final int haPrice;
+
+		ItemMeta(String name, int haPrice)
+		{
+			this.name = name;
+			this.haPrice = haPrice;
+		}
+	}
 
 	void resetCaches()
 	{
@@ -140,6 +153,10 @@ class SnapshotService
 		Container equipment = config.exportEquipment() ? equipmentCache.choose(buildContainer(InventoryID.WORN)) : null;
 		Container bank = config.exportBank() ? bankCache.choose(buildContainer(InventoryID.BANK)) : null;
 		b.inventory(inventory).equipment(equipment).bank(bank);
+		if (config.exportBank())
+		{
+			b.bankTabSizes(readBankTabSizes());
+		}
 
 		long inventoryValue = containerValue(inventory);
 		long equipmentValue = containerValue(equipment);
@@ -191,9 +208,30 @@ class SnapshotService
 		return container != null && container.isLoaded() ? container.getValue() : 0;
 	}
 
-	private String itemName(int id)
+	private ItemMeta itemMeta(int id)
 	{
-		return itemNameCache.computeIfAbsent(id, i -> itemManager.getItemComposition(i).getName());
+		return itemMetaCache.computeIfAbsent(id, i ->
+		{
+			net.runelite.api.ItemComposition comp = itemManager.getItemComposition(i);
+			return new ItemMeta(comp.getName(), comp.getHaPrice());
+		});
+	}
+
+	// Bank tab sizes (varbits sync even when the bank container isn't loaded).
+	// The bank container lays items out tab 1..9 first, then the main tab.
+	private List<Integer> readBankTabSizes()
+	{
+		List<Integer> sizes = new ArrayList<>(9);
+		int[] varbits = {
+			VarbitID.BANK_TAB_1, VarbitID.BANK_TAB_2, VarbitID.BANK_TAB_3,
+			VarbitID.BANK_TAB_4, VarbitID.BANK_TAB_5, VarbitID.BANK_TAB_6,
+			VarbitID.BANK_TAB_7, VarbitID.BANK_TAB_8, VarbitID.BANK_TAB_9,
+		};
+		for (int vb : varbits)
+		{
+			sizes.add(client.getVarbitValue(vb));
+		}
+		return sizes;
 	}
 
 	// accountTypeName maps the IRONMAN account-type varbit to a stable slug.
@@ -290,7 +328,9 @@ class SnapshotService
 
 			totalValue += value;
 			itemCount++;
-			items.add(new ItemStack(slot, id, itemName(id), quantity, price, value));
+			ItemMeta meta = itemMeta(id);
+			items.add(new ItemStack(slot, id, meta.name, quantity, price, value,
+				meta.haPrice, (long) meta.haPrice * quantity));
 		}
 
 		return new Container(true, false, System.currentTimeMillis(), totalValue, itemCount, items);
