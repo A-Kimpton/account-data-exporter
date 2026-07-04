@@ -171,12 +171,14 @@ class AccountDataExporterPanel extends PluginPanel
 		SlayerTask task = slayer.getCurrentTask();
 		if (task != null && task.isHasTask())
 		{
-			String line = "Task: " + task.getAmountRemaining() + "× " + orId(task.getName(), task.getTaskId());
+			String name = orId(task.getName(), task.getTaskId());
+			JButton t = linkButton("Task: " + task.getAmountRemaining() + "× " + name, wikiSearchUrl(name));
+			t.setBorder(BorderFactory.createEmptyBorder(1, 0, 1, 2));
+			slayerSection.add(t);
 			if (task.getAreaName() != null)
 			{
-				line += " · " + task.getAreaName();
+				slayerSection.add(slotNote(task.getAreaName()));
 			}
-			slayerSection.add(wrapLabel(line, ColorScheme.LIGHT_GRAY_COLOR));
 			slayerSection.add(Box.createVerticalStrut(4));
 		}
 
@@ -199,7 +201,10 @@ class AccountDataExporterPanel extends PluginPanel
 				continue;
 			}
 			String master = key.equals("konar") ? "Konar" : Character.toUpperCase(key.charAt(0)) + key.substring(1);
-			slayerSection.add(smallLabel(master, ColorScheme.BRAND_ORANGE));
+			JButton mb = linkButton(master, wikiSearchUrl(master));
+			mb.setForeground(ColorScheme.BRAND_ORANGE);
+			mb.setBorder(BorderFactory.createEmptyBorder(1, 0, 1, 2));
+			slayerSection.add(mb);
 			addSlotRows(blocks.getSlots(), qp);
 			SlayerBlockSlot diary = blocks.getDiarySlot();
 			if (diary != null)
@@ -270,8 +275,10 @@ class AccountDataExporterPanel extends PluginPanel
 				JPanel row = new JPanel(new BorderLayout());
 				row.setOpaque(false);
 				row.setAlignmentX(Component.LEFT_ALIGNMENT);
-				JLabel who = smallLabel((a.isActive() ? "▶ " : "") + a.getHunter().getName(),
-					a.isActive() ? ColorScheme.BRAND_ORANGE : ColorScheme.LIGHT_GRAY_COLOR);
+				JButton who = linkButton((a.isActive() ? "▶ " : "") + a.getHunter().getName(),
+					wikiSearchUrl(a.getHunter().getName()));
+				who.setForeground(a.isActive() ? ColorScheme.BRAND_ORANGE : ColorScheme.LIGHT_GRAY_COLOR);
+				who.setBorder(BorderFactory.createEmptyBorder(1, 0, 1, 2));
 				row.add(who, BorderLayout.WEST);
 				if (a.isKnown() && a.getRumour() != null)
 				{

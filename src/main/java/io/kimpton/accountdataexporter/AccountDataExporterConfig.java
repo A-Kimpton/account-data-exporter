@@ -36,6 +36,17 @@ public interface AccountDataExporterConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "showSidePanel",
+		name = "Side panel",
+		description = "<p width='250'>Show the side panel with export status, slayer block lists, and hunter rumours.</p>",
+		position = 1
+	)
+	default boolean showSidePanel()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "exportCharacterMeta",
 		name = "Character meta",
 		description = "<p width='250'>Export character location, run energy, special attack, weight, and animation.</p>",

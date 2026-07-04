@@ -13,6 +13,7 @@ import net.runelite.api.events.HitsplatApplied;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
@@ -73,6 +74,43 @@ public class AccountDataExporterPlugin extends Plugin
 		log.info("Account Data Exporter v{} started.", SnapshotService.EXPORT_VERSION);
 		resetSessionState();
 
+		if (config.showSidePanel())
+		{
+			addPanel();
+		}
+	}
+
+	@Override
+	protected void shutDown()
+	{
+		log.info("Account Data Exporter stopped.");
+		resetSessionState();
+		removePanel();
+	}
+
+	@Subscribe
+	public void onConfigChanged(ConfigChanged event)
+	{
+		if (!AccountDataExporterConfig.GROUP.equals(event.getGroup()) || !"showSidePanel".equals(event.getKey()))
+		{
+			return;
+		}
+		if (config.showSidePanel())
+		{
+			addPanel();
+		}
+		else
+		{
+			removePanel();
+		}
+	}
+
+	private void addPanel()
+	{
+		if (navButton != null)
+		{
+			return;
+		}
 		panel = new AccountDataExporterPanel(snapshotWriter.getExportDirectory());
 		navButton = NavigationButton.builder()
 			.tooltip("Account Data Exporter")
@@ -83,11 +121,8 @@ public class AccountDataExporterPlugin extends Plugin
 		clientToolbar.addNavigation(navButton);
 	}
 
-	@Override
-	protected void shutDown()
+	private void removePanel()
 	{
-		log.info("Account Data Exporter stopped.");
-		resetSessionState();
 		if (navButton != null)
 		{
 			clientToolbar.removeNavigation(navButton);

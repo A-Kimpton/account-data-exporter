@@ -25,7 +25,7 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 | Field | Type | Meaning |
 |-------|------|---------|
 | `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.3.0"`). Currently `1.3.0`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.9.4"`). Informational. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.9.5"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
