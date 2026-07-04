@@ -143,8 +143,8 @@ public class AccountDataExporterPlugin extends Plugin
 		snapshotWriter.write(snapshot.getRsn(), snapshot);
 		if (panel != null)
 		{
-			final String rsn = snapshot.getRsn();
-			SwingUtilities.invokeLater(() -> panel.setLastExport(rsn));
+			final AccountDataExporterPanel p = panel;
+			SwingUtilities.invokeLater(() -> p.update(snapshot));
 		}
 		log.debug("Exported snapshot for {} (world {}, total level {})",
 			snapshot.getRsn(), snapshot.getWorld(), snapshot.getTotalLevel());

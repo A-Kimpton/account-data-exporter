@@ -85,6 +85,12 @@ public class SlayerBuilder
 			return name;
 		}
 		name = lookup.apply(id);
+		if (name == null)
+		{
+			// Live DB lookup came back empty (block-list ids do in practice) —
+			// fall back to the bundled game-cache mapping.
+			name = SlayerTaskNames.name(id);
+		}
 		if (name != null)
 		{
 			cache.put(id, name);
