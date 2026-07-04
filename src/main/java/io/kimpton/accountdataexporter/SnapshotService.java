@@ -3,7 +3,9 @@ package io.kimpton.accountdataexporter;
 import io.kimpton.accountdataexporter.exporters.AchievementDiaryBuilder;
 import io.kimpton.accountdataexporter.exporters.CombatAchievementBuilder;
 import io.kimpton.accountdataexporter.exporters.GrandExchangeBuilder;
+import io.kimpton.accountdataexporter.exporters.BankTagsBuilder;
 import io.kimpton.accountdataexporter.exporters.HunterRumourBuilder;
+import io.kimpton.accountdataexporter.exporters.InventorySetupsBuilder;
 import io.kimpton.accountdataexporter.exporters.QuestsBuilder;
 import io.kimpton.accountdataexporter.exporters.SlayerBuilder;
 import io.kimpton.accountdataexporter.model.Animation;
@@ -40,8 +42,8 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.0.4";
-	static final String EXPORT_VERSION = "0.6.2";
+	static final String SCHEMA_VERSION = "1.1.0";
+	static final String EXPORT_VERSION = "0.7.0";
 
 	@Inject
 	private Client client;
@@ -66,6 +68,12 @@ class SnapshotService
 
 	@Inject
 	private HunterRumourBuilder hunterRumourBuilder;
+
+	@Inject
+	private BankTagsBuilder bankTagsBuilder;
+
+	@Inject
+	private InventorySetupsBuilder inventorySetupsBuilder;
 
 	@Inject
 	private CombatTracker combatTracker;
@@ -194,6 +202,14 @@ class SnapshotService
 		if (config.exportHunterRumours())
 		{
 			b.hunterRumours(hunterRumourBuilder.build());
+		}
+		if (config.exportBankTags())
+		{
+			b.bankTags(bankTagsBuilder.build());
+		}
+		if (config.exportInventorySetups())
+		{
+			b.inventorySetups(inventorySetupsBuilder.build());
 		}
 		if (config.exportCombat())
 		{

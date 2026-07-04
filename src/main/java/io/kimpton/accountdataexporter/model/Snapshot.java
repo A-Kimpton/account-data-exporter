@@ -50,4 +50,6 @@ public class Snapshot
 	CombatAchievements combatAchievements;
 	SlayerState slayer;
 	HunterRumours hunterRumours;
+	BankTags bankTags;
+	InventorySetups inventorySetups;
 }

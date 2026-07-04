@@ -24,8 +24,8 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.0.4"`). Currently `1.0.4`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.6.2"`). Informational. |
+| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.1.0"`). Currently `1.1.0`. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.7.0"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
@@ -313,6 +313,40 @@ Masters: `turael`, `mazchna`, `vannaka`, `chaeldar`, `konar`, `nieve`, `duradel`
 |-------|------|-------|
 | `slots` | array | 6 block slots: `{ "slot": 1–6, "blocked": bool, "taskId": int, "name": string\|null }`. |
 | `diarySlot` | object | The diary-granted block slot (`slot: 0`), same shape. |
+
+## `bankTags` (object, integration)
+
+Read from RuneLite's built-in **Bank Tags** plugin config. `available` is false
+when the player has no tag tabs. Added in 1.1.0.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `available` | boolean | |
+| `tabs` | array | `{ "tag": string, "iconItemId": int, "itemIds": int[] }` per tag tab, in in-game tab order. |
+
+## `inventorySetups` (object, integration)
+
+Read from the **Inventory Setups** hub plugin's config (V3 storage). `available`
+is false when no setups are saved. Added in 1.1.0.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `available` | boolean | |
+| `setups` | array | Per saved setup (below), in the plugin's own order. |
+
+### Inventory setup
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `name` | string | |
+| `notes` | string \| null | |
+| `favorite` | boolean | |
+| `iconItemId` | int | 0 = default icon. |
+| `spellbook` | int | 0 standard, 1 ancient, 2 lunar, 3 arceuus, 4 none. |
+| `inventory` | array | `{ "slot": int (0-27, row-major 4 wide), "id": int, "name": string, "quantity": int, "fuzzy": bool }` — empty slots omitted. |
+| `equipment` | array | Same shape; `slot` is the RuneLite equipment slot id. |
+| `runePouch`/`boltPouch`/`quiver` | array | Same shape; empty when not part of the setup. |
+| `additionalItemIds` | int[] | The setup's "additional filtered items". |
 
 ## `hunterRumours` (object)
 

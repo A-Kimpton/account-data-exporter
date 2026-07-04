@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.4",
-  "exportVersion": "0.6.2",
+  "schemaVersion": "1.1.0",
+  "exportVersion": "0.7.0",
   "timestamp": 1782173612072,
   "timestampIso": "2026-06-23T00:13:32.072009500Z",
   "rsn": "ExampleAccount",
@@ -5421,6 +5421,30 @@
         }
       }
     }
+  },
+  "bankTags": {
+    "available": true,
+    "tabs": [
+      { "tag": "slayer", "iconItemId": 4155, "itemIds": [4155, 11864, 21646] }
+    ]
+  },
+  "inventorySetups": {
+    "available": true,
+    "setups": [
+      {
+        "name": "Slayer melee",
+        "notes": null,
+        "favorite": true,
+        "iconItemId": 0,
+        "spellbook": 0,
+        "inventory": [ { "slot": 0, "id": 386, "name": "Shark", "quantity": 1, "fuzzy": false } ],
+        "equipment": [ { "slot": 0, "id": 11864, "name": "Slayer helmet", "quantity": 1, "fuzzy": true } ],
+        "runePouch": [],
+        "boltPouch": [],
+        "quiver": [],
+        "additionalItemIds": []
+      }
+    ]
   },
   "hunterRumours": {
     "available": true,

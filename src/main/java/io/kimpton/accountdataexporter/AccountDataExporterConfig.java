@@ -17,6 +17,13 @@ public interface AccountDataExporterConfig extends Config
 	)
 	String sectionsSection = "sections";
 
+	@ConfigSection(
+		name = "Integrations",
+		description = "<p width='250'>Data read from other plugins' saved settings (those plugins must be installed and have stored data).</p>",
+		position = 2
+	)
+	String integrationsSection = "integrations";
+
 	@ConfigItem(
 		keyName = "exportIntervalTicks",
 		name = "Export interval",
@@ -163,11 +170,35 @@ public interface AccountDataExporterConfig extends Config
 	@ConfigItem(
 		keyName = "exportHunterRumours",
 		name = "Hunter rumours",
-		description = "<p width='250'>Export Hunter Rumour assignments and progress. Requires the Hunter Rumours plugin, which this reads saved state from.</p>",
-		section = sectionsSection,
-		position = 12
+		description = "<p width='250'>Export Hunter Rumour assignments and progress. Reads the Hunter Rumours plugin's saved state.</p>",
+		section = integrationsSection,
+		position = 1
 	)
 	default boolean exportHunterRumours()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "exportBankTags",
+		name = "Bank tags",
+		description = "<p width='250'>Export bank tag tabs (name, icon, tagged items). Reads RuneLite's built-in Bank Tags plugin config.</p>",
+		section = integrationsSection,
+		position = 2
+	)
+	default boolean exportBankTags()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "exportInventorySetups",
+		name = "Inventory setups",
+		description = "<p width='250'>Export saved Inventory Setups layouts (items in their positions, equipment, pouches). Reads the Inventory Setups plugin's config.</p>",
+		section = integrationsSection,
+		position = 3
+	)
+	default boolean exportInventorySetups()
 	{
 		return true;
 	}

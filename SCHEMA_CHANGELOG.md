@@ -13,6 +13,20 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.1.0 — integrations: bank tags + inventory setups
+
+**Minor** · two new top-level content blocks · backward-compatible.
+
+The plugin config gained an **Integrations** section (Hunter rumours moved
+there; new toggles for both blocks, default on).
+
+| Block | Source | Notes |
+|-------|--------|-------|
+| `bankTags` | RuneLite built-in Bank Tags plugin | Tag tabs with name, icon item id, and tagged item ids. |
+| `inventorySetups` | Inventory Setups hub plugin (V3 storage) | Each saved setup with items in their container positions (inventory/equipment/rune pouch/bolt pouch/quiver), name resolved at export time, notes/favorite/spellbook/icon. |
+
+---
+
 ## 1.0.4 — high-alch prices + bank tabs
 
 **Patch** · additive fields · backward-compatible.
