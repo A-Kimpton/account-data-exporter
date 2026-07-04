@@ -42,8 +42,8 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.1.0";
-	static final String EXPORT_VERSION = "0.7.0";
+	static final String SCHEMA_VERSION = "1.2.0";
+	static final String EXPORT_VERSION = "0.8.0";
 
 	@Inject
 	private Client client;
@@ -81,6 +81,8 @@ class SnapshotService
 	private final ContainerCache inventoryCache = new ContainerCache();
 	private final ContainerCache equipmentCache = new ContainerCache();
 	private final ContainerCache bankCache = new ContainerCache();
+	private final ContainerCache seedVaultCache = new ContainerCache();
+	private final ContainerCache lootingBagCache = new ContainerCache();
 
 	// Item metadata (name, high-alch price) never changes within a session;
 	// caching avoids a composition lookup per bank stack per export on the
@@ -104,6 +106,8 @@ class SnapshotService
 		inventoryCache.reset();
 		equipmentCache.reset();
 		bankCache.reset();
+		seedVaultCache.reset();
+		lootingBagCache.reset();
 	}
 
 	/** Seeds the container caches from a previously persisted snapshot. Invoked on the client
@@ -117,6 +121,8 @@ class SnapshotService
 		inventoryCache.seed(previous.getInventory());
 		equipmentCache.seed(previous.getEquipment());
 		bankCache.seed(previous.getBank());
+		seedVaultCache.seed(previous.getSeedVault());
+		lootingBagCache.seed(previous.getLootingBag());
 	}
 
 	Snapshot build(AccountDataExporterConfig config, String exportDirectory)
@@ -164,6 +170,14 @@ class SnapshotService
 		if (config.exportBank())
 		{
 			b.bankTabSizes(readBankTabSizes());
+		}
+		if (config.exportSeedVault())
+		{
+			b.seedVault(seedVaultCache.choose(buildContainer(InventoryID.SEED_VAULT)));
+		}
+		if (config.exportLootingBag())
+		{
+			b.lootingBag(lootingBagCache.choose(buildContainer(InventoryID.LOOTING_BAG)));
 		}
 
 		long inventoryValue = containerValue(inventory);

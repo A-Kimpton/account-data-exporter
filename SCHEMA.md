@@ -24,8 +24,8 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.1.0"`). Currently `1.1.0`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.7.0"`). Informational. |
+| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.2.0"`). Currently `1.2.0`. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.8.0"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
@@ -313,6 +313,12 @@ Masters: `turael`, `mazchna`, `vannaka`, `chaeldar`, `konar`, `nieve`, `duradel`
 |-------|------|-------|
 | `slots` | array | 6 block slots: `{ "slot": 1–6, "blocked": bool, "taskId": int, "name": string\|null }`. |
 | `diarySlot` | object | The diary-granted block slot (`slot: 0`), same shape. |
+
+## `seedVault` / `lootingBag` (objects)
+
+Same container shape as `bank` (loaded/fromCache/items with prices + high-alch).
+Both only load client-side when opened (seed vault) or checked (looting bag),
+and are retained last-known-good like the bank. Added in 1.2.0.
 
 ## `bankTags` (object, integration)
 

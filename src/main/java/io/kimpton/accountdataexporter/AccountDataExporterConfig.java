@@ -204,6 +204,30 @@ public interface AccountDataExporterConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "exportSeedVault",
+		name = "Seed vault",
+		description = "<p width='250'>Export seed vault contents. The vault must be opened at least once per session to load.</p>",
+		section = sectionsSection,
+		position = 14
+	)
+	default boolean exportSeedVault()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "exportLootingBag",
+		name = "Looting bag",
+		description = "<p width='250'>Export looting bag contents (loads when checked/opened).</p>",
+		section = sectionsSection,
+		position = 15
+	)
+	default boolean exportLootingBag()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "exportCombatAchievementTasks",
 		name = "Combat achievement task list",
 		description = "<p width='250'>Include the full per-task list in the combat achievements section. Off exports tier totals only, which keeps the snapshot much smaller.</p>",

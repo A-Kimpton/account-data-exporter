@@ -13,6 +13,17 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.2.0 — seed vault + looting bag containers
+
+**Minor** · two new top-level content blocks · backward-compatible.
+
+`seedVault` and `lootingBag`: same container shape as `bank` (items with
+prices/high-alch, loaded/fromCache last-known-good semantics — the vault loads
+when opened, the bag when checked). New Section toggles, default on. Consumers
+use these to know an item is owned even when it isn't in the bank.
+
+---
+
 ## 1.1.0 — integrations: bank tags + inventory setups
 
 **Minor** · two new top-level content blocks · backward-compatible.

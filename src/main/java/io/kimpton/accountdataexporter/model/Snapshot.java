@@ -43,6 +43,8 @@ public class Snapshot
 	Container inventory;
 	Container equipment;
 	Container bank;
+	Container seedVault;
+	Container lootingBag;
 	List<Integer> bankTabSizes;
 	GrandExchange grandExchange;
 	Quests quests;
