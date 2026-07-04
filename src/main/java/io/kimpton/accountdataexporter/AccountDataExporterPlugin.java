@@ -15,6 +15,10 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.ClientToolbar;
+import net.runelite.client.ui.NavigationButton;
+import net.runelite.client.util.ImageUtil;
+import javax.swing.SwingUtilities;
 
 @Slf4j
 @PluginDescriptor(
@@ -47,6 +51,12 @@ public class AccountDataExporterPlugin extends Plugin
 	@Inject
 	private CombatTracker combatTracker;
 
+	@Inject
+	private ClientToolbar clientToolbar;
+
+	private AccountDataExporterPanel panel;
+	private NavigationButton navButton;
+
 	private int ticksLoggedIn;
 	private int ticksSinceExport;
 	private String lastRsn = "";
@@ -62,6 +72,15 @@ public class AccountDataExporterPlugin extends Plugin
 	{
 		log.info("Account Data Exporter v{} started.", SnapshotService.EXPORT_VERSION);
 		resetSessionState();
+
+		panel = new AccountDataExporterPanel(snapshotWriter.getExportDirectory());
+		navButton = NavigationButton.builder()
+			.tooltip("Account Data Exporter")
+			.icon(ImageUtil.loadImageResource(getClass(), "panel_icon.png"))
+			.priority(10)
+			.panel(panel)
+			.build();
+		clientToolbar.addNavigation(navButton);
 	}
 
 	@Override
@@ -69,6 +88,12 @@ public class AccountDataExporterPlugin extends Plugin
 	{
 		log.info("Account Data Exporter stopped.");
 		resetSessionState();
+		if (navButton != null)
+		{
+			clientToolbar.removeNavigation(navButton);
+			navButton = null;
+			panel = null;
+		}
 	}
 
 	@Subscribe
@@ -116,6 +141,11 @@ public class AccountDataExporterPlugin extends Plugin
 		}
 
 		snapshotWriter.write(snapshot.getRsn(), snapshot);
+		if (panel != null)
+		{
+			final String rsn = snapshot.getRsn();
+			SwingUtilities.invokeLater(() -> panel.setLastExport(rsn));
+		}
 		log.debug("Exported snapshot for {} (world {}, total level {})",
 			snapshot.getRsn(), snapshot.getWorld(), snapshot.getTotalLevel());
 	}
