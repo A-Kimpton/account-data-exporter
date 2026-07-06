@@ -22,8 +22,11 @@ import net.runelite.api.gameval.VarbitID;
 public class SlayerBuilder
 {
 	// SLAYER_MASTER varbit value -> assigning master. 0 = no master assigned.
+	// The varbit is ordered by when each master was added to the game (the four
+	// originals then Duradel, then Nieve/Krystilia/Konar), NOT by combat level —
+	// so Duradel is 5 and Nieve is 6. Verified: Krystilia=7 (RuneLite), Konar=8.
 	private static final String[] SLAYER_MASTER_NAMES = {
-		null, "Turael", "Mazchna", "Vannaka", "Chaeldar", "Nieve", "Duradel", "Krystilia", "Konar quo Maten"
+		null, "Turael", "Mazchna", "Vannaka", "Chaeldar", "Duradel", "Nieve", "Krystilia", "Konar quo Maten"
 	};
 
 	@Inject
