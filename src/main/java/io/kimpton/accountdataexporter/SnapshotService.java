@@ -372,7 +372,7 @@ class SnapshotService
 
 			int id = item.getId();
 			int quantity = item.getQuantity();
-			int price = itemManager.getItemPrice(id);
+			long price = itemManager.getItemPrice(id);
 			long value = (long) price * quantity;
 
 			totalValue += value;

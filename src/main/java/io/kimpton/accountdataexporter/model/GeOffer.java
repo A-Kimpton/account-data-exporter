@@ -9,12 +9,12 @@ public class GeOffer
 	String state;
 	int itemId;
 	String itemName;
-	int listedPrice;
-	int marketPrice;
+	long listedPrice;
+	long marketPrice;
 	int totalQuantity;
 	int completedQuantity;
 	int remainingQuantity;
-	int spent;
+	long spent;
 	long listedValueEstimate;
 	long accountValueEstimate;
 }
