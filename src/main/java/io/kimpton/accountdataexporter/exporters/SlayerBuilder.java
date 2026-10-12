@@ -1,10 +1,14 @@
 package io.kimpton.accountdataexporter.exporters;
 
+import io.kimpton.accountdataexporter.model.MortimerState;
 import io.kimpton.accountdataexporter.model.SlayerBlockSlot;
+import io.kimpton.accountdataexporter.model.SlayerModifier;
 import io.kimpton.accountdataexporter.model.SlayerMasterBlocks;
 import io.kimpton.accountdataexporter.model.SlayerState;
 import io.kimpton.accountdataexporter.model.SlayerTask;
+import io.kimpton.accountdataexporter.model.SlayerTaskOffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -24,10 +28,20 @@ public class SlayerBuilder
 	// SLAYER_MASTER varbit value -> assigning master. 0 = no master assigned.
 	// The varbit is ordered by when each master was added to the game (the four
 	// originals then Duradel, then Nieve/Krystilia/Konar), NOT by combat level —
-	// so Duradel is 5 and Nieve is 6. Verified: Krystilia=7 (RuneLite), Konar=8.
+	// so Duradel is 5 and Nieve is 6. RuneLite's own Slayer plugin pins both ends
+	// of the tail (KRYSTILIA_SLAYER_MASTER = 7, MORTIMER_SLAYER_MASTER = 10), and
+	// Spria — added between Konar and Mortimer — takes the 9 that leaves.
 	private static final String[] SLAYER_MASTER_NAMES = {
-		null, "Turael", "Mazchna", "Vannaka", "Chaeldar", "Duradel", "Nieve", "Krystilia", "Konar quo Maten"
+		null, "Turael", "Mazchna", "Vannaka", "Chaeldar", "Duradel", "Nieve", "Krystilia", "Konar quo Maten",
+		"Spria", "Mortimer"
 	};
+
+	/** Mortimer charges slayer points for each of his two block slots instead of
+	 *  earning them through quest points like the other masters' six. */
+	private static final int MORTIMER_SLOT_POINTS = 120;
+
+	/** Mortimer's SLAYER_MASTER value; his tasks are the only ones with modifiers. */
+	private static final int MORTIMER_MASTER_ID = 10;
 
 	@Inject
 	private Client client;
@@ -37,6 +51,7 @@ public class SlayerBuilder
 	private final Map<Integer, String> taskNameCache = new HashMap<>();
 	private final Map<Integer, String> areaNameCache = new HashMap<>();
 	private final Map<Integer, String> bossNameCache = new HashMap<>();
+	private final Map<Integer, String> modifierNameCache = new HashMap<>();
 
 	public SlayerState build()
 	{
@@ -48,7 +63,8 @@ public class SlayerBuilder
 			buildUnlocks(),
 			buildTaskExtensions(),
 			buildAutoKill(),
-			buildBlockLists());
+			buildBlockLists(),
+			buildMortimer());
 	}
 
 	private SlayerTask buildCurrentTask()
@@ -71,7 +87,11 @@ public class SlayerBuilder
 			masterId,
 			masterName(masterId),
 			bossId,
-			cachedName(bossNameCache, bossId, this::lookupBossName));
+			cachedName(bossNameCache, bossId, this::lookupBossName),
+			buildModifier(
+				VarbitID.SLAYER_MODIFIER_ID,
+				VarbitID.SLAYER_MODIFIER_VALUE,
+				VarbitID.SLAYER_MODIFIER_NEGATIVE));
 	}
 
 	/** Cached id→name resolution. Failed lookups (null) are not cached, so names resolve on a
@@ -304,8 +324,101 @@ public class SlayerBuilder
 			VarbitID.SLAYER_BLOCKED_KRYSTILIA_1, VarbitID.SLAYER_BLOCKED_KRYSTILIA_2, VarbitID.SLAYER_BLOCKED_KRYSTILIA_3,
 			VarbitID.SLAYER_BLOCKED_KRYSTILIA_4, VarbitID.SLAYER_BLOCKED_KRYSTILIA_5, VarbitID.SLAYER_BLOCKED_KRYSTILIA_6,
 			VarbitID.SLAYER_BLOCKED_KRYSTILIA_DIARY));
+		// Mortimer breaks the shape the other eight share: two slots bought with
+		// slayer points, and no achievement-diary slot at all.
+		masters.put("mortimer", new SlayerMasterBlocks(
+			Arrays.asList(
+				blockSlot(1, VarbitID.SLAYER_BLOCKED_MORTIMER_1, MORTIMER_SLOT_POINTS),
+				blockSlot(2, VarbitID.SLAYER_BLOCKED_MORTIMER_2, MORTIMER_SLOT_POINTS)),
+			null));
 
 		return masters;
+	}
+
+	/** Mortimer's own counters, his pending choice of assignments, and the modifier
+	 *  on each. Always exported: the varbits read 0 when he has nothing rolled, and
+	 *  tasksCompleted is still meaningful (it gates his unlocks) with no task open. */
+	private MortimerState buildMortimer()
+	{
+		List<SlayerTaskOffer> choices = Arrays.asList(
+			taskOffer(1, VarbitID.SLAYER_CHOOSE_TASK_1, VarbitID.SLAYER_CHOOSE_TASK_1_BOSS_ID,
+				VarbitID.SLAYER_CHOOSE_TASK_1_MODIFIER_ID, VarbitID.SLAYER_CHOOSE_TASK_1_MODIFIER_VALUE,
+				VarbitID.SLAYER_CHOOSE_TASK_1_MODIFIER_NEGATIVE),
+			taskOffer(2, VarbitID.SLAYER_CHOOSE_TASK_2, VarbitID.SLAYER_CHOOSE_TASK_2_BOSS_ID,
+				VarbitID.SLAYER_CHOOSE_TASK_2_MODIFIER_ID, VarbitID.SLAYER_CHOOSE_TASK_2_MODIFIER_VALUE,
+				VarbitID.SLAYER_CHOOSE_TASK_2_MODIFIER_NEGATIVE),
+			taskOffer(3, VarbitID.SLAYER_CHOOSE_TASK_3, VarbitID.SLAYER_CHOOSE_TASK_3_BOSS_ID,
+				VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_ID, VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_VALUE,
+				VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_NEGATIVE));
+
+		return new MortimerState(
+			client.getVarpValue(VarPlayerID.SLAYER_MORTIMER_TASKS_COMPLETED),
+			client.getVarpValue(VarPlayerID.SLAYER_MODIFIERS),
+			client.getVarbitValue(VarbitID.SLAYER_CHOOSE_ROLLED_MASTER),
+			choices);
+	}
+
+	private SlayerTaskOffer taskOffer(int choice, int taskVarbit, int bossVarbit,
+		int modifierIdVarbit, int modifierValueVarbit, int modifierNegativeVarbit)
+	{
+		int taskId = client.getVarbitValue(taskVarbit);
+		int bossId = client.getVarbitValue(bossVarbit);
+		return new SlayerTaskOffer(
+			choice,
+			taskId > 0,
+			taskId,
+			cachedName(taskNameCache, taskId, this::lookupTaskName),
+			bossId,
+			cachedName(bossNameCache, bossId, this::lookupBossName),
+			buildModifier(modifierIdVarbit, modifierValueVarbit, modifierNegativeVarbit));
+	}
+
+	/** The modifier described by a (id, value, negative) varbit triple, or null when
+	 *  the id is 0 — i.e. no modifier, which is every task from every other master. */
+	private SlayerModifier buildModifier(int idVarbit, int valueVarbit, int negativeVarbit)
+	{
+		int id = client.getVarbitValue(idVarbit);
+		if (id <= 0)
+		{
+			return null;
+		}
+		return new SlayerModifier(
+			id,
+			cachedName(modifierNameCache, id, this::lookupModifierName),
+			client.getVarbitValue(valueVarbit),
+			client.getVarbitValue(negativeVarbit) > 0);
+	}
+
+	// Decode a slayer modifier id into its in-game name via the SlayerModifiers DB
+	// table (id column -> row -> name column), the same path the task lookups use.
+	private String lookupModifierName(int modifierId)
+	{
+		if (modifierId <= 0)
+		{
+			return null;
+		}
+
+		try
+		{
+			List<Integer> rows = client.getDBRowsByValue(DBTableID.SlayerModifiers.ID, DBTableID.SlayerModifiers.COL_ID, 0, modifierId);
+			if (rows == null || rows.isEmpty())
+			{
+				return null;
+			}
+
+			Object[] nameField = client.getDBTableField(rows.get(0), DBTableID.SlayerModifiers.COL_NAME, 0);
+			if (nameField == null || nameField.length == 0 || nameField[0] == null)
+			{
+				return null;
+			}
+
+			return String.valueOf(nameField[0]);
+		}
+		catch (Exception e)
+		{
+			log.debug("Could not resolve slayer modifier name for id {}", modifierId, e);
+			return null;
+		}
 	}
 
 	private SlayerMasterBlocks masterBlocks(int s1, int s2, int s3, int s4, int s5, int s6, int diary)
@@ -314,15 +427,16 @@ public class SlayerBuilder
 		int[] slotVarbits = {s1, s2, s3, s4, s5, s6};
 		for (int i = 0; i < slotVarbits.length; i++)
 		{
-			slots.add(blockSlot(i + 1, slotVarbits[i]));
+			slots.add(blockSlot(i + 1, slotVarbits[i], 0));
 		}
-		return new SlayerMasterBlocks(slots, blockSlot(0, diary));
+		return new SlayerMasterBlocks(slots, blockSlot(0, diary, 0));
 	}
 
-	private SlayerBlockSlot blockSlot(int slot, int varbitId)
+	private SlayerBlockSlot blockSlot(int slot, int varbitId, int pointCost)
 	{
 		int taskId = client.getVarbitValue(varbitId);
-		return new SlayerBlockSlot(slot, taskId > 0, taskId, cachedName(taskNameCache, taskId, this::lookupTaskName));
+		return new SlayerBlockSlot(
+			slot, taskId > 0, taskId, cachedName(taskNameCache, taskId, this::lookupTaskName), pointCost);
 	}
 
 	// Resolves the task/creature name for a SlayerTask id via RuneLite's DB-table API; null if unknown.

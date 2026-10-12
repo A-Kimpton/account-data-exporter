@@ -14,4 +14,5 @@ public class SlayerState
 	Map<String, Integer> taskExtensions;
 	Map<String, Integer> autoKill;
 	Map<String, SlayerMasterBlocks> blockLists;
+	MortimerState mortimer;
 }
