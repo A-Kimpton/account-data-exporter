@@ -15,7 +15,8 @@ import lombok.Value;
  *
  * `modifiersRaw` is the unlocked-modifier varp exported verbatim; its bit layout
  * isn't documented anywhere we can verify, so it is passed through rather than
- * decoded into booleans we'd be guessing at.
+ * decoded into booleans we'd be guessing at. `modifierUnlocks` is the readable
+ * version of the same progression, built from the game's own requirement data.
  */
 @Value
 public class MortimerState
@@ -24,4 +25,5 @@ public class MortimerState
 	int modifiersRaw;
 	int rolledMasterId;
 	List<SlayerTaskOffer> taskChoices;
+	List<SlayerModifierUnlock> modifierUnlocks;
 }

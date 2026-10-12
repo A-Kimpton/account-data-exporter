@@ -3,6 +3,7 @@ package io.kimpton.accountdataexporter.exporters;
 import io.kimpton.accountdataexporter.model.MortimerState;
 import io.kimpton.accountdataexporter.model.SlayerBlockSlot;
 import io.kimpton.accountdataexporter.model.SlayerModifier;
+import io.kimpton.accountdataexporter.model.SlayerModifierUnlock;
 import io.kimpton.accountdataexporter.model.SlayerMasterBlocks;
 import io.kimpton.accountdataexporter.model.SlayerState;
 import io.kimpton.accountdataexporter.model.SlayerTask;
@@ -351,11 +352,91 @@ public class SlayerBuilder
 				VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_ID, VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_VALUE,
 				VarbitID.SLAYER_CHOOSE_TASK_3_MODIFIER_NEGATIVE));
 
+		int tasksCompleted = client.getVarpValue(VarPlayerID.SLAYER_MORTIMER_TASKS_COMPLETED);
+
 		return new MortimerState(
-			client.getVarpValue(VarPlayerID.SLAYER_MORTIMER_TASKS_COMPLETED),
+			tasksCompleted,
 			client.getVarpValue(VarPlayerID.SLAYER_MODIFIERS),
 			client.getVarbitValue(VarbitID.SLAYER_CHOOSE_ROLLED_MASTER),
-			choices);
+			choices,
+			buildModifierUnlocks(tasksCompleted));
+	}
+
+	/** Mortimer's progression. His modifiers unlock one at a time as his own task
+	 *  count rises, so the offers an account sees from him improve over time — the
+	 *  whole reason his task count is worth exporting on its own.
+	 *
+	 *  The thresholds come from the SlayerModifiers table's requirement column
+	 *  rather than being hardcoded, so they follow the game if Jagex retunes them.
+	 *  The row list is the modifiers themselves, skipping the "none" row that
+	 *  stands for an unmodified task. */
+	private List<SlayerModifierUnlock> buildModifierUnlocks(int tasksCompleted)
+	{
+		int[] rows = {
+			DBTableID.SlayerModifiers.Row.SLAYER_MODIFIER_POINTS,
+			DBTableID.SlayerModifiers.Row.SLAYER_MODIFIER_QUANTITY,
+			DBTableID.SlayerModifiers.Row.SLAYER_MODIFIER_CLUES,
+			DBTableID.SlayerModifiers.Row.SLAYER_MODIFIER_SUPERIOR_CHANCE,
+			DBTableID.SlayerModifiers.Row.SLAYER_MODIFIER_XP_BOOST,
+		};
+
+		List<SlayerModifierUnlock> out = new ArrayList<>(rows.length);
+		for (int row : rows)
+		{
+			SlayerModifierUnlock unlock = modifierUnlock(row, tasksCompleted);
+			if (unlock != null)
+			{
+				out.add(unlock);
+			}
+		}
+		return out;
+	}
+
+	/** One modifier row as an unlock, or null if the cache tables aren't loaded yet
+	 *  (same as the name lookups: absent now, resolved on a later export). */
+	private SlayerModifierUnlock modifierUnlock(int row, int tasksCompleted)
+	{
+		try
+		{
+			Integer id = dbInt(row, DBTableID.SlayerModifiers.COL_ID);
+			if (id == null)
+			{
+				return null;
+			}
+			Integer required = dbInt(row, DBTableID.SlayerModifiers.COL_REQUIREMENT);
+			int tasksRequired = required == null ? 0 : required;
+			return new SlayerModifierUnlock(
+				id,
+				dbString(row, DBTableID.SlayerModifiers.COL_NAME),
+				dbString(row, DBTableID.SlayerModifiers.COL_DESCRIPTION),
+				tasksRequired,
+				tasksCompleted >= tasksRequired);
+		}
+		catch (Exception e)
+		{
+			log.debug("Could not read slayer modifier row {}", row, e);
+			return null;
+		}
+	}
+
+	private Integer dbInt(int row, int column)
+	{
+		Object[] field = client.getDBTableField(row, column, 0);
+		if (field == null || field.length == 0 || !(field[0] instanceof Number))
+		{
+			return null;
+		}
+		return ((Number) field[0]).intValue();
+	}
+
+	private String dbString(int row, int column)
+	{
+		Object[] field = client.getDBTableField(row, column, 0);
+		if (field == null || field.length == 0 || field[0] == null)
+		{
+			return null;
+		}
+		return String.valueOf(field[0]);
 	}
 
 	private SlayerTaskOffer taskOffer(int choice, int taskVarbit, int bossVarbit,

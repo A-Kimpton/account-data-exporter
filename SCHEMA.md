@@ -334,7 +334,8 @@ modifier to each.
 | `tasksCompleted` | int | His own streak — his tasks leave `tasksCompletedStreak` untouched. Also what gates his unlocks. |
 | `modifiersRaw` | int | Unlocked-modifier varp, exported verbatim; the bit layout is undocumented, so it is passed through rather than decoded. |
 | `rolledMasterId` | int | The master the pending choice was rolled against (0 = nothing rolled). |
-| `taskChoices` | array | Always three entries, one per choice slot (below). |
+| `taskChoices` | array | Always three entries, one per choice slot (below). The third only fills once he offers three. |
+| `modifierUnlocks` | array | His progression ladder — each modifier and whether `tasksCompleted` has reached it (below). |
 
 #### `slayer.mortimer.taskChoices[]`
 
@@ -347,6 +348,25 @@ modifier to each.
 | `bossId` | int | Boss-slayer-task id (0 if none). |
 | `bossName` | string \| null | |
 | `modifier` | object \| null | Null when the offer carries no modifier. |
+
+#### `slayer.mortimer.modifierUnlocks[]`
+
+Mortimer's modifiers are not all available from the start: each unlocks at a
+number of tasks completed *for him*, so his offers improve as `tasksCompleted`
+rises (and a third task choice opens up on the way). Thresholds are read from the
+SlayerModifiers table's requirement column rather than hardcoded, so they follow
+the game if Jagex retunes them.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `id` | int | Matches `modifier.id` when this modifier is rolled on a task. |
+| `name` | string \| null | e.g. `Task Quantity`. |
+| `description` | string \| null | The in-game description. |
+| `tasksRequired` | int | Tasks completed for Mortimer before it unlocks. |
+| `unlocked` | boolean | `tasksCompleted >= tasksRequired`. |
+
+The array is empty until the game's cache tables are available, the same as the
+`name` lookups elsewhere in this schema — it fills on a later export.
 
 #### `modifier`
 
