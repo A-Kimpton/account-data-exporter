@@ -25,7 +25,7 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 | Field | Type | Meaning |
 |-------|------|---------|
 | `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.3.0"`). Currently `1.3.0`. |
-| `exportVersion` | string | Plugin/export build version (e.g. `"0.9.8"`). Informational. |
+| `exportVersion` | string | Plugin/export build version (e.g. `"0.9.9"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
 
@@ -191,7 +191,7 @@ last-known-good copy is retained and served when the live container is unavailab
 | `id` | int | Item id. |
 | `name` | string | Item name. |
 | `quantity` | int | |
-| `price` | int | Per-item GE price. |
+| `price` | long | Per-item GE price. |
 | `value` | long | `price * quantity`. |
 | `haPrice` | int | High-alchemy value per item (from the item definition). Added in 1.0.4. |
 | `haValue` | long | `haPrice * quantity`. Added in 1.0.4. |
@@ -214,12 +214,12 @@ last-known-good copy is retained and served when the live container is unavailab
 | `state` | string | RuneLite offer state name (e.g. `BUYING`, `SELLING`, `BOUGHT`). |
 | `itemId` | int | |
 | `itemName` | string | |
-| `listedPrice` | int | Price per item the offer was listed at. |
-| `marketPrice` | int | Current GE price. |
+| `listedPrice` | long | Price per item the offer was listed at. |
+| `marketPrice` | long | Current GE price. |
 | `totalQuantity` | int | |
 | `completedQuantity` | int | Bought/sold so far. |
 | `remainingQuantity` | int | |
-| `spent` | int | gp spent so far. |
+| `spent` | long | gp spent so far. |
 | `listedValueEstimate` | long | `listedPrice * totalQuantity`. |
 | `accountValueEstimate` | long | Per-offer contribution to the account value estimate. |
 
@@ -288,6 +288,7 @@ last-known-good copy is retained and served when the live container is unavailab
 | `taskExtensions` | object map | Extend-unlock name → varbit value. |
 | `autoKill` | object map | Auto-kill toggle name → varbit value. |
 | `blockLists` | object map | Per-master block lists (below). |
+| `mortimer` | object | Mortimer-specific state (below). Added in 0.9.9. |
 
 ### `slayer.currentTask`
 
@@ -304,15 +305,57 @@ last-known-good copy is retained and served when the live container is unavailab
 | `assignedMasterName` | string \| null | e.g. `Nieve`. |
 | `bossId` | int | Boss-slayer-task id (0 if none). |
 | `bossName` | string \| null | Boss name for a boss task, decoded via the SlayerTaskSublist → SlayerTask DB tables; null when `bossId` is 0 or unknown. |
+| `modifier` | object \| null | The task's modifier; absent for every master except Mortimer. Same shape as `slayer.mortimer.taskChoices[].modifier`. Added in 0.9.9. |
 
 ### `slayer.blockLists` (map of master key → object)
 
-Masters: `turael`, `mazchna`, `vannaka`, `chaeldar`, `konar`, `nieve`, `duradel`, `krystilia`.
+Masters: `turael`, `mazchna`, `vannaka`, `chaeldar`, `konar`, `nieve`, `duradel`, `krystilia`, `mortimer`.
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `slots` | array | 6 block slots: `{ "slot": 1–6, "blocked": bool, "taskId": int, "name": string\|null }`. |
-| `diarySlot` | object | The diary-granted block slot (`slot: 0`), same shape. |
+| `slots` | array | Block slots: `{ "slot": int, "blocked": bool, "taskId": int, "name": string\|null, "pointCost": int }`. Six slots (`slot` 1–6) for every master but `mortimer`, which has two. |
+| `diarySlot` | object | The diary-granted block slot (`slot: 0`), same shape. **Absent for `mortimer`**, who has no diary slot — treat a missing key as "this master has none". |
+
+`pointCost` is the slayer points a slot is bought for: `120` for Mortimer's two,
+and `0` for every other master, whose slots are earned with quest points instead
+(50 per slot). Nothing in the varbits reveals whether a Mortimer slot has
+actually been purchased, so an unblocked slot is reported as empty either way.
+Added in 0.9.9.
+
+### `slayer.mortimer` (object)
+
+Mortimer (added to the game 29 July 2026) does not fit the shape the other
+masters share, so his state is exported separately. He keeps his own task
+counter, offers a *choice* of assignments rather than one, and attaches a
+modifier to each.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `tasksCompleted` | int | His own streak — his tasks leave `tasksCompletedStreak` untouched. Also what gates his unlocks. |
+| `modifiersRaw` | int | Unlocked-modifier varp, exported verbatim; the bit layout is undocumented, so it is passed through rather than decoded. |
+| `rolledMasterId` | int | The master the pending choice was rolled against (0 = nothing rolled). |
+| `taskChoices` | array | Always three entries, one per choice slot (below). |
+
+#### `slayer.mortimer.taskChoices[]`
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `choice` | int | 1–3. |
+| `offered` | boolean | False for an empty choice slot — the third before it unlocks, or all three when no roll is pending. |
+| `taskId` | int | |
+| `name` | string \| null | Resolved from the SlayerTask DB table. |
+| `bossId` | int | Boss-slayer-task id (0 if none). |
+| `bossName` | string \| null | |
+| `modifier` | object \| null | Null when the offer carries no modifier. |
+
+#### `modifier`
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `id` | int | |
+| `name` | string \| null | Resolved from the SlayerModifiers DB table, e.g. `Task Quantity`. |
+| `value` | int | Raw magnitude; its unit depends on the modifier (points, extra kills, a percentage). |
+| `negative` | boolean | True when the modifier is a penalty rather than a bonus — `value` alone does not say which. |
 
 ## `seedVault` / `lootingBag` (objects)
 

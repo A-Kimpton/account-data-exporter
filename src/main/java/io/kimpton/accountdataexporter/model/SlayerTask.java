@@ -16,4 +16,6 @@ public class SlayerTask
 	String assignedMasterName;
 	int bossId;
 	String bossName;
+	/** The modifier on this task, or null when it has none (every master but Mortimer). */
+	SlayerModifier modifier;
 }

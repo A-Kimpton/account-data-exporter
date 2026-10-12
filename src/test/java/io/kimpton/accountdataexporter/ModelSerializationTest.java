@@ -5,7 +5,13 @@ import com.google.gson.JsonObject;
 import io.kimpton.accountdataexporter.model.Container;
 import io.kimpton.accountdataexporter.model.GeOffer;
 import io.kimpton.accountdataexporter.model.ItemStack;
+import io.kimpton.accountdataexporter.model.MortimerState;
+import io.kimpton.accountdataexporter.model.SlayerBlockSlot;
+import io.kimpton.accountdataexporter.model.SlayerMasterBlocks;
+import io.kimpton.accountdataexporter.model.SlayerModifier;
+import io.kimpton.accountdataexporter.model.SlayerTaskOffer;
 import io.kimpton.accountdataexporter.model.Snapshot;
+import java.util.Arrays;
 import java.util.Collections;
 import org.junit.Assert;
 import org.junit.Test;
@@ -60,6 +66,54 @@ public class ModelSerializationTest
 		Assert.assertEquals(1L, restored.getPrice());
 		Assert.assertEquals(42L, restored.getValue());
 		Assert.assertEquals(oldItem, gson.toJson(restored));
+	}
+
+	@Test
+	public void mortimerBlockListOmitsTheDiarySlotAndKeepsItsPointCost()
+	{
+		// Mortimer has two slots bought with slayer points and no diary slot, so the
+		// diary key must be absent rather than present-and-empty: consumers key off
+		// "no diarySlot" to mean "this master has none".
+		SlayerMasterBlocks mortimer = new SlayerMasterBlocks(
+			Arrays.asList(
+				new SlayerBlockSlot(1, true, 131, "Venators", 120),
+				new SlayerBlockSlot(2, false, 0, null, 120)),
+			null);
+
+		JsonObject json = gson.toJsonTree(mortimer).getAsJsonObject();
+
+		Assert.assertFalse(json.has("diarySlot"));
+		Assert.assertEquals(120, json.getAsJsonArray("slots").get(0).getAsJsonObject().get("pointCost").getAsInt());
+		Assert.assertEquals(mortimer, gson.fromJson(json, SlayerMasterBlocks.class));
+
+		// A classic master still carries its diary slot, at pointCost 0.
+		SlayerMasterBlocks duradel = new SlayerMasterBlocks(
+			Collections.singletonList(new SlayerBlockSlot(1, false, 0, null, 0)),
+			new SlayerBlockSlot(0, false, 0, null, 0));
+		Assert.assertTrue(gson.toJsonTree(duradel).getAsJsonObject().has("diarySlot"));
+	}
+
+	@Test
+	public void mortimerTaskChoicesRoundTripWithTheirModifiers()
+	{
+		MortimerState state = new MortimerState(37, 0b11011, 10, Arrays.asList(
+			new SlayerTaskOffer(1, true, 131, "Venators", 0, null,
+				new SlayerModifier(2, "Task Quantity", 40, false)),
+			new SlayerTaskOffer(2, true, 95, "Hydras", 0, null,
+				new SlayerModifier(5, "Slayer XP", 15, true)),
+			// The third choice is locked until 50 tasks, and reads as an empty offer.
+			new SlayerTaskOffer(3, false, 0, null, 0, null, null)));
+
+		JsonObject json = gson.toJsonTree(state).getAsJsonObject();
+
+		Assert.assertEquals(37, json.get("tasksCompleted").getAsInt());
+		JsonObject third = json.getAsJsonArray("taskChoices").get(2).getAsJsonObject();
+		Assert.assertFalse(third.get("offered").getAsBoolean());
+		Assert.assertFalse("an absent modifier must not serialise as a key", third.has("modifier"));
+		// negative is what distinguishes a penalty from a bonus - it must survive.
+		Assert.assertTrue(json.getAsJsonArray("taskChoices").get(1).getAsJsonObject()
+			.getAsJsonObject("modifier").get("negative").getAsBoolean());
+		Assert.assertEquals(state, gson.fromJson(json, MortimerState.class));
 	}
 
 	@Test

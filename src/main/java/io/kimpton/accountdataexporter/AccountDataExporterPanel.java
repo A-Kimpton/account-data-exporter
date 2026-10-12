@@ -49,7 +49,7 @@ class AccountDataExporterPanel extends PluginPanel
 	private static final String WIKI_SEARCH = "https://oldschool.runescape.wiki/w/Special:Search?search=";
 
 	private static final String[] MASTER_KEYS = {
-		"turael", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel", "krystilia",
+		"turael", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel", "krystilia", "mortimer",
 	};
 
 	private final JLabel accountLabel = smallLabel("Account: —", ColorScheme.LIGHT_GRAY_COLOR);
@@ -241,6 +241,15 @@ class AccountDataExporterPanel extends PluginPanel
 			if (slot.isBlocked())
 			{
 				slayerSection.add(creatureButton(orId(slot.getName(), slot.getTaskId())));
+				continue;
+			}
+			// Mortimer sells his slots for slayer points rather than gating them on
+			// quest points, and nothing in the varbits says whether one has been
+			// bought — so show the price instead of a lock we can't verify.
+			if (slot.getPointCost() > 0)
+			{
+				slayerSection.add(slotNote(
+					"Slot " + slot.getSlot() + " — empty (" + slot.getPointCost() + " slayer points)"));
 				continue;
 			}
 			int need = slot.getSlot() * 50;
