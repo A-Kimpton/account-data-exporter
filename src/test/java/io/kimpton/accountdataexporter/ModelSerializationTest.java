@@ -9,6 +9,7 @@ import io.kimpton.accountdataexporter.model.MortimerState;
 import io.kimpton.accountdataexporter.model.SlayerBlockSlot;
 import io.kimpton.accountdataexporter.model.SlayerMasterBlocks;
 import io.kimpton.accountdataexporter.model.SlayerModifier;
+import io.kimpton.accountdataexporter.model.SlayerModifierUnlock;
 import io.kimpton.accountdataexporter.model.SlayerTaskOffer;
 import io.kimpton.accountdataexporter.model.Snapshot;
 import java.util.Arrays;
@@ -102,7 +103,8 @@ public class ModelSerializationTest
 			new SlayerTaskOffer(2, true, 95, "Hydras", 0, null,
 				new SlayerModifier(5, "Slayer XP", 15, true)),
 			// The third choice is locked until 50 tasks, and reads as an empty offer.
-			new SlayerTaskOffer(3, false, 0, null, 0, null, null)));
+			new SlayerTaskOffer(3, false, 0, null, 0, null, null)),
+			Collections.emptyList());
 
 		JsonObject json = gson.toJsonTree(state).getAsJsonObject();
 
@@ -113,6 +115,31 @@ public class ModelSerializationTest
 		// negative is what distinguishes a penalty from a bonus - it must survive.
 		Assert.assertTrue(json.getAsJsonArray("taskChoices").get(1).getAsJsonObject()
 			.getAsJsonObject("modifier").get("negative").getAsBoolean());
+		Assert.assertEquals(state, gson.fromJson(json, MortimerState.class));
+	}
+
+	@Test
+	public void mortimerModifierUnlocksTrackHisTaskCount()
+	{
+		// His modifiers unlock as his own task count rises, so the same ladder reads
+		// differently at 20 tasks than at 50 — that progression is the point of
+		// exporting his counter separately from the shared streak.
+		int tasksCompleted = 20;
+		SlayerModifierUnlock earned = new SlayerModifierUnlock(
+			3, "Clue Scrolls", "Increased clue drop rate", 15, tasksCompleted >= 15);
+		SlayerModifierUnlock pending = new SlayerModifierUnlock(
+			5, "Slayer XP", "More slayer experience", 40, tasksCompleted >= 40);
+
+		MortimerState state = new MortimerState(tasksCompleted, 0, 10,
+			Collections.emptyList(), Arrays.asList(earned, pending));
+
+		JsonObject json = gson.toJsonTree(state).getAsJsonObject();
+		JsonObject first = json.getAsJsonArray("modifierUnlocks").get(0).getAsJsonObject();
+		JsonObject second = json.getAsJsonArray("modifierUnlocks").get(1).getAsJsonObject();
+
+		Assert.assertTrue("15 <= 20, so this rung is unlocked", first.get("unlocked").getAsBoolean());
+		Assert.assertFalse("40 > 20, so this rung is not", second.get("unlocked").getAsBoolean());
+		Assert.assertEquals(40, second.get("tasksRequired").getAsInt());
 		Assert.assertEquals(state, gson.fromJson(json, MortimerState.class));
 	}
 
