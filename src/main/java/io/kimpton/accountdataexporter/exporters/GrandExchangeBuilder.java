@@ -40,12 +40,12 @@ public class GrandExchangeBuilder
 				}
 
 				int itemId = offer.getItemId();
-				int listedPrice = offer.getPrice();
-				int marketPrice = itemId > 0 ? itemManager.getItemPrice(itemId) : 0;
+				long listedPrice = offer.getPrice();
+				long marketPrice = itemId > 0 ? itemManager.getItemPrice(itemId) : 0;
 				int totalQuantity = offer.getTotalQuantity();
 				int completedQuantity = offer.getQuantitySold();
 				int remainingQuantity = Math.max(0, totalQuantity - completedQuantity);
-				int spent = offer.getSpent();
+				long spent = offer.getSpent();
 				String state = offer.getState().name();
 
 				long offerListed = (long) listedPrice * totalQuantity;
@@ -68,8 +68,8 @@ public class GrandExchangeBuilder
 	}
 
 	private long estimateAccountValue(
-		String state, int marketPrice, int listedPrice,
-		int totalQuantity, int completedQuantity, int remainingQuantity, int spent)
+		String state, long marketPrice, long listedPrice,
+		int totalQuantity, int completedQuantity, int remainingQuantity, long spent)
 	{
 		if (state != null && state.contains("SELL"))
 		{

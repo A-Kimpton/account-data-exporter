@@ -9,7 +9,7 @@ public class ItemStack
 	int id;
 	String name;
 	int quantity;
-	int price;
+	long price;
 	long value;
 	int haPrice;
 	long haValue;
