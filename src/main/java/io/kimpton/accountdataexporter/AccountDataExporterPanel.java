@@ -11,8 +11,9 @@ import io.kimpton.accountdataexporter.model.SlayerTask;
 import io.kimpton.accountdataexporter.model.Snapshot;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.awt.Cursor;
-import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.io.File;
@@ -94,12 +95,15 @@ class AccountDataExporterPanel extends PluginPanel
 		content.add(sectionTitle("Export"));
 		content.add(wrapLabel(exportDirectory.getAbsolutePath(), ColorScheme.MEDIUM_GRAY_COLOR));
 		content.add(Box.createVerticalStrut(4));
-		JButton open = new JButton("Open export folder");
-		open.setFocusPainted(false);
-		open.setFont(FontManager.getRunescapeFont());
-		open.setAlignmentX(Component.LEFT_ALIGNMENT);
-		open.addActionListener(e -> openFolder(exportDirectory));
-		content.add(open);
+		// Revealing the folder would need Desktop::open, which the plugin hub
+		// forbids, and Filepath offers no equivalent — so copy the path instead
+		// and let the user paste it into their own file manager.
+		JButton copyPath = new JButton("Copy export path");
+		copyPath.setFocusPainted(false);
+		copyPath.setFont(FontManager.getRunescapeFont());
+		copyPath.setAlignmentX(Component.LEFT_ALIGNMENT);
+		copyPath.addActionListener(e -> copyToClipboard(copyPath, exportDirectory.getAbsolutePath()));
+		content.add(copyPath);
 		content.add(Box.createVerticalStrut(4));
 		content.add(accountLabel);
 		content.add(lastExportLabel);
@@ -420,19 +424,25 @@ class AccountDataExporterPanel extends PluginPanel
 		return l;
 	}
 
-	private static void openFolder(File dir)
+	/** Copies `text`, and says so on the button itself for a moment — without it
+	 *  the click has no visible effect at all. */
+	private static void copyToClipboard(JButton button, String text)
 	{
 		try
 		{
-			if (Desktop.isDesktopSupported())
-			{
-				Desktop.getDesktop().open(dir);
-			}
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(text), null);
 		}
 		catch (Exception e)
 		{
-			log.debug("Could not open export folder", e);
+			log.debug("Could not copy the export path to the clipboard", e);
+			return;
 		}
+
+		String original = button.getText();
+		button.setText("Copied");
+		javax.swing.Timer revert = new javax.swing.Timer(1200, e -> button.setText(original));
+		revert.setRepeats(false);
+		revert.start();
 	}
 
 	/** BorderLayout panel that always matches the scroll viewport's width, so
