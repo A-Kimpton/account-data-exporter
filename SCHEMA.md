@@ -24,7 +24,7 @@ A snapshot is produced on a game-tick heartbeat: starting 5 ticks after login, t
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.3.0"`). Currently `1.3.0`. |
+| `schemaVersion` | string | Semantic version of the data shape (e.g. `"1.4.0"`). Currently `1.4.0`. |
 | `exportVersion` | string | Plugin/export build version (e.g. `"0.9.9"`). Informational. |
 
 `schemaVersion` is semver: **major** = breaking shape change (rename/remove/retype a field, restructure a block); **minor** = a new top-level content block added; **patch** = additive fields on an existing block. `1.0.0` was the initial launch. Consumers should branch on the **major** component — minor and patch changes are backward-compatible (treat unknown fields/blocks as optional). Per-version additions (with example blocks) are logged in [SCHEMA_CHANGELOG.md](SCHEMA_CHANGELOG.md).
@@ -387,6 +387,14 @@ and are retained last-known-good like the bank. Added in 1.2.0.
 
 Same container shape and semantics — each loads when opened/checked and is
 retained last-known-good. Behind the "Storage containers" toggle. Added in 1.3.0.
+
+## `potionStorage` (object)
+
+Same container shape and last-known-good semantics as `bank`; loads once the
+bank is opened. Finished potions are one stack of the **1-dose** item with
+`quantity` = stored doses; unfinished potions use the unf item with `quantity` =
+count; stored vials are a `Vial` stack. Behind the "Potion storage" toggle.
+Added in 1.4.0.
 
 ## `bankTags` (object, integration)
 

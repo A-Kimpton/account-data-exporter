@@ -13,6 +13,27 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 
 ---
 
+## 1.4.0 — potion storage
+
+**Minor** · one new top-level content block · backward-compatible.
+
+`potionStorage`: the bank's potion storage as a container. Finished potions are
+the 1-dose item with `quantity` = doses; unfinished potions are counted as
+items; vials are a `Vial` stack. Toggle default on.
+
+```json
+"potionStorage": {
+  "loaded": true, "fromCache": false, "lastSeenTimestamp": 1794501939446,
+  "value": 0, "itemCount": 2,
+  "items": [
+    { "slot": 0, "id": 143, "name": "Prayer potion(1)", "quantity": 4378, "...": "..." },
+    { "slot": 1, "id": 229, "name": "Vial", "quantity": 49375, "...": "..." }
+  ]
+}
+```
+
+---
+
 ## 1.3.0 — storage kit containers
 
 **Minor** · four new top-level content blocks · backward-compatible.

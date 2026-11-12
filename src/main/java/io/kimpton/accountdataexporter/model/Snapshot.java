@@ -49,6 +49,7 @@ public class Snapshot
 	Container tackleBox;
 	Container forestryKit;
 	Container huntsmansKit;
+	Container potionStorage;
 	List<Integer> bankTabSizes;
 	GrandExchange grandExchange;
 	Quests quests;

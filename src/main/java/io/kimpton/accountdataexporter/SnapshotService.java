@@ -25,12 +25,16 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.runelite.api.Client;
+import net.runelite.api.EnumComposition;
+import net.runelite.api.EnumID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.Player;
+import net.runelite.api.ScriptID;
 import net.runelite.api.Skill;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.gameval.InventoryID;
+import net.runelite.api.gameval.ItemID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.client.game.ItemManager;
@@ -42,7 +46,7 @@ class SnapshotService
 {
 	// Semantic schema version: major = breaking shape change, minor = new top-level
 	// content block, patch = additive fields on an existing block. 1.0.0 = launch.
-	static final String SCHEMA_VERSION = "1.3.0";
+	static final String SCHEMA_VERSION = "1.4.0";
 	static final String EXPORT_VERSION = "0.9.9";
 
 	@Inject
@@ -87,6 +91,7 @@ class SnapshotService
 	private final ContainerCache tackleBoxCache = new ContainerCache();
 	private final ContainerCache forestryKitCache = new ContainerCache();
 	private final ContainerCache huntsmansKitCache = new ContainerCache();
+	private final ContainerCache potionStorageCache = new ContainerCache();
 
 	// Item metadata (name, high-alch price) never changes within a session;
 	// caching avoids a composition lookup per bank stack per export on the
@@ -116,6 +121,7 @@ class SnapshotService
 		tackleBoxCache.reset();
 		forestryKitCache.reset();
 		huntsmansKitCache.reset();
+		potionStorageCache.reset();
 	}
 
 	/** Seeds the container caches from a previously persisted snapshot. Invoked on the client
@@ -135,6 +141,7 @@ class SnapshotService
 		tackleBoxCache.seed(previous.getTackleBox());
 		forestryKitCache.seed(previous.getForestryKit());
 		huntsmansKitCache.seed(previous.getHuntsmansKit());
+		potionStorageCache.seed(previous.getPotionStorage());
 	}
 
 	Snapshot build(AccountDataExporterConfig config, String exportDirectory)
@@ -186,6 +193,10 @@ class SnapshotService
 		if (config.exportSeedVault())
 		{
 			b.seedVault(seedVaultCache.choose(buildContainer(InventoryID.SEED_VAULT)));
+		}
+		if (config.exportPotionStorage())
+		{
+			b.potionStorage(potionStorageCache.choose(buildPotionStorage()));
 		}
 		if (config.exportLootingBag())
 		{
@@ -383,6 +394,64 @@ class SnapshotService
 		}
 
 		return new Container(true, false, System.currentTimeMillis(), totalValue, itemCount, items);
+	}
+
+	/** Potion storage (bank side panel) isn't an item container: each potion is an enum whose
+	 *  stored doses are read via the same cs2 scripts RuneLite's bank tags plugin uses. Treated as
+	 *  loaded only once the bank has been opened this session. Finished potions are reported as
+	 *  their 1-dose item with quantity = doses; unfinished potions as the item with quantity = count;
+	 *  stored vials as a vial stack. */
+	private Container buildPotionStorage()
+	{
+		if (client.getItemContainer(InventoryID.BANK) == null)
+		{
+			return new Container(false, false, 0, 0, 0, new ArrayList<>());
+		}
+
+		long totalValue = 0;
+		List<ItemStack> items = new ArrayList<>();
+		int slot = 0;
+		for (EnumComposition group : new EnumComposition[]{
+			client.getEnum(EnumID.POTIONSTORE_POTIONS), client.getEnum(EnumID.POTIONSTORE_UNFINISHED_POTIONS)})
+		{
+			for (int potionEnumId : group.getIntVals())
+			{
+				client.runScript(ScriptID.POTIONSTORE_DOSES, potionEnumId);
+				int doses = client.getIntStack()[0];
+				client.runScript(ScriptID.POTIONSTORE_WITHDRAW_DOSES, potionEnumId);
+				int withdrawDoses = client.getIntStack()[0];
+				if (doses <= 0 || withdrawDoses <= 0)
+				{
+					continue;
+				}
+
+				EnumComposition potionEnum = client.getEnum(potionEnumId);
+				int id = potionEnum.getIntValue(1);
+				if (id <= 0)
+				{
+					id = potionEnum.getIntValue(withdrawDoses);
+				}
+				totalValue += addStack(items, slot++, id, doses);
+			}
+		}
+
+		int vials = client.getVarpValue(VarPlayerID.POTIONSTORE_VIALS);
+		if (vials > 0)
+		{
+			totalValue += addStack(items, slot, ItemID.VIAL_EMPTY, vials);
+		}
+
+		return new Container(true, false, System.currentTimeMillis(), totalValue, items.size(), items);
+	}
+
+	private long addStack(List<ItemStack> items, int slot, int id, int quantity)
+	{
+		long price = itemManager.getItemPrice(id);
+		long value = price * quantity;
+		ItemMeta meta = itemMeta(id);
+		items.add(new ItemStack(slot, id, meta.name, quantity, price, value,
+			meta.haPrice, (long) meta.haPrice * quantity));
+		return value;
 	}
 
 	private Status buildStatus()
