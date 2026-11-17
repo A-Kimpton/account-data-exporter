@@ -392,7 +392,9 @@ retained last-known-good. Behind the "Storage containers" toggle. Added in 1.3.0
 
 Same container shape and last-known-good semantics as `bank`; loads once the
 bank is opened. Finished potions are one stack of the **1-dose** item with
-`quantity` = stored doses; unfinished potions use the unf item with `quantity` =
+`quantity` = stored doses and `price` = the **per-dose** price (the 4-dose GE
+price ÷ 4, falling back to the next highest dose with a price, since 1-dose GE
+prices are often off per dose); unfinished potions use the unf item with `quantity` =
 count; stored vials are a `Vial` stack. Behind the "Potion storage" toggle.
 Added in 1.4.0.
 

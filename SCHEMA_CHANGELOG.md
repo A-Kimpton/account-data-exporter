@@ -18,16 +18,18 @@ Bump rules: **major** = breaking change · **minor** = new top-level content blo
 **Minor** · one new top-level content block · backward-compatible.
 
 `potionStorage`: the bank's potion storage as a container. Finished potions are
-the 1-dose item with `quantity` = doses; unfinished potions are counted as
-items; vials are a `Vial` stack. Toggle default on.
+the 1-dose item with `quantity` = doses and `price` = per-dose price (4-dose GE
+price ÷ 4, falling back to the next highest dose with a price); unfinished
+potions are counted as items at their own price; vials are a `Vial` stack.
+Toggle default on.
 
 ```json
 "potionStorage": {
   "loaded": true, "fromCache": false, "lastSeenTimestamp": 1794501939446,
-  "value": 0, "itemCount": 2,
+  "value": 8685225, "itemCount": 2,
   "items": [
-    { "slot": 0, "id": 143, "name": "Prayer potion(1)", "quantity": 4378, "...": "..." },
-    { "slot": 1, "id": 229, "name": "Vial", "quantity": 49375, "...": "..." }
+    { "slot": 0, "id": 143, "name": "Prayer potion(1)", "quantity": 4378, "price": 1950, "value": 8537100, "...": "..." },
+    { "slot": 1, "id": 229, "name": "Vial", "quantity": 49375, "price": 3, "value": 148125, "...": "..." }
   ]
 }
 ```

@@ -384,6 +384,19 @@
   "tackleBox": { "loaded": false, "fromCache": false, "lastSeenTimestamp": 0, "value": 0, "itemCount": 0, "items": [] },
   "forestryKit": { "loaded": false, "fromCache": false, "lastSeenTimestamp": 0, "value": 0, "itemCount": 0, "items": [] },
   "huntsmansKit": { "loaded": false, "fromCache": false, "lastSeenTimestamp": 0, "value": 0, "itemCount": 0, "items": [] },
+  "potionStorage": {
+    "loaded": true,
+    "fromCache": false,
+    "lastSeenTimestamp": 1782173570072,
+    "value": 20177725,
+    "itemCount": 4,
+    "items": [
+      { "slot": 0, "id": 143, "name": "Prayer potion(1)", "quantity": 4378, "price": 1950, "value": 8537100 },
+      { "slot": 1, "id": 3030, "name": "Super restore(1)", "quantity": 5054, "price": 2150, "value": 10866100 },
+      { "slot": 2, "id": 99, "name": "Ranarr potion (unf)", "quantity": 120, "price": 5220, "value": 626400 },
+      { "slot": 3, "id": 229, "name": "Vial", "quantity": 49375, "price": 3, "value": 148125 }
+    ]
+  },
   "bankTabSizes": [12, 0, 34, 0, 0, 0, 0, 0, 0],
   "bank": {
     "loaded": true,

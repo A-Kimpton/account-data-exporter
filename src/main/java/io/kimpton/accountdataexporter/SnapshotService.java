@@ -399,7 +399,7 @@ class SnapshotService
 	/** Potion storage (bank side panel) isn't an item container: each potion is an enum whose
 	 *  stored doses are read via the same cs2 scripts RuneLite's bank tags plugin uses. Treated as
 	 *  loaded only once the bank has been opened this session. Finished potions are reported as
-	 *  their 1-dose item with quantity = doses; unfinished potions as the item with quantity = count;
+	 *  their 1-dose item with quantity = doses, priced per dose from the 4-dose GE price; unfinished potions as the item with quantity = count;
 	 *  stored vials as a vial stack. */
 	private Container buildPotionStorage()
 	{
@@ -411,10 +411,10 @@ class SnapshotService
 		long totalValue = 0;
 		List<ItemStack> items = new ArrayList<>();
 		int slot = 0;
-		for (EnumComposition group : new EnumComposition[]{
-			client.getEnum(EnumID.POTIONSTORE_POTIONS), client.getEnum(EnumID.POTIONSTORE_UNFINISHED_POTIONS)})
+		for (int groupId : new int[]{EnumID.POTIONSTORE_POTIONS, EnumID.POTIONSTORE_UNFINISHED_POTIONS})
 		{
-			for (int potionEnumId : group.getIntVals())
+			boolean finished = groupId == EnumID.POTIONSTORE_POTIONS;
+			for (int potionEnumId : client.getEnum(groupId).getIntVals())
 			{
 				client.runScript(ScriptID.POTIONSTORE_DOSES, potionEnumId);
 				int doses = client.getIntStack()[0];
@@ -431,22 +431,42 @@ class SnapshotService
 				{
 					id = potionEnum.getIntValue(withdrawDoses);
 				}
-				totalValue += addStack(items, slot++, id, doses);
+				long price = finished ? pricePerDose(potionEnum) : itemManager.getItemPrice(id);
+				totalValue += addStack(items, slot++, id, doses, price);
 			}
 		}
 
 		int vials = client.getVarpValue(VarPlayerID.POTIONSTORE_VIALS);
 		if (vials > 0)
 		{
-			totalValue += addStack(items, slot, ItemID.VIAL_EMPTY, vials);
+			totalValue += addStack(items, slot, ItemID.VIAL_EMPTY, vials, itemManager.getItemPrice(ItemID.VIAL_EMPTY));
 		}
 
 		return new Container(true, false, System.currentTimeMillis(), totalValue, items.size(), items);
 	}
 
-	private long addStack(List<ItemStack> items, int slot, int id, int quantity)
+	/** Per-dose price from the highest dose with a GE price (4-dose first): the 1-dose GE
+	 *  price is often off per dose, which misvalues large stacks. */
+	private long pricePerDose(EnumComposition potionEnum)
 	{
-		long price = itemManager.getItemPrice(id);
+		for (int dose = 4; dose >= 1; dose--)
+		{
+			int id = potionEnum.getIntValue(dose);
+			if (id <= 0)
+			{
+				continue;
+			}
+			long price = itemManager.getItemPrice(id);
+			if (price > 0)
+			{
+				return Math.round(price / (double) dose);
+			}
+		}
+		return 0;
+	}
+
+	private long addStack(List<ItemStack> items, int slot, int id, int quantity, long price)
+	{
 		long value = price * quantity;
 		ItemMeta meta = itemMeta(id);
 		items.add(new ItemStack(slot, id, meta.name, quantity, price, value,
