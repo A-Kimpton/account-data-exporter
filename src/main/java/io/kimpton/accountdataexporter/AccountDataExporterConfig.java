@@ -251,6 +251,18 @@ public interface AccountDataExporterConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "exportPotionStorage",
+		name = "Potion storage",
+		description = "<p width='250'>Export the bank's potion storage (doses per potion, unfinished potions, vials). Loads once the bank is opened.</p>",
+		section = sectionsSection,
+		position = 17
+	)
+	default boolean exportPotionStorage()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "exportCombatAchievementTasks",
 		name = "Combat achievement task list",
 		description = "<p width='250'>Include the full per-task list in the combat achievements section. Off exports tier totals only, which keeps the snapshot much smaller.</p>",
